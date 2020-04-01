@@ -15,29 +15,29 @@ $navbar-height : 5vh;
      width: 100%;
      font-size:  1vw!important;
 }
-.tique_nav_container{
+.Loop_nav_container{
     padding: 0 !important ;
 }
-.tique_navbar{
+.Loop_navbar{
    // position: fixed;
     width: 100vw;
 }
-.tique_navbar, .tique_navbar_login{
+.Loop_navbar, .Loop_navbar_login{
     margin-top: 0 !important;
 }
 
-.tique_navbar_login{
+.Loop_navbar_login{
     margin-bottom: 5%;
 }
 
 
-.tique_col{
+.Loop_col{
     // border-right: solid .25vh $gray-300;
     padding: 0 !important;
     margin-top: 2.5%;
     margin-right: 0;
 }
-.tique_nav_col{
+.Loop_nav_col{
     // border-right: solid .25vh $gray-300;
     padding: 0 !important;
 
@@ -58,20 +58,20 @@ $navbar-height : 5vh;
    overflow-y: scroll;
    height: 85vh;
 }
-.tique_card
+.Loop_card
 {
     margin-bottom: 2.5vh;
 }
 
-.tique_card_header,.tique_card_footer{
+.Loop_card_header,.Loop_card_footer{
     background-color: $white !important;
     padding-top: 1vh !important;
     padding-bottom: 1vh !important;
 }
-.tique_expansion_panel{
+.Loop_expansion_panel{
     box-sizing: inherit !important;
 }
-.live_tique_card{
+.live_Loop_card{
     min-height: 25%;
     max-height: 25%;
     

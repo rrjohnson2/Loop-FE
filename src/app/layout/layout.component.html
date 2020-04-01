@@ -3,13 +3,13 @@
   <app-layout-navbar (idea_event)="addIdea($event)" (alert_ticket)="alerty($event)" [profile]=" profile | async "></app-layout-navbar>
     <div class="container">
       <div class="row">
-        <div class="col-2 tique_col">
+        <div class="col-2 Loop_col">
           <app-activities ></app-activities>
         </div>
-        <div class="col-6 tique_col">
+        <div class="col-6 Loop_col">
           <app-content [ideas]="ideas_obs |async" (alert_ticket)="alerty($event)" [profile]=" profile | async "></app-content>
         </div>
-        <div class="col-4 tique_col">
+        <div class="col-4 Loop_col">
           <app-trending></app-trending>
           <app-notifications [notifications] = "notifications | async" (notice_event)="showNotice($event)" ></app-notifications>
         </div>

@@ -1,15 +1,15 @@
-<div class="card tique_card ">
-  <div class=" card-body tique_card_body">
+<div class="card Loop_card ">
+  <div class=" card-body Loop_card_body">
     <div class="card-subtitle mb-2 text-muted "> {{retort.creator.username}} {{retort.timestamp | dateago}}</div>
     <p class=" card-text ">{{retort.content}}</p>
   </div>
-  <div class="card-footer text-muted tique_card_footer ">
+  <div class="card-footer text-muted Loop_card_footer ">
     <a class="text-center" (click)="showComment()">{{retort.messages.length}} comments</a>
     <form  role="form" [formGroup]="messageForm" (ngSubmit)=submit()>
       <input formControlName="message" class="form-control" placeholder="Write a comment..." type="text" (focus)="focus1=true" (blur)="focus1=false">
     </form>
     <div class="row">
-      <div *ngIf="expan" class="col-12  tique_expansion_panel">
+      <div *ngIf="expan" class="col-12  Loop_expansion_panel">
         <div  *ngFor="let msg of sortedMessages">
           <app-message-card  id="{{msg.id}}" [message]="msg"></app-message-card>
         </div>
