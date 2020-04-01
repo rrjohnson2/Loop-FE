@@ -15,29 +15,29 @@ $navbar-height : 5vh;
      width: 100%;
      font-size:  1vw!important;
 }
-.Loop_nav_container{
+.Looop_nav_container{
     padding: 0 !important ;
 }
-.Loop_navbar{
+.Looop_navbar{
    // position: fixed;
     width: 100vw;
 }
-.Loop_navbar, .Loop_navbar_login{
+.Looop_navbar, .Looop_navbar_login{
     margin-top: 0 !important;
 }
 
-.Loop_navbar_login{
+.Looop_navbar_login{
     margin-bottom: 5%;
 }
 
 
-.Loop_col{
+.Looop_col{
     // border-right: solid .25vh $gray-300;
     padding: 0 !important;
     margin-top: 2.5%;
     margin-right: 0;
 }
-.Loop_nav_col{
+.Looop_nav_col{
     // border-right: solid .25vh $gray-300;
     padding: 0 !important;
 
@@ -58,20 +58,20 @@ $navbar-height : 5vh;
    overflow-y: scroll;
    height: 85vh;
 }
-.Loop_card
+.Looop_card
 {
     margin-bottom: 2.5vh;
 }
 
-.Loop_card_header,.Loop_card_footer{
+.Looop_card_header,.Looop_card_footer{
     background-color: $white !important;
     padding-top: 1vh !important;
     padding-bottom: 1vh !important;
 }
-.Loop_expansion_panel{
+.Looop_expansion_panel{
     box-sizing: inherit !important;
 }
-.live_Loop_card{
+.live_Looop_card{
     min-height: 25%;
     max-height: 25%;
     

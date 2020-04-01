@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Loop": {
+    "Looop": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Loop",
+            "outputPath": "dist/Looop",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Loop:build"
+            "browserTarget": "Looop:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Loop:build:production"
+              "browserTarget": "Looop:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Loop:build"
+            "browserTarget": "Looop:build"
           }
         },
         "test": {
@@ -108,7 +108,7 @@
         }
       }
     },
-    "Loop-e2e": {
+    "Looop-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -117,11 +117,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Loop:serve"
+            "devServerTarget": "Looop:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Loop:serve:production"
+              "devServerTarget": "Looop:serve:production"
             }
           }
         },
@@ -137,5 +137,5 @@
       }
     }
   },
-  "defaultProject": "Loop"
+  "defaultProject": "Looop"
 }
