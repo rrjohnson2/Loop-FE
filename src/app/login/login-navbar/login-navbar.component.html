@@ -1,0 +1,25 @@
+<nav class=" tique_navbar_login navbar navbar-expand-lg navbar-dark bg-primary ">
+  <div class="tique_container tique_nav_container container ">
+        <div class="logo_header col-6">
+          <a class=" logo_title navbar-brand" href="javascript:void(0)">Tique</a>
+        </div>
+      <form [formGroup]="loginForm" (ngSubmit)=Login() class=" login_form row justify-content-center col-6 " >
+          <div class=" col-4  login_root">
+              <div class="   ">
+                  <input formControlName="username" type="text" placeholder="Username" class="" />
+              </div>
+          </div>
+        <div class=" col-4 ">
+                <div class=" ">
+                    <input formControlName="password" type="password" placeholder="Password" class="" />
+                </div>
+        </div>
+        <div class="col-4 text-center">
+                <button  placement="top" ngbTooltip="Sign Up" 
+                        class="" type="submit">
+                       Login
+                </button>
+        </div>
+      </form>
+  </div>
+</nav>

@@ -1,0 +1,15 @@
+<div class="layout ">
+    <app-login-navbar (alert_ticket)="notify($event)"></app-login-navbar> 
+    <div class="container">
+        <div class="row"> 
+            <div class="signup col-6">
+                <app-signup (alert_ticket)="notify($event)"></app-signup>
+            </div>
+            <div class="login col-6">
+                <app-welcome></app-welcome>
+            </div>
+        </div>
+    </div>
+    
+<app-alert></app-alert>
+</div>

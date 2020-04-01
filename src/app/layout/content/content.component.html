@@ -1,0 +1,9 @@
+
+<div id="ideas_body" *ngIf="ideas != null; empty" class="ideas_body">
+    <div *ngFor="let idea of Ideas">
+        <app-idea-card id="{{idea.id}}" [username]="profile.username" [idea]="idea"></app-idea-card>
+    </div>
+</div>
+<ng-template #empty>
+    Please tell more people abous us!!!!!
+</ng-template>

@@ -1,0 +1,35 @@
+<div class="live_tique_card  card" >
+  <div class= "card_header text-center">Notifications</div>
+  <div class="card_body">
+    <div *ngFor="let notice of notifications" class="">
+      <button *ngIf="notice.action == 'COMMENT'; else retort" class="drop_down_button "  (click)="showNotice(notice)">
+          {{notice.data.timestamp|dateago}} ~ {{notice.data.creator.username| titlecase}} : commented on a retort
+       </button>
+    <ng-template #retort >
+      <button *ngIf="notice.action == 'RETORT'; else focus" class="drop_down_button "  (click)="showNotice(notice)">
+        {{notice.data.timestamp|dateago}} ~ {{notice.data.creator.username| titlecase}} : retorted an idea of yours
+      </button>
+    </ng-template>
+    <ng-template #focus >
+      <button *ngIf="notice?.action == 'FOCUS'; else rating" class="drop_down_button "  (click)="showNotice(notice)">
+       <div> {{notice.data.timestamp|dateago}} {{notice.data.title}}: Idea Shared In 
+        <span *ngFor="let foc of notice.data.focus">
+            <span *ngFor="let pref of profile.preferences">
+              <span *ngIf="foc.category == pref.category">
+                {{foc.category}} 
+              </span>
+            </span>
+          </span> 
+        </div>
+      </button>
+    </ng-template>
+    <ng-template #rating >
+      <button *ngIf="notice.action == 'RATING'" class="drop_down_button "  (click)="showNotice(notice)">
+        {{notice.data.vote}} VOTE on your idea
+      </button>
+    </ng-template>
+</div>
+  </div>
+</div>
+    
+

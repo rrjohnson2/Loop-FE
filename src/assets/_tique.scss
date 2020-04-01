@@ -1,0 +1,99 @@
+
+$navbar-height : 5vh;
+::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $gray-200; 
+  }
+   
+.layout{
+     background-color: $gray-200;
+     height: 100%;
+     width: 100%;
+     font-size:  1vw!important;
+}
+.tique_nav_container{
+    padding: 0 !important ;
+}
+.tique_navbar{
+   // position: fixed;
+    width: 100vw;
+}
+.tique_navbar, .tique_navbar_login{
+    margin-top: 0 !important;
+}
+
+.tique_navbar_login{
+    margin-bottom: 5%;
+}
+
+
+.tique_col{
+    // border-right: solid .25vh $gray-300;
+    padding: 0 !important;
+    margin-top: 2.5%;
+    margin-right: 0;
+}
+.tique_nav_col{
+    // border-right: solid .25vh $gray-300;
+    padding: 0 !important;
+
+}
+.logo_header, .login_form, .signup_input, .login_root {
+    padding-left:0 !important; 
+}
+
+.logo_title{
+    font-size: 2vw !important;
+}
+.idea_modal{
+    height: 15% !important;
+}
+
+
+.ideas_body{
+   overflow-y: scroll;
+   height: 85vh;
+}
+.tique_card
+{
+    margin-bottom: 2.5vh;
+}
+
+.tique_card_header,.tique_card_footer{
+    background-color: $white !important;
+    padding-top: 1vh !important;
+    padding-bottom: 1vh !important;
+}
+.tique_expansion_panel{
+    box-sizing: inherit !important;
+}
+.live_tique_card{
+    min-height: 25%;
+    max-height: 25%;
+    
+    margin-bottom: 10%;
+    overflow-y: scroll;
+}
+
+.live_center{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+h1{
+    font-size: 2vw !important;
+}
+p  {
+    font-size: inherit !important;
+}
+
+.alert-container{
+    //  position: relative;
+}
+.alert{
+    //position: absolute;
+}
+
