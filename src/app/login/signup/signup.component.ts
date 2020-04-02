@@ -69,7 +69,6 @@ export class SignupComponent implements OnInit {
       
     error =>
     {
-      console.log("here");
       this.alert_ticket.emit({
         msg:error.error.message,
         type:"danger",

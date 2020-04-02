@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { Idea } from 'src/app/models/idea';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Message } from 'src/app/models/message';
@@ -8,6 +8,7 @@ import { Notice, Notice_Actions } from 'src/app/models/notice';
 import { RetortCardComponent } from '../retort-card/retort-card.component';
 import { UIService } from 'src/app/services/ui.service';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
+import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
 
 @Component({
   selector: 'app-idea-card',
@@ -21,6 +22,7 @@ export class IdeaCardComponent implements OnInit {
   @Input() username:string;
            expan:boolean = false;
   @ViewChildren(RetortCardComponent) retort_cards:QueryList<RetortCardComponent>;
+  @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
   today:Date = new Date();
   retortForm:FormGroup
   constructor(private idea_card_service:IdeaCardService, private uiService:UIService) { }
@@ -138,6 +140,15 @@ export class IdeaCardComponent implements OnInit {
   toggleDropDown(myDrop:NgbDropdown)
   {
     myDrop.toggle();
+  }
+
+  showEdit()
+  {
+    this.ideaModal.open();
+  }
+  updateIdea(idea:Idea)
+  {
+      //do something
   }
 
 }

@@ -16,6 +16,7 @@ export class UIService {
         }
 
   open(content, type, modalDimension) {
+      console.log(content);
     if (modalDimension === 'sm' && type === 'modal_mini') {
         this.modalService.open(content, { windowClass: 'modal-mini', size: 'sm', centered: true }).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;

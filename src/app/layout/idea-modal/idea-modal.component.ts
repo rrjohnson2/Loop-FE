@@ -1,11 +1,9 @@
-import { Component, OnInit, Output, Input, EventEmitter, ContentChild, TemplateRef, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ContentChild, TemplateRef, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Idea } from 'src/app/models/idea';
 import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from '../layout-navbar/share-idea/share-idea.service';
-import { GlobalService } from 'src/app/services/global.service';
 import { Focus } from 'src/app/models/focus';
-import { ShareIdeaData } from 'src/app/interfaces/shareIdeaData';
 
 @Component({
   selector: 'app-idea-modal',
@@ -21,9 +19,12 @@ export class IdeaModalComponent implements OnInit {
   @Input() idea:Idea
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
 
-  @ContentChild('classic1') classic1: TemplateRef<ElementRef>;
+  
+  @ViewChild('classic1') rt : ElementRef;
 
-  constructor(private uiService:UIService,private share_ideaService:ShareIdeaService , private formBuilder:FormBuilder, private globalService:GlobalService) {
+  
+
+  constructor(private uiService:UIService,private share_ideaService:ShareIdeaService , private formBuilder:FormBuilder) {
     
   }
 
@@ -51,6 +52,7 @@ export class IdeaModalComponent implements OnInit {
  {
    if(this.idea !=null)
    {
+    console.log("o3"); 
     this.ideaForm = new FormGroup(
       {
         title: new FormControl(this.idea.title,
@@ -64,8 +66,10 @@ export class IdeaModalComponent implements OnInit {
           categories: this.renderCategories(this.focuses)
       }
     );
+    
+   return;
    }
-
+    console.log("once");    
    this.ideaForm = new FormGroup(
     {
       title: new FormControl(null,
@@ -79,10 +83,11 @@ export class IdeaModalComponent implements OnInit {
         categories: this.renderCategories(this.focuses)
     }
   );
+  
 
  }
 
- shareIdea()
+ createIdea()
  {
    var focuses:Focus[] = this.populateCategories();
    
@@ -93,7 +98,7 @@ export class IdeaModalComponent implements OnInit {
      this.idea.description = this.ideaForm.get("description").value;
      this.idea.title = this.ideaForm.get("title").value;
      this.idea.focuses = focuses;
-    ideaCreated = this.idea;
+     ideaCreated = this.idea;
    }
    else{
       ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null);
@@ -118,11 +123,11 @@ export class IdeaModalComponent implements OnInit {
 
  open()
  {
-   console.log(this.classic1)
-   document.getElementById("openModalButton").click();
+   console.log(this.rt);
+   this.uiService.open(this.rt, "modal-mini", 'sm');
  }
  openModal( content, type, dem){
-  this.uiService.open(content, type, dem);
+  
  }
 
  nextInput(next:boolean)
@@ -157,6 +162,7 @@ export class IdeaModalComponent implements OnInit {
   this.ideaForm.reset();
   this.createForm();
   this.uiService.dismissAll();
+  this.ideaFormSelection = 0;
  }
 
 }

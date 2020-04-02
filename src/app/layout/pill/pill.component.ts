@@ -41,7 +41,6 @@ export class PillComponent implements OnInit {
   showEdit()
   {
     this.writeable = !this.writeable;
-    console.log(this.writeable);
   }
   delete()
   {
@@ -55,7 +54,6 @@ export class PillComponent implements OnInit {
         this.pillService.delMessage(ticket).subscribe(
           data =>
           {
-            console.log(this.retort_id)
             this.globalService.deleteComment(data.id,this.retort_id,this.idea_id);
           }
         );

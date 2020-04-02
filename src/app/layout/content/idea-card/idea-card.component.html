@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-6">User: {{idea.creator.username}} {{idea.timestamp | dateago}} </div>
 
-        <div *ngIf="username == idea.creator.username" class="col-6 text-right" ngbDropdown #myDrop="ngbDropdown" placement="left">
+        <div *ngIf="username == idea.creator.username" class="col-6 text-right" ngbDropdown #myDrop="ngbDropdown" placement="left">   
+          <app-idea-modal [idea]="idea" (idea_event)="updateIdea($event)"></app-idea-modal>
           <button class="drop_down_Looop" type="button"    id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
             Update
           </button>
