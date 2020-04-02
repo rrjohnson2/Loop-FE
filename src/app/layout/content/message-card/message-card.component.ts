@@ -10,6 +10,8 @@ import { PillType } from 'src/app/constants/app.constants';
 export class MessageCardComponent implements OnInit {
   @Input() message:Message;
   @Input() username:string;
+  @Input() idea_id:number;
+  @Input() retort_id:number;
   type:PillType = PillType.comment;
   constructor() { }
 

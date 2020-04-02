@@ -8,12 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LayoutService {
-  all_idea_path = "getIdeas"
 
   constructor(private httpClient:HttpClient) { }
 
-  getIdeas(preferences:Preference[]):Observable<any>
-  {
-    return this.httpClient.post(backend_url+this.all_idea_path,preferences);
-  }
 }

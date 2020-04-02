@@ -21,8 +21,10 @@ export class LayoutComponent implements OnInit {
 
   private profile:Observable<Profile>;
   private notifications:Observable<Notice[]>;
-  private ideas:Idea[];
-  private ideas_behav:BehaviorSubject<Idea[]> = new BehaviorSubject<Idea[]>(this.ideas);
+
+  
+ 
+ 
   private ideas_obs:Observable<Idea[]>
   @ViewChild(AlertComponent) alert: AlertComponent;
   @ViewChild(ContentComponent) content_comp: ContentComponent;
@@ -52,7 +54,7 @@ export class LayoutComponent implements OnInit {
       {
         this.globalservice.populateProfile(data);
         this.profile = this.globalservice.profileSubject.asObservable();
-        this.ideas_obs = this.ideas_behav.asObservable();
+        this.ideas_obs = this.globalservice.ideas_behav.asObservable();
         this.waitOnProfileForIdeas();
         this.realTime.joinRealTimeServer();
       },
@@ -64,21 +66,19 @@ export class LayoutComponent implements OnInit {
       
     );
   }
+
+  
   addIdea(event:Idea)
   {
-    this.ideas.push(event);
-    this.ideas_behav.next(this.ideas);
+    this.globalservice.addIdea(event);
+
+    this.globalservice.refresh();
   }
   waitOnProfileForIdeas() {
     this.profile.subscribe(
       data=>
       {
-        this.layoutService.getIdeas(data.preferences).subscribe(
-          data =>
-          {
-            this.ideas = data.data;
-            this.ideas_behav.next(this.ideas);
-          });
+        this.globalservice.getIdeas(data.preferences);
       }
     );
   }
@@ -94,13 +94,13 @@ export class LayoutComponent implements OnInit {
         if(notice.action == Notice_Actions.FOCUS)
         {
           // tslint:disable-next-line: triple-equals
-          if(this.ideas != undefined && this.ideas.find( idea => idea.id==notice.data.id) == undefined && notice.action == Notice_Actions.FOCUS)
+          if(this.globalservice.ideas != undefined && this.globalservice.ideas.find( idea => idea.id==notice.data.id) == undefined && notice.action == Notice_Actions.FOCUS)
           {
           
-            this.ideas.push(notice.data);
+            this.globalservice.ideas.push(notice.data);
           }
         } else{
-          var idea :Idea = this.ideas.find( idea => idea.id == notice.idea_id);
+          var idea :Idea = this.globalservice.ideas.find( idea => idea.id == notice.idea_id);
 
           if(notice.action == Notice_Actions.RETORT){
             var retort = idea.retorts.find(ret => ret.id == notice.data.id);
@@ -124,7 +124,7 @@ export class LayoutComponent implements OnInit {
          notice.checked = true;
       }
     }
-    this.ideas_behav.next(this.ideas);
+    this.globalservice.refresh();
   }
 
   public alerty(alert_ticket:AlertTicket)

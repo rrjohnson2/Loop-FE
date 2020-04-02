@@ -17,9 +17,13 @@ export class PillComponent implements OnInit {
   @Input() type:PillType;
   @Input() username: string;
 
+  @Input( ) idea_id;
+  @Input() retort_id;
+
+
   writeable: boolean=false;
   pillForm:FormGroup;
-  constructor(private pillService:PillService, private host: ElementRef<HTMLElement>) { }
+  constructor(private pillService:PillService, private globalService:GlobalService) { }
 
   ngOnInit() {
     this.createForm();
@@ -51,8 +55,8 @@ export class PillComponent implements OnInit {
         this.pillService.delMessage(ticket).subscribe(
           data =>
           {
-            this.data = null;
-            this.host.nativeElement.remove();
+            console.log(this.retort_id)
+            this.globalService.deleteComment(data.id,this.retort_id,this.idea_id);
           }
         );
         break;
@@ -60,8 +64,7 @@ export class PillComponent implements OnInit {
         this.pillService.delRetort(ticket).subscribe(
           data =>
           {
-            this.data = null;
-            this.host.nativeElement.remove();
+            this.globalService.deleteRetort(data.id,this.idea_id);
           }
         );
         break;
