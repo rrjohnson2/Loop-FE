@@ -17,11 +17,12 @@ import { RetortCardComponent } from './content/retort-card/retort-card.component
 import { MessageCardComponent } from './content/message-card/message-card.component';
 import { IdeaCardService } from './content/idea-card/idea-card.service';
 import { RetortCardService } from './content/retort-card/retort-card.service';
-import { DateagoPipe } from './pipe/dateago.pipe';
 import { TrendingComponent } from './trending/trending.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpdateProfileComponent } from './layout-navbar/update-profile/update-profile.component';
 import { ShareIdeaComponent } from './layout-navbar/share-idea/share-idea.component';
+import { PillComponent } from './pill/pill.component';
+import { DateagoPipe } from './pipe/dateago.pipe';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -34,17 +35,18 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     IdeaCardComponent,
     RetortCardComponent,
     MessageCardComponent,
-    DateagoPipe,
     TrendingComponent,
     NotificationsComponent,
     UpdateProfileComponent,
-    ShareIdeaComponent
+    ShareIdeaComponent,
+    PillComponent,
+    DateagoPipe
   ],
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    NgbDropdownModule,
     ReactiveFormsModule,
+    NgbDropdownModule,
     FormsModule,
     SharedModule,
     SocketIoModule.forRoot(config)

@@ -1,19 +1,17 @@
-<div class="card Looop_card ">
-  <div class=" card-body Looop_card_body">
-    <div class="card-subtitle mb-2 text-muted "> {{retort.creator.username}} {{retort.timestamp | dateago}}</div>
-    <p class=" card-text ">{{retort.content}}</p>
-  </div>
-  <div class="card-footer text-muted Looop_card_footer ">
-    <a class="text-center" (click)="showComment()">{{retort.messages.length}} comments</a>
+
+    
+    <app-pill [user]="retort.creator.username" [timestamp] = "retort.timestamp" [content]="retort.content" [type]="type"></app-pill>
+
+    <div class="row">
+      <a class="col-12 text-center" (click)="showComment()">{{retort.messages.length}} comments</a>
+    </div>
+
     <form  role="form" [formGroup]="messageForm" (ngSubmit)=submit()>
       <input formControlName="message" class="form-control" placeholder="Write a comment..." type="text" (focus)="focus1=true" (blur)="focus1=false">
     </form>
-    <div class="row">
+    
       <div *ngIf="expan" class="col-12  Looop_expansion_panel">
         <div  *ngFor="let msg of sortedMessages">
           <app-message-card  id="{{msg.id}}" [message]="msg"></app-message-card>
         </div>
       </div>
-    </div>
-  </div>
-</div>

@@ -7,6 +7,7 @@ import { Message } from 'src/app/models/message';
 import { GlobalService } from 'src/app/services/global.service';
 import { Notice_Actions, Notice } from 'src/app/models/notice';
 import { UIService } from 'src/app/services/ui.service';
+import { PillType } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-retort-card',
@@ -15,6 +16,7 @@ import { UIService } from 'src/app/services/ui.service';
 })
 export class RetortCardComponent implements OnInit {
 
+  type:PillType = PillType.rertort;
   @Input() idea_id:number;
   @Input() retort:Retort;
   @Input() username: string;

@@ -4,7 +4,7 @@ import { AlertComponent } from './alerts/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AlertComponent],
+  declarations: [AlertComponent,],
   imports: [
     CommonModule,
     NgbModule

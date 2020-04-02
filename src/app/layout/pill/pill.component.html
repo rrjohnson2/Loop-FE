@@ -1,0 +1,27 @@
+<div class="pill row">
+
+  <small class=" col-2 pill-info">{{user}} {{timestamp | dateago}}</small>
+
+  <div class=" col-8 pill-content">
+    <small *ngIf="!writeable; else write">
+          {{content}}
+    </small>
+
+    <ng-template #write>
+      <form  role="form" [formGroup]="pillForm" (ngSubmit)=submit()>
+        <input formControlName="contentVal" class="form-control"  type="text" (focus)="focus1=true" (blur)="focus1=false">
+      </form>
+    </ng-template>
+  </div>
+
+  <div class="col-2" ngbDropdown #myDrop="ngbDropdown" placement="left">
+    <button class="drop_down_Looop" type="button"    id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
+      Update
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
+      <button class="drop_down_button" (click)="showEdit()" ngbDropdownItem>Edit</button>
+      <button class="drop_down_button" (click)="delete()" ngbDropdownItem>Delete</button>
+    </div>
+  </div>
+
+</div>

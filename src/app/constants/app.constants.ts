@@ -7,3 +7,9 @@ export enum Actions {
   signup,
   shareIdea
 }
+
+export enum PillType{
+  rertort,
+  comment, 
+  idea
+}
