@@ -15,7 +15,7 @@
   <div class="card-footer text-muted Looop_card_footer ">
     <div class="row">
        <a class="col-4" (click)="vote('UP')" >UVotes:{{upVotes}}</a>
-       <a class="col-4 text-center" (click)="showRetort()"> {{idea.retorts.length}} retorts</a>
+       <a  class="col-4 text-center" (click)="showRetort()"> {{idea.retorts.length}} retorts</a>
        <a class="col-4 text-right" (click)="vote('DOWN')" >DVotes:{{downVotes}}</a> 
     </div>
       <div *ngIf="expan">  

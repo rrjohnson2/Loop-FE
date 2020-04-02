@@ -1,6 +1,6 @@
 <div class="pill row">
 
-  <small class=" col-2 pill-info">{{data.creator.user}} {{data.timestamp | dateago}}</small>
+  <small class=" col-2 pill-info">{{data.creator.username}} {{data.timestamp | dateago}}</small>
 
   <div class=" col-8 pill-content">
     <small *ngIf="!writeable; else write">
@@ -16,7 +16,7 @@
     </ng-template>
   </div>
 
-  <div class="col-2" ngbDropdown #myDrop="ngbDropdown" placement="left">
+  <div *ngIf="username == data.creator.username" class="col-2" ngbDropdown #myDrop="ngbDropdown" placement="left">
     <button class="drop_down_Looop" type="button"    id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
       Update
     </button>

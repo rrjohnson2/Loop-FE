@@ -1,6 +1,6 @@
 
     
-    <app-pill [data]= retort [type]="type"></app-pill>
+    <app-pill [username]= "username" [data]= retort [type]="type"></app-pill>
 
     <div class="row">
       <a class="col-12 text-center" (click)="showComment()">{{retort.messages.length}} comments</a>
@@ -17,6 +17,6 @@
     
       <div *ngIf="expan" class="col-12  Looop_expansion_panel">
         <div  *ngFor="let msg of sortedMessages">
-          <app-message-card  id="{{msg.id}}" [message]="msg"></app-message-card>
+          <app-message-card [username]="username" id="{{msg.id}}" [message]="msg"></app-message-card>
         </div>
       </div>
