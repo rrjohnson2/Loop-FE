@@ -126,9 +126,6 @@ export class IdeaModalComponent implements OnInit {
    console.log(this.rt);
    this.uiService.open(this.rt, "modal-mini", 'sm');
  }
- openModal( content, type, dem){
-  
- }
 
  nextInput(next:boolean)
  {

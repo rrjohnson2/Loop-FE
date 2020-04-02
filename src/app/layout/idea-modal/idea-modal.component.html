@@ -38,6 +38,7 @@
                  
                      <div class="col-6 text-right" >
                        <button type="button" *ngIf ="ideaFormSelection != 2" class="btn btn-1 my-4" (click)=nextInput(true)>Next</button>
+                       <button type="button" (click)="cancel()">Cancel</button>
                        <button *ngIf="ideaFormSelection ==2  && this.ideaForm.valid" class="btn btn-1 my-4 btn-success " type="submit" >Share</button>
                      </div>
                  
