@@ -8,9 +8,13 @@ import { backend_url } from 'src/app/constants/app.constants';
 })
 export class IdeaCardService {
   
+  
+  
 
   retort_url ="retortIdea"
   vote_url ="rateIdea"
+  update ="updateIdea"
+  deleteIdea: string="deleteIdea"
   constructor(private httpClient:HttpClient) { }
 
   retort(ticket:Ticket)
@@ -19,5 +23,12 @@ export class IdeaCardService {
   }
   vote(ticket: Ticket) {
     return this.httpClient.post(backend_url+this.vote_url,ticket);
+  }
+
+  updateIdea(ticket:Ticket) {
+    return this.httpClient.post(backend_url+ this.update,ticket);
+  }
+  delete(ticket: Ticket) {
+    return this.httpClient.post(backend_url+ this.deleteIdea,ticket);
   }
 }

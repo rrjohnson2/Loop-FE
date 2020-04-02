@@ -9,6 +9,7 @@ import { RetortCardComponent } from '../retort-card/retort-card.component';
 import { UIService } from 'src/app/services/ui.service';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-idea-card',
@@ -25,7 +26,7 @@ export class IdeaCardComponent implements OnInit {
   @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
   today:Date = new Date();
   retortForm:FormGroup
-  constructor(private idea_card_service:IdeaCardService, private uiService:UIService) { }
+  constructor(private idea_card_service:IdeaCardService, private uiService:UIService, private global:GlobalService) { }
 
   ngOnInit() {
     this.createForm();
@@ -148,7 +149,31 @@ export class IdeaCardComponent implements OnInit {
   }
   updateIdea(idea:Idea)
   {
-      //do something
+    var ticket:Ticket={
+      customer:this.username,
+      data:idea
+    }
+      this.idea_card_service.updateIdea(ticket).subscribe(
+        data =>
+        {
+          this.idea = idea;
+        }
+      );
+  }
+
+  delete(){
+    var ticket:Ticket={
+      customer:this.username,
+      data:this.idea
+    }
+    this.idea_card_service.delete(ticket).subscribe(
+      data =>
+      {
+        var index =this.global.ideas.findIndex(ide => ide.id == this.idea.id);
+        this.global.ideas.splice(index,1);
+        this.global.refresh();
+      }
+    );
   }
 
 }
