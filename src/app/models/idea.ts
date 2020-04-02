@@ -7,7 +7,7 @@ export class Idea {
     creator: Member;
     description: string;
     downVotes: number;
-    focus: Focus[];
+    focuses: Focus[];
     id: number;
     ratings: Rating[];
     retorts: Retort[];
@@ -19,7 +19,7 @@ export class Idea {
         creator: Member,
         description: string,
         downVotes: number,
-        focus: Focus[],
+        focuses: Focus[],
         id: number,
         ratings: Rating[],
         retorts: Retort[],
@@ -30,7 +30,7 @@ export class Idea {
         this.creator = creator;
         this.description = description;
         this.downVotes =  downVotes;
-        this.focus = focus ;
+        this.focuses = focuses ;
         this.id = id;
         this.ratings = ratings;
         this.retorts = retorts;

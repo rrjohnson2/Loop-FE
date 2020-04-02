@@ -2,9 +2,18 @@
   <div class="card-header Looop_card_header">
     <div class="cards-title">
       <div class="row">
-        <div class="col-6">User: {{idea.creator.username}} </div>
-        <div class="col-6 text-right">{{idea.timestamp | dateago}}</div>
-        <div class="col-6"></div>
+        <div class="col-6">User: {{idea.creator.username}} {{idea.timestamp | dateago}} </div>
+
+        <div *ngIf="username == idea.creator.username" class="col-6 text-right" ngbDropdown #myDrop="ngbDropdown" placement="left">
+          <button class="drop_down_Looop" type="button"    id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
+            Update
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
+            <button class="drop_down_button" (click)="showEdit()" ngbDropdownItem>Edit</button>
+            <button class="drop_down_button" (click)="delete()" ngbDropdownItem>Delete</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

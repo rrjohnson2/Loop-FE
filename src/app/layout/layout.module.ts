@@ -23,6 +23,7 @@ import { UpdateProfileComponent } from './layout-navbar/update-profile/update-pr
 import { ShareIdeaComponent } from './layout-navbar/share-idea/share-idea.component';
 import { PillComponent } from './pill/pill.component';
 import { DateagoPipe } from './pipe/dateago.pipe';
+import { IdeaModalComponent } from './idea-modal/idea-modal.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -40,7 +41,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     UpdateProfileComponent,
     ShareIdeaComponent,
     PillComponent,
-    DateagoPipe
+    DateagoPipe,
+    IdeaModalComponent
   ],
   imports: [
     CommonModule,

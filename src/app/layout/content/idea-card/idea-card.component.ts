@@ -7,6 +7,7 @@ import { Ticket } from 'src/app/interfaces/ticket';
 import { Notice, Notice_Actions } from 'src/app/models/notice';
 import { RetortCardComponent } from '../retort-card/retort-card.component';
 import { UIService } from 'src/app/services/ui.service';
+import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-idea-card',
@@ -133,6 +134,10 @@ export class IdeaCardComponent implements OnInit {
   {
    return  this.idea.retorts.sort((val1, val2)=> 
       {return new Date(val1.timestamp).getTime() - new Date(val2.timestamp).getTime()});
+  }
+  toggleDropDown(myDrop:NgbDropdown)
+  {
+    myDrop.toggle();
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { Idea } from 'src/app/models/idea';
@@ -10,6 +10,7 @@ import { Actions } from 'src/app/constants/app.constants';
 import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from './share-idea.service';
 import { GlobalService } from 'src/app/services/global.service';
+import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
 
 @Component({
   selector: 'app-share-idea',
@@ -18,9 +19,9 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class ShareIdeaComponent implements OnInit {
 
-  ideaForm:FormGroup;
-  ideaFormSelection:number = 0
-  focuses = []
+  
+
+  @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
 
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
@@ -32,50 +33,17 @@ export class ShareIdeaComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.share_ideaService.getFocuses().subscribe(
-      (data) =>
-      {
-        var arry = [];
-        arry = data;
-        for(var i=0; i<arry.length;i++)
-        {
-          this.focuses .push(
-            {
-              name: arry[i]
-            }
-          )
-        }
-        this.createForm();
-      }
-      
-    );
-  }
-   
-  private createForm()
-  {
-    this.ideaForm = new FormGroup(
-      {
-        title: new FormControl(null,
-          [
-            Validators.required
-          ]), 
-          description: new FormControl(null,
-            [
-              Validators.required
-            ]),
-          categories: this.renderCategories(this.focuses)
-      }
-    );
+    
   }
 
-  shareIdea()
+  shareIdea(idea:Idea)
   {
-    var focuses:Focus[] = this.populateCategories();
+  
     // build focus fom checkboxes
     var shareIdeaData:ShareIdeaData={
-      title: this.ideaForm.get("title").value,
-      description: this.ideaForm.get("description").value,
-      focuses: focuses
+      title: idea.title,
+      description: idea.description,
+      focuses: idea.focuses
     }
     var shareIdeaTicket:Ticket ={
       customer:this.profile.username,
@@ -85,9 +53,6 @@ export class ShareIdeaComponent implements OnInit {
       data =>
       {
         var message:any = data;
-        this.ideaForm.reset();
-        this.createForm();
-        this.uiService.dismissAll();
         this.idea_event.emit(message.data);
         this.alert_ticket.emit({
           msg: message.data.message,
@@ -105,49 +70,11 @@ export class ShareIdeaComponent implements OnInit {
       }
     );
   }
-  populateCategories(): Focus[] {
-    var temp:Focus[] =[]
-    var controls=[]
-    controls = this.categories.value;
-    for (var i =0; i< controls.length; i++ ) {
-      if (controls[i].value==true) {
-          temp.push(new Focus(this.focuses[i].name,null));
-      }
-    }
-
-    return temp;
-  }
-
-  open(content, type, modalDimension)
-  {
-    this.uiService.open(content, type, modalDimension);
-  }
-
-  nextInput(next:boolean)
-  {
-    switch (next) {
-      case true:
-        this.ideaFormSelection++;
-        break;
-      case false:
-          this.ideaFormSelection--;
-        break;
-    }
-     
-  }
-  private renderCategories(categories)
-  { 
-    const arry = categories.map(
-      category =>
-      {
-        return this.formBuilder.control(null);
-      }
-    );
-    return this.formBuilder.control(arry);
-  }
-  get categories() {
-    return this.ideaForm.get('categories');
-  };
+ 
+  open()
+ {
+   this.ideaModal.open();
+ }
 
 
 }

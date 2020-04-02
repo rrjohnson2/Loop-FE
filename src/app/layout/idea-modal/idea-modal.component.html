@@ -1,0 +1,53 @@
+<div class="modal">
+  <ng-template #classic1 let-c="close" let-d="dismiss">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5 ">
+                <form role="form" [formGroup]="ideaForm" (ngSubmit)=shareIdea()>
+                   <div class="idea_modal">
+                      <div *ngIf="ideaFormSelection == 0 " class="form_input">
+                          <fieldset>
+                              <legend>Title of Your Idea</legend>
+                              <input onkeydown="return event.key != 'Enter';" formControlName="title" class="form-control" placeholder="Title/Summary" type="text" (focus)="focus1=true" (blur)="focus1=false">
+                          </fieldset>
+                        </div>
+                        <div *ngIf="ideaFormSelection == 1 " class="form_input">
+                          <fieldset>
+                            <legend>Description</legend>
+                            <textarea formControlName="description" class="form-control" (focus)="focus1=true" (blur)="focus1=false" cols="30" rows="10"></textarea>
+                          </fieldset>
+                        </div>
+                        <div *ngIf="ideaFormSelection == 2 " class="form_input">
+                          <fieldset>      
+                            <legend>Relevant Categories</legend> 
+                            <div *ngFor="let cate of categories.value; let i =index" _ngcontent-c5="" class="custom-control custom-checkbox mb-3">
+                                <input [formControl]="cate" class="custom-control-input" id={{focuses[i].name}} type="checkbox" unchecked>
+                                <label class="custom-control-label" for={{focuses[i].name}}>
+                                  <span>{{focuses[i].name}}</span>
+                                </label>
+                              </div> 
+                          </fieldset>  
+                        </div>
+                   </div>
+                <div  class="row ">
+                 
+                    <div class="col-6">
+                       <button type="button" *ngIf ="ideaFormSelection != 0" class="btn btn-1 my-4" (click)=nextInput(false)>Back</button>
+                    </div>
+                 
+                     <div class="col-6 text-right" >
+                       <button type="button" *ngIf ="ideaFormSelection != 2" class="btn btn-1 my-4" (click)=nextInput(true)>Next</button>
+                       <button *ngIf="ideaFormSelection ==2  && this.ideaForm.valid" class="btn btn-1 my-4 btn-success " type="submit" >Share</button>
+                     </div>
+                 
+               </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<button id="openModalButton" hidden="true" (click)="openModal(classic1,'modal-mini','sm')"></button>
