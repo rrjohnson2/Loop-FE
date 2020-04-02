@@ -10,12 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class PillComponent implements OnInit {
 
-  @Input() user:string;
-  @Input() picture:string;
-  @Input() content:string;
-  @Input() timestamp:Date;
-
-  @Input() id:number;
+  @Input() data:any
   @Input() type:PillType;
 
   writeable: boolean=false;
@@ -28,7 +23,7 @@ export class PillComponent implements OnInit {
   createForm() {
     this.pillForm = new FormGroup(
       {
-        contentVal: new FormControl(this.content,
+        contentVal: new FormControl(this.data.content,
           [
             Validators.required
           ])

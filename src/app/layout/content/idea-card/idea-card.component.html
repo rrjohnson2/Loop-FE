@@ -24,7 +24,12 @@
         </div>
       </div>
         <form class="row"  role="form" [formGroup]="retortForm" (ngSubmit)=submit()>
-          <input formControlName="retort" class="form-control" placeholder="Write a retort..." type="text" (focus)="focus1=true" (blur)="focus1=false">
+         <div class="col-9 ">
+          <textarea formControlName="retort" class="form-control Looop-textarea" rows="1" placeholder="Write a retort..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
+         </div>
+         <div class="col-3">  
+          <button type="submit">Retort</button>
+         </div>
         </form>
   </div>
 </div>

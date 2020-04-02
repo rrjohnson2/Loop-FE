@@ -1,13 +1,18 @@
 
     
-    <app-pill [user]="retort.creator.username" [timestamp] = "retort.timestamp" [content]="retort.content" [type]="type"></app-pill>
+    <app-pill [data]= retort [type]="type"></app-pill>
 
     <div class="row">
       <a class="col-12 text-center" (click)="showComment()">{{retort.messages.length}} comments</a>
     </div>
 
-    <form  role="form" [formGroup]="messageForm" (ngSubmit)=submit()>
-      <input formControlName="message" class="form-control" placeholder="Write a comment..." type="text" (focus)="focus1=true" (blur)="focus1=false">
+    <form class="row" role="form" [formGroup]="messageForm" (ngSubmit)=submit()>
+      <div class="col-9 ">
+        <textarea formControlName="message" class="form-control Looop-textarea" rows="1" placeholder="Write a comment..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
+       </div>
+       <div class="col-3">  
+        <button type="submit">Comment</button>
+       </div>
     </form>
     
       <div *ngIf="expan" class="col-12  Looop_expansion_panel">

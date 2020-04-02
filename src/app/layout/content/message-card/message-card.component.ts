@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Message } from 'src/app/models/message';
+import { PillType } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-message-card',
@@ -8,6 +9,7 @@ import { Message } from 'src/app/models/message';
 })
 export class MessageCardComponent implements OnInit {
   @Input() message:Message;
+  type:PillType = PillType.comment;
   constructor() { }
 
   ngOnInit() {
