@@ -122,7 +122,8 @@ export class ShareIdeaComponent implements OnInit {
    
    this.shareIdea(ideaCreated);
    
-  
+  this.ideaForm.reset();
+  this.createForm();
   
  }
 
