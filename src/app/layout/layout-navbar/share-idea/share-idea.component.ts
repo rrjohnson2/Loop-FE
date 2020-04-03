@@ -98,7 +98,6 @@ export class ShareIdeaComponent implements OnInit {
         });
       },
       error =>{
-        this.uiService.dismissAll();
         this.alert_ticket.emit({
           msg:error.error.message,
           action_attempted: Actions.shareIdea,
@@ -115,6 +114,17 @@ export class ShareIdeaComponent implements OnInit {
 
  createIdea()
  {
+   if(!this.ideaForm.valid)
+   {
+    this.alert_ticket.emit({
+      msg:"invalid request",
+      action_attempted: Actions.shareIdea,
+      type: "danger"
+    });
+
+    return
+  }
+   
    var focuses:Focus[] = this.populateCategories();
    
    var ideaCreated:Idea;
