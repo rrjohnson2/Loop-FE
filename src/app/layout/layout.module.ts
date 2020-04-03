@@ -24,6 +24,8 @@ import { ShareIdeaComponent } from './layout-navbar/share-idea/share-idea.compon
 import { PillComponent } from './pill/pill.component';
 import { DateagoPipe } from './pipe/dateago.pipe';
 import { IdeaModalComponent } from './idea-modal/idea-modal.component';
+import { LandingComponent } from './landing/landing.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -42,7 +44,9 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     ShareIdeaComponent,
     PillComponent,
     DateagoPipe,
-    IdeaModalComponent
+    IdeaModalComponent,
+    LandingComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

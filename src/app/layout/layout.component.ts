@@ -40,7 +40,7 @@ export class LayoutComponent implements OnInit {
     this.notifications = this.realTime.noticfications.asObservable();
     this.notifications.subscribe((data)=>{
      
-      if(this.content_comp.ideas != undefined)
+      if(true)
       {
         this.updateOrAdd(data);
       }
