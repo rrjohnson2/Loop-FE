@@ -1,5 +1,5 @@
 
-<div id="ideas_body" *ngIf="ideas != null; empty" class="ideas_body">
+<div id="ideas_body" *ngIf="ideas != null; empty" >
     <div *ngFor="let idea of Ideas">
         <app-idea-card id="{{idea.id}}" [username]="profile.username" [idea]="idea"></app-idea-card>
     </div>
