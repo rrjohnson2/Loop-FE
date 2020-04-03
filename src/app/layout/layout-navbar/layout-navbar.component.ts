@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter,OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
-import { AlertTicket } from 'src/app/interfaces/alert-ticket';
-import { Idea } from 'src/app/models/idea';
+import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
+import { PROFILE } from 'src/app/constants/app.constants';
+import { LayoutService } from '../layout.service';
 @Component({
   selector: 'app-layout-navbar',
   templateUrl: './layout-navbar.component.html',
@@ -9,26 +10,25 @@ import { Idea } from 'src/app/models/idea';
 })
 export class LayoutNavbarComponent implements OnInit {
 
-  @Input() public profile:Profile;
-  @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
-  @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
+ profile:Profile;
 
-  constructor()
+  constructor(private layout:LayoutService)
   {
-
   }
 
   ngOnInit(): void {
+   
+    this.layout.profile.subscribe(
+      data =>{
+        this.profile = data;
+      }
+    )
   }
 
-  alert(alert:AlertTicket)
+  
+  public toggleDropDown(myDrop:NgbDropdown)
   {
-      this.alert_ticket.emit(alert);
-  }
-  idea(ideA:Idea)
-  {
-    this.idea_event.emit(ideA);
-    
+    myDrop.toggle();
   }
 
 }

@@ -4,12 +4,21 @@
         <a class=" logo_title navbar-brand" href="javascript:void(0)">Looop</a>
     </div>
     <div class="col-8 text-right Looop_nav_col row ">
-      <div class=" col-6">
-        <app-update-profile (alert_ticket) = "alert($event)" [profile]="profile"></app-update-profile>
-      </div>
-      <div class="col-6">
+      <div class=" col-12">
+        <div ngbDropdown #myDrop="ngbDropdown" placement="left">
+          <button class="drop_down_Looop" type="button" class=""   id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
+            {{profile?.firstName}} {{profile?.lastName}}
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
+            <button class="drop_down_button"  ngbDropdownItem>Landing</button>
+            <button class="drop_down_button"  ngbDropdownItem>Profile</button>
+            <button class="drop_down_button"  ngbDropdownItem>Log Off</button>
+          </div>
+        </div>
+       </div>
+      <!--<div class="col-6">
         <app-share-idea (alert_ticket)= "alert($event)" (idea_event) = "idea($event)" [profile]=" profile"></app-share-idea>
-      </div>
+      </div> -->
     </div>
   </div>
 </nav>

@@ -12,7 +12,7 @@ const routes: Routes = [
         component: LayoutComponent,
         children: [
             {
-                path:'dashboard',
+                path:'landing',
                 component: LandingComponent
             },
             {
@@ -20,8 +20,8 @@ const routes: Routes = [
                 component: ProfileComponent
 
             },
-            { path: '', redirectTo:'dashboard', pathMatch:"prefix"},
-            { path: '**', redirectTo:'dashboard', pathMatch:"prefix"}
+            { path: '', redirectTo:'landing', pathMatch:"prefix"},
+            { path: '**', redirectTo:'landing', pathMatch:"prefix"}
         ]
     }
 ];

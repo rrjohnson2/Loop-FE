@@ -146,5 +146,12 @@ export class GlobalService {
 getVoteTypes() {
   return this.http.get(backend_url+this.votes);
 }
+
+addIdeaSubject(event:Idea)
+  {
+    this.addIdea(event);
+
+    this.refresh();
+  }
   
 }
