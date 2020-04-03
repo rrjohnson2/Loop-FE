@@ -5,14 +5,14 @@
     </div>
     <div class="col-8 text-right Looop_nav_col row ">
       <div class=" col-12">
-        <div ngbDropdown #myDrop="ngbDropdown" placement="left">
+        <div ngbDropdown #myDrop="ngbDropdown" placement="bottom">
           <button class="drop_down_Looop" type="button" class=""   id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
             {{profile?.firstName}} {{profile?.lastName}}
           </button>
           <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-            <button class="drop_down_button"  ngbDropdownItem>Landing</button>
-            <button class="drop_down_button"  ngbDropdownItem>Profile</button>
-            <button class="drop_down_button"  ngbDropdownItem>Log Off</button>
+            <button  ngbDropdownItem>Landing</button>
+            <button  ngbDropdownItem>Profile</button>
+            <button  (click)="logOff()" ngbDropdownItem>Log Off</button>
           </div>
         </div>
        </div>

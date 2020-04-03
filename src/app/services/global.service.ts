@@ -44,6 +44,14 @@ export class GlobalService {
   public login(ticket:Ticket) {
     return this.http.post(backend_url + 'login', ticket);
  }
+  public logOff()
+  {
+    this.username ="";
+    localStorage.removeItem("username");
+    this.profileSubject.next(null);
+    this.ideas_behav.next(null);
+
+  }
   public populateMember(data)
   {
     this.username = data.data.username;

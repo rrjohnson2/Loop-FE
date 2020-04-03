@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class RealtimeService {
+ 
 
   notice:Notice[] = [];
   noticfications:BehaviorSubject<Notice[]> = new BehaviorSubject<Notice[]>(this.notice);
@@ -26,6 +27,11 @@ export class RealtimeService {
     this.notice.push(new Notice(data));
     this.noticfications.next(this.notice);
    }
+
+   logOff() {
+     this.noticfications.next(null);
+     this.socket.disconnect();
+  }
    
 
 }
