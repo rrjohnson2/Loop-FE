@@ -4,6 +4,7 @@ import { Idea } from 'src/app/models/idea';
 import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from '../layout-navbar/share-idea/share-idea.service';
 import { Focus } from 'src/app/models/focus';
+import { LayoutService } from '../layout.service';
 
 @Component({
   selector: 'app-idea-modal',
@@ -24,12 +25,12 @@ export class IdeaModalComponent implements OnInit {
 
   
 
-  constructor(private uiService:UIService,private share_ideaService:ShareIdeaService , private formBuilder:FormBuilder) {
+  constructor(private uiService:UIService,private layout:LayoutService , private formBuilder:FormBuilder) {
     
   }
 
  ngOnInit() {
-   this.share_ideaService.getFocuses().subscribe(
+   this.layout.focus.subscribe(
      (data) =>
      {
        var arry = [];
@@ -52,7 +53,6 @@ export class IdeaModalComponent implements OnInit {
  {
    if(this.idea !=null)
    {
-    console.log("o3"); 
     this.ideaForm = new FormGroup(
       {
         title: new FormControl(this.idea.title,
@@ -69,7 +69,6 @@ export class IdeaModalComponent implements OnInit {
     
    return;
    }
-    console.log("once");    
    this.ideaForm = new FormGroup(
     {
       title: new FormControl(null,

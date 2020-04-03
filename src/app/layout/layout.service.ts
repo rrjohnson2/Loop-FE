@@ -18,7 +18,7 @@ export class LayoutService {
   profile:Observable<Profile> = this.globalservice.profileSubject.asObservable();
   notifications:Observable<Notice[]> = this.realTime.noticfications.asObservable();
   ideas_obs:Observable<Idea[]> = this.globalservice.ideas_behav.asObservable();
-
+  focus:Observable<any>;
   constructor(
     private httpClient:HttpClient,
     public realTime:RealtimeService,
@@ -30,11 +30,8 @@ export class LayoutService {
     {
         this.setupProfile();
         this.notifications.subscribe((data)=>{
-        
-          if(true)
-          {
             this.updateOrAdd(data);
-          }
+            this.focus = this.getFocuses();
         });
     }
 
@@ -80,7 +77,7 @@ export class LayoutService {
           
             this.globalservice.ideas.push(notice.data);
           }
-        } else{
+        } else if (this.globalservice.ideas != undefined){
           var idea :Idea = this.globalservice.ideas.find( idea => idea.id == notice.idea_id);
 
           if(notice.action == Notice_Actions.RETORT){
@@ -106,6 +103,13 @@ export class LayoutService {
       }
     }
     this.globalservice.refresh();
+  }
+
+  
+
+  private getFocuses()
+  {
+    return this.httpClient.get(backend_url + "getCategories");
   }
 
 }

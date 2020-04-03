@@ -11,6 +11,7 @@ import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from './share-idea.service';
 import { GlobalService } from 'src/app/services/global.service';
 import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
+import { LayoutService } from '../../layout.service';
 
 @Component({
   selector: 'app-share-idea',
@@ -18,7 +19,9 @@ import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
   styleUrls: ['./share-idea.component.css']
 })
 export class ShareIdeaComponent implements OnInit {
-
+  ideaForm:FormGroup;
+  
+  focuses = []
   
 
   @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
@@ -28,12 +31,46 @@ export class ShareIdeaComponent implements OnInit {
   @Input() public profile:Profile;
 
 
-  constructor(private uiService:UIService,private share_ideaService:ShareIdeaService , private formBuilder:FormBuilder, private globalService:GlobalService) {
+  constructor(private uiService:UIService,private share_ideaService:ShareIdeaService ,
+     private formBuilder:FormBuilder, private globalService:GlobalService,
+     private layout:LayoutService) {
     
    }
 
   ngOnInit() {
-    
+    this.createForm();
+    this.layout.focus.subscribe(
+      (data) =>
+      {
+        var arry = [];
+        arry = data;
+        for(var i=0; i<arry.length;i++)
+        {
+          this.focuses .push(
+            {
+              name: arry[i]
+            }
+          )
+        }
+        this.createForm();
+      }
+      
+    );
+  }
+  createForm() {
+    this.ideaForm = new FormGroup(
+      {
+        title: new FormControl(null,
+          [
+            Validators.required
+          ]), 
+          description: new FormControl(null,
+            [
+              Validators.required
+            ]),
+          categories: this.renderCategories(this.focuses)
+      }
+    );
   }
 
   shareIdea(idea:Idea)
@@ -75,6 +112,48 @@ export class ShareIdeaComponent implements OnInit {
  {
    this.ideaModal.open();
  }
+
+ createIdea()
+ {
+   var focuses:Focus[] = this.populateCategories();
+   
+   var ideaCreated:Idea;
+   ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null);
+   
+   this.shareIdea(ideaCreated);
+   
+  
+  
+ }
+
+ private populateCategories(): Focus[] {
+  var temp:Focus[] =[]
+  var controls=[]
+  controls = this.categories.value;
+  console.log(this.categories);
+  for (var i =0; i< controls.length; i++ ) {
+    if (controls[i].value==true) {
+        temp.push(new Focus(this.focuses[i].name,null));
+    }
+  }
+
+  return temp;
+}
+
+ private renderCategories(categories)
+ { 
+   const arry = categories.map(
+     category =>
+     {
+       return this.formBuilder.control(null);
+     }
+   );
+   return this.formBuilder.control(arry);
+ }
+
+ get categories() {
+   return this.ideaForm.get('categories');
+ };
 
 
 }

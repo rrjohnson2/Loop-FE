@@ -30,6 +30,11 @@ export class LandingComponent implements OnInit {
     this.layout.notifications.subscribe(data => this.notifications = data);
   }
 
+  addIdea(idea:Idea)
+  {
+    
+  }
+
   alerty(alert)
   {
       this.alert.add(alert);

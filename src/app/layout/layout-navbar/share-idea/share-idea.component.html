@@ -1,2 +1,34 @@
-<button class="drop_down_button" (click)="open()" >Share Idea</button>
-<app-idea-modal (idea_event)="shareIdea($event)"></app-idea-modal>
+<form role="form" [formGroup]="ideaForm" (ngSubmit)=createIdea()>
+
+        <div class="card live_Looop_card live_center ">
+            <div class="card-header Looop_card_header">
+            <div class="cards-title">
+                <div class="row">
+                        <small class="col-10">Share Idea!</small>
+                        <button class="col- 2" type="submit" >Share</button>
+                </div>
+            </div>
+            </div>
+
+            <div class=" card-body Looop_card_body">
+            <div class="card-subtitle mb-2 text-muted ">
+                <fieldset>
+                    <input onkeydown="return event.key != 'Enter';" formControlName="title" class="" placeholder="Title of Your Idea..."  type="text" (focus)="focus1=true" (blur)="focus1=false">
+                </fieldset>
+            </div>
+            <div class=" card-text ">
+                <fieldset>
+                    <textarea placeholder="Description..."  formControlName="description" class="Looop-textarea" (focus)="focus1=true" (blur)="focus1=false"  rows="1"></textarea>
+                  </fieldset>
+            </div>
+            <div class="row">       
+                <div class="col-4"  *ngFor="let cate of categories.value; let i =index">
+                    <input [formControl]="cate" class="t" id={{focuses[i].name}} type="checkbox" unchecked>
+                    <small>{{focuses[i].name}}</small>
+                </div> 
+            </div>
+        </div>
+
+        </div>
+</form>
+
