@@ -26,10 +26,24 @@ export class IdeaCardComponent implements OnInit {
   @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
   today:Date = new Date();
   retortForm:FormGroup
+  types =[];
   constructor(private idea_card_service:IdeaCardService, private uiService:UIService, private global:GlobalService) { }
 
   ngOnInit() {
     this.createForm();
+    this.global.getVoteTypes().subscribe(
+      (data) =>
+     {
+       var arry:any = [];
+       arry = data;
+       for(var i=0; i<arry.length;i++)
+       {
+         this.types .push(
+            arry[i]
+         )
+       }
+     }
+    );
   }
   createForm()
   {
@@ -117,21 +131,28 @@ export class IdeaCardComponent implements OnInit {
     }
     this.idea.ratings.push(data.data); 
   }
-  get upVotes()
-  { 
-    var up = 0;
-    for (const key in this.idea.ratings) {
-      if(this.idea.ratings[key].vote == "UP") up++;
-    }
-   return up;
-  }
-  get downVotes()
+  
+
+  get rating()
   {
-    var down = 0;
+    var avg = null;
+
+    var score = 0;
+
+    var count = 0;
+
     for (const key in this.idea.ratings) {
-      if(this.idea.ratings[key].vote == "DOWN") down++;
+      count++;
+      if(this.idea.ratings[key].vote == "Bad") score+=1;
+      else if(this.idea.ratings[key].vote == "Poor") score+=2;
+      else if(this.idea.ratings[key].vote == "So_So") score+=3;
+      else if(this.idea.ratings[key].vote == "Fair") score+=4;
+      else if(this.idea.ratings[key].vote == "Good") score+=5;
     }
-    return down;
+
+    if(score > 0) avg = score/count;
+  
+    return avg;
   }
   get sortedRetorts()
   {

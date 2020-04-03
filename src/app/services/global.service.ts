@@ -16,6 +16,7 @@ import { Preference } from '../models/preference';
   providedIn: 'root'
 })
 export class GlobalService {
+  
  
 
   public ideas:Idea[];
@@ -27,6 +28,7 @@ export class GlobalService {
   public profileSubject:BehaviorSubject<Profile> = new BehaviorSubject<Profile>(null);
 
   public ideas_behav:BehaviorSubject<Idea[]> = new BehaviorSubject<Idea[]>(null);
+  votes: string ="VoteTypes";
 
   constructor(private http:HttpClient) { 
     this.username= localStorage.getItem("username");
@@ -140,6 +142,9 @@ export class GlobalService {
   }
   refresh(){
     this.ideas_behav.next(this.ideas);
+}
+getVoteTypes() {
+  return this.http.get(backend_url+this.votes);
 }
   
 }
