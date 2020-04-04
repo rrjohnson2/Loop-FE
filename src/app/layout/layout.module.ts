@@ -26,6 +26,7 @@ import { DateagoPipe } from './pipe/dateago.pipe';
 import { IdeaModalComponent } from './idea-modal/idea-modal.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
+import { IdeaFilterPipe } from './pipe/idea-filter.pipe';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -46,7 +47,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     DateagoPipe,
     IdeaModalComponent,
     LandingComponent,
-    ProfileComponent
+    ProfileComponent,
+    IdeaFilterPipe
   ],
   imports: [
     CommonModule,

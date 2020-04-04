@@ -5,8 +5,6 @@ import { Idea } from 'src/app/models/idea';
 import { Notice, Notice_Actions } from 'src/app/models/notice';
 import { UIService } from 'src/app/services/ui.service';
 import { IdeaCardComponent } from './idea-card/idea-card.component';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { Retort } from 'src/app/models/retort';
 
 
 @Component({
@@ -16,7 +14,7 @@ import { Retort } from 'src/app/models/retort';
 })
 export class ContentComponent implements OnInit {
 
-  
+  @Input() filter:string;
   @Input()  profile:Profile;
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @Input()  ideas:Idea[];
