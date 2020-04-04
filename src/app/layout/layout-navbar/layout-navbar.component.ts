@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
-import { PROFILE } from 'src/app/constants/app.constants';
 import { LayoutService } from '../layout.service';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';

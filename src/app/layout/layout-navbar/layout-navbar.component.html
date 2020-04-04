@@ -10,8 +10,8 @@
             {{profile?.firstName}} {{profile?.lastName}}
           </button>
           <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-            <button  ngbDropdownItem>Landing</button>
-            <button  ngbDropdownItem>Profile</button>
+            <button routerLink="/landing"  ngbDropdownItem>Landing</button>
+            <button routerLink="/profile" ngbDropdownItem>Profile</button>
             <button  (click)="logOff()" ngbDropdownItem>Log Off</button>
           </div>
         </div>
