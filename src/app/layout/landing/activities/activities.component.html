@@ -1,3 +1,9 @@
-<div class="live_Looop_card  card" >
-    <div class= "card_header text-center">Activities</div>
-  </div>
+<legend>Filters</legend>
+<ul class="Looop_li_filter" >
+  <li  *ngFor="let foc of focuses">
+    <a *ngIf="current == foc.name; else non" class="hl_current" (click)="filterIdea(foc.name)">{{foc.name}}</a>
+    <ng-template #non>
+      <a (click)="filterIdea(foc.name)">{{foc.name}}</a>
+    </ng-template>
+  </li>
+</ul>

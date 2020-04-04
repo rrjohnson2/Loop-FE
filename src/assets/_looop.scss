@@ -59,7 +59,7 @@ $navbar-height : 5vh;
 
 .ideas_body{
    overflow-y: scroll;
-   height: 85vh;
+   height: 95vh;
 }
 .Looop_card
 {
@@ -107,5 +107,15 @@ p  {
 	max-width:100%;
 	line-height:1.5;
     font-size: inherit !important;
+}
+.Looop_li_filter{
+    list-style-type: none;
+    padding-left:0;
+}
+.hl_current {
+    color: $primary !important;
+  }
+a:hover{
+    color: $primary !important;
 }
 
