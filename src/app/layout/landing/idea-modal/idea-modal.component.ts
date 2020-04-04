@@ -2,9 +2,9 @@ import { Component, OnInit, Output, Input, EventEmitter, ContentChild, TemplateR
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Idea } from 'src/app/models/idea';
 import { UIService } from 'src/app/services/ui.service';
-import { ShareIdeaService } from '../layout-navbar/share-idea/share-idea.service';
+import { ShareIdeaService } from '../share-idea/share-idea.service';
 import { Focus } from 'src/app/models/focus';
-import { LayoutService } from '../layout.service';
+import { LayoutService } from '../../layout.service';
 
 @Component({
   selector: 'app-idea-modal',

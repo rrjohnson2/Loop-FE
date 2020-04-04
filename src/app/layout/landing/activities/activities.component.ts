@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-activities',
@@ -7,6 +7,8 @@ import { Component, OnInit} from '@angular/core';
 })
 export class ActivitiesComponent implements OnInit {
   
+  
+  @Output() ideaFilter: EventEmitter<string> = new EventEmitter<string>();
   constructor()
   {
 
@@ -15,6 +17,11 @@ export class ActivitiesComponent implements OnInit {
    
   }
   
+  filterIdea(filter:string)
+  {
+    this.ideaFilter.emit(filter)
+  }
+
  
 }
 

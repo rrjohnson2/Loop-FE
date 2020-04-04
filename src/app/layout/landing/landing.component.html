@@ -7,10 +7,10 @@
     </div>
     <div class="col-6 Looop_col row ideas_body">
       <div class="col-12 Looop_col_truc">
-        <app-share-idea (idea_event) ="addIdea($event)" (alert_ticket)="alerty($event)" [profile]=" profile"></app-share-idea>
+        <app-share-idea (ideaFilter)="ideaFilter($event)" (idea_event) ="addIdea($event)" (alert_ticket)="alerty($event)" [profile]=" profile"></app-share-idea>
       </div>
       <div class="col-12 text-center">
-        <app-content [ideas]="ideas " (alert_ticket)="alerty($event)" [profile]=" profile  "></app-content>
+        <app-content [filter] ="filter" [ideas]="ideas " (alert_ticket)="alerty($event)" [profile]=" profile  "></app-content>
       </div>
     </div>
     <div class="col-4 Looop_col">

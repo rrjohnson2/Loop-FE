@@ -10,7 +10,7 @@ import { Actions } from 'src/app/constants/app.constants';
 import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from './share-idea.service';
 import { GlobalService } from 'src/app/services/global.service';
-import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
+import { IdeaModalComponent } from '../idea-modal/idea-modal.component';
 import { LayoutService } from '../../layout.service';
 
 @Component({

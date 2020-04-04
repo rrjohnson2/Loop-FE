@@ -4,7 +4,7 @@ import { Idea } from 'src/app/models/idea';
 import { Notice } from 'src/app/models/notice';
 import { LayoutService } from '../layout.service';
 import { AlertComponent } from 'src/app/shared/alerts/alert.component';
-import { ContentComponent } from '../content/content.component';
+import { ContentComponent } from './content/content.component';
 
 @Component({
   selector: 'app-landing',
@@ -16,6 +16,7 @@ export class LandingComponent implements OnInit {
   profile:Profile;
   ideas:Idea[] =[];
   notifications:Notice[] = [];
+  filter:string
 
   @ViewChild(AlertComponent) alert:AlertComponent;
   @ViewChild(ContentComponent) content:ContentComponent;
@@ -44,5 +45,15 @@ export class LandingComponent implements OnInit {
       this.content.showNotice(notice);
   }
 
+  ideaFilter(event)
+  {
+      if(event == this.filter) 
+      {
+        this.filter = null;
+      }
+      else{
+        this.filter = event;
+      }
+  }
 
 }
