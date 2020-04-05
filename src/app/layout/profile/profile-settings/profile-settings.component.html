@@ -4,7 +4,7 @@
 
   <a  (click)="openUploadModal()" placement="bottom" ngbTooltip="Change Profile Pictue">
     <div *ngIf="profile?.profilePicture  != null ; else stock">
-        ProfilePicture
+        <img [src]="render_profile" class="Looop_big_profile">
     </div>
       
     <ng-template #stock>

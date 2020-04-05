@@ -23,4 +23,9 @@ export class ProfileSettingsComponent implements OnInit {
     this.upload_image.open();
   }
 
+  get render_profile()
+  {
+    return `http://localhost:8082/avatar?user=${this.profile.profilePicture}`;
+  }
+
 }
