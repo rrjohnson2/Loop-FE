@@ -27,7 +27,7 @@ export class ProfileSettingsComponent implements OnInit {
 
   get render_profile()
   {
-    return `http://localhost:8082/avatar?user=${this.profile.profilePicture}`;
+    return "http://localhost:8082/avatar?user="+this.profile.profilePicture;
   }
   alery(event)
   {
