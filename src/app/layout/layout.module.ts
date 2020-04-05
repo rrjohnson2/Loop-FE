@@ -30,7 +30,8 @@ import { IdeaFilterPipe } from './pipe/idea-filter.pipe';
 import { ProfileSettingsComponent } from './profile/profile-settings/profile-settings.component';
 import { ProfileSettingsService } from './profile/profile-settings/profile-settings.service';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { UploadImageModalComponent } from './profile/upload-image-modal/upload-image-modal.component';
+import { UploadImageModalComponent } from './profile/profile-settings/upload-image-modal/upload-image-modal.component';
+import { UploadImageModalService } from './profile/profile-settings/upload-image-modal/upload-image-modal.service';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -67,6 +68,12 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     SharedModule,
     SocketIoModule.forRoot(config)
   ],
-  providers:[RealtimeService,ShareIdeaService,LayoutService,IdeaCardService,RetortCardService,ProfileSettingsService]
+  providers:[RealtimeService,
+    ShareIdeaService,
+    LayoutService,
+    IdeaCardService,
+    RetortCardService,
+    ProfileSettingsService,
+  UploadImageModalService]
 })
 export class LayoutModule { }
