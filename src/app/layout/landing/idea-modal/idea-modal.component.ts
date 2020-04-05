@@ -122,7 +122,6 @@ export class IdeaModalComponent implements OnInit {
 
  open()
  {
-   console.log(this.rt);
    this.uiService.open(this.rt, "modal-mini", 'sm');
  }
 

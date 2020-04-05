@@ -2,7 +2,7 @@
 
   <div class="col-3 " id="profilePicture">
 
-  <a  placement="bottom" ngbTooltip="Change Profile Pictue">
+  <a  (click)="openUploadModal()" placement="bottom" ngbTooltip="Change Profile Pictue">
     <div *ngIf="profile?.profilePicture  != null ; else stock">
         ProfilePicture
     </div>
@@ -17,7 +17,6 @@
   <label placement="right" ngbTooltip="Change Username" class="caption" >
       {{profile?.username | uppercase  }}
   </label>
-
   </div>
   
   <div class="col-9">
@@ -25,3 +24,5 @@
   </div>
   
 </div>
+
+<app-upload-image-modal></app-upload-image-modal>

@@ -29,6 +29,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { IdeaFilterPipe } from './pipe/idea-filter.pipe';
 import { ProfileSettingsComponent } from './profile/profile-settings/profile-settings.component';
 import { ProfileSettingsService } from './profile/profile-settings/profile-settings.service';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { UploadImageModalComponent } from './profile/upload-image-modal/upload-image-modal.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -51,9 +53,11 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     LandingComponent,
     ProfileComponent,
     IdeaFilterPipe,
-    ProfileSettingsComponent
+    ProfileSettingsComponent,
+    UploadImageModalComponent
   ],
   imports: [
+    ImageCropperModule,
     NgbModule,
     CommonModule,
     LayoutRoutingModule,

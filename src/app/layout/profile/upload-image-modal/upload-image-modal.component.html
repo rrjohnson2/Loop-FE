@@ -1,0 +1,44 @@
+<div class="modal">
+  <ng-template #classic1 let-c="close" let-d="dismiss">
+    <h5 class="modal-title">Upload Profile Picture</h5>
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5 ">
+              
+             <div class="row">
+               <div class="col-12">
+                  <input type="file" (change)="fileChangeEvent($event)" />
+               </div>
+               <div class="col-12 cropper">
+                  <image-cropper #cropper
+                  [imageChangedEvent]="imageChangedEvent"
+                  [maintainAspectRatio]="true"
+                  [aspectRatio]=" 1/1"
+                  format="png"
+                  (imageCropped)="imageCropped($event)"
+                  (imageLoaded)="imageLoaded()"
+                  (cropperReady)="cropperReady()"
+                  (loadImageFailed)="loadImageFailed()"
+                  [roundCropper] = true
+                  [hideResizeSquares] = true
+                  [cropperMinWidth] = size
+                  [resizeToWidth] = size
+                  ></image-cropper>
+               </div>
+               <div class="col-12 text-center ">  
+                  <img class="Looop_big_profile" [src]="croppedImage">
+               </div>
+               <div class="col-12 text-right">
+                <button (click)="loadImage()">Done</button>
+               </div>
+             </div>
+              
+                
+                
+            </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
