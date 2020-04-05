@@ -4,7 +4,7 @@ import { LayoutComponent } from './layout.component';
 import { LayoutRoutingModule } from './layout.routing.module';
 import { LayoutNavbarComponent } from './layout-navbar/layout-navbar.component';
 import { ContentComponent } from './landing/content/content.component';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { RealtimeService } from '../services/realtime.service';
@@ -27,6 +27,8 @@ import { IdeaModalComponent } from './landing/idea-modal/idea-modal.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { IdeaFilterPipe } from './pipe/idea-filter.pipe';
+import { ProfileSettingsComponent } from './profile/profile-settings/profile-settings.component';
+import { ProfileSettingsService } from './profile/profile-settings/profile-settings.service';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -48,9 +50,11 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     IdeaModalComponent,
     LandingComponent,
     ProfileComponent,
-    IdeaFilterPipe
+    IdeaFilterPipe,
+    ProfileSettingsComponent
   ],
   imports: [
+    NgbModule,
     CommonModule,
     LayoutRoutingModule,
     ReactiveFormsModule,
@@ -59,6 +63,6 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     SharedModule,
     SocketIoModule.forRoot(config)
   ],
-  providers:[RealtimeService,ShareIdeaService,LayoutService,IdeaCardService,RetortCardService]
+  providers:[RealtimeService,ShareIdeaService,LayoutService,IdeaCardService,RetortCardService,ProfileSettingsService]
 })
 export class LayoutModule { }

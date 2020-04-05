@@ -1,7 +1,7 @@
 <nav class=" Looop_navbar navbar navbar-expand-lg navbar-dark bg-primary ">
   <div class="Looop_container Looop_nav_container container ">
     <div class="logo_header col-4 Looop_nav_col ">
-        <a class=" logo_title navbar-brand" href="javascript:void(0)">Looop</a>
+        <a class=" logo_title navbar-brand"routerLink="/landing">Looop</a>
     </div>
     <div class="col-8 text-right Looop_nav_col row ">
       <div class=" col-12">
@@ -10,7 +10,7 @@
             {{profile?.firstName}} {{profile?.lastName}}
           </button>
           <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-            <button routerLink="/landing"  ngbDropdownItem>Landing</button>
+            <button routerLink="/landing"  ngbDropdownItem>Home</button>
             <button routerLink="/profile" ngbDropdownItem>Profile</button>
             <button  (click)="logOff()" ngbDropdownItem>Log Off</button>
           </div>

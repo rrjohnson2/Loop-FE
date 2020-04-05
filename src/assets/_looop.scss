@@ -116,6 +116,18 @@ p  {
     color: $primary !important;
   }
 a:hover{
+    cursor: pointer;
     color: $primary !important;
+}
+.profile-pic{
+    font-size: 15vh !important;
+}
+.Looop_underline{
+    border-bottom: solid .1vh;
+}
+
+.caption {
+    font-weight: bold;
+    color: $primary;
 }
 

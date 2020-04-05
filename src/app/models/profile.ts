@@ -1,3 +1,4 @@
+
 import { Preference } from "./preference";
 import { Idea } from "./idea";
 import { Message } from "./message";
@@ -12,6 +13,7 @@ export class Profile {
     lastName: string= '';
     preferences: Preference[]=[];
     username: string= '';
+    profilePicture:string;
 
     constructor(
         created_ideas: Idea[],
@@ -21,17 +23,19 @@ export class Profile {
         firstName: string,
         lastName: string,
         preferences: Preference[],
-        username: string
+        username: string,
+        profilePicture:string
     )
     {
         this.created_ideas = created_ideas;
-        this.created_messages = created_messages
-        this.created_retorts = created_retorts 
-        this.email = email
-        this.firstName = firstName
-        this.lastName = lastName
-        this.preferences = preferences
-        this.username = username
+        this.created_messages = created_messages;
+        this.created_retorts = created_retorts ;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.preferences = preferences;
+        this.username = username;
+        this.profilePicture = profilePicture;
 
     }
 }

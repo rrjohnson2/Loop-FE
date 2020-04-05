@@ -1,0 +1,27 @@
+<div class="row Looop_underline">
+
+  <div class="col-3 " id="profilePicture">
+
+  <a  placement="bottom" ngbTooltip="Change Profile Pictue">
+    <div *ngIf="profile?.profilePicture  != null ; else stock">
+        ProfilePicture
+    </div>
+      
+    <ng-template #stock>
+      <span class="material-icons profile-pic">
+        account_circle
+      </span>
+    </ng-template>
+  </a>
+
+  <label placement="right" ngbTooltip="Change Username" class="caption" >
+      {{profile?.username | uppercase  }}
+  </label>
+
+  </div>
+  
+  <div class="col-9">
+    other shits
+  </div>
+  
+</div>
