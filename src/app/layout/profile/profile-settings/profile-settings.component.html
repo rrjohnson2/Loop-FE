@@ -1,25 +1,25 @@
 <div class="row Looop_underline">
 
-  <div class="col-3 " id="profilePicture">
+  <div class="col-4 row " id="profilePicture">
 
-  <a  (click)="openUploadModal()" placement="bottom" ngbTooltip="Change Profile Pictue">
+  <a class="col-12 row " (click)="openUploadModal()">
     <div *ngIf="profile?.profilePicture  != null ; else stock">
-        <img [src]="render_profile" class="Looop_big_profile">
+        <img placement="right" ngbTooltip="Change Profile Pictue" [src]="render_profile" class="Looop_big_profile">
     </div>
       
     <ng-template #stock>
-      <span class="material-icons profile-pic">
+      <span placement="right" ngbTooltip="Change Profile Pictue" class="material-icons profile-pic">
         account_circle
       </span>
     </ng-template>
   </a>
 
-  <label placement="right" ngbTooltip="Change Username" class="caption" >
-      {{profile?.username | uppercase  }}
-  </label>
+  <div class="col-12 row justify-content-center " >
+      <span  placement="right" ngbTooltip="Change Username" class="caption">{{profile?.username |uppercase}}</span>
+  </div>
   </div>
   
-  <div class="col-9">
+  <div class="col-8">
     other shits
   </div>
   
