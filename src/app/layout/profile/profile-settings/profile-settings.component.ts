@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
 import { ProfileSettingsService } from './profile-settings.service';
-import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { UploadImageModalComponent } from './upload-image-modal/upload-image-modal.component';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { LayoutService } from '../../layout.service';
+import { UIService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-profile-settings',
@@ -16,61 +17,51 @@ export class ProfileSettingsComponent implements OnInit {
   @Input() profile:Profile;
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @ViewChild(UploadImageModalComponent) upload_image: UploadImageModalComponent
-  constructor(private profileSettings:ProfileSettingsService, private formBuilder:FormBuilder) { }
 
-  contact_open:boolean;
-  contacts_values=
-  [
-    {
-      name:"firstName",
-      ind:0
-    },
-    {
-      name:"lastName",
-      ind:1
-    },
-    {
-      name:"email",
-      ind:2
-    },
-    
-  ]
-  contactForm:FormGroup;
+  preForm:FormGroup;
+  focuses=[];
+  pre_open:boolean;
+  constructor(private profileSettings:ProfileSettingsService,
+     private layout:LayoutService,
+     private uiService:UIService) { }
+
+  
 
 
   ngOnInit() {
-    this.initForms()
+    this.preForm = new FormGroup({});
+    this.layout.focus.subscribe(
+      (data) =>
+      {
+        var arry = [];
+        arry = data;
+        for(var i=0; i<arry.length;i++)
+        {
+          this.focuses .push(
+            {
+              name: arry[i]
+            }
+          )
+        }
+        this.createForm();
+      }
+      
+    );
+  }
+
+  createForm()
+  {
+    this.preForm = new FormGroup({
+      categories: this.uiService.render(this.focuses)
+    });
   }
 
   toggle(value)
   {
-    if(value =='contact')
-    {
-      this.contact_open = !this.contact_open;
-      return;
-    }
+    if(value == "prefernence") this.pre_open = ! this.pre_open;
   }
 
-  initForms()
-  {
-    this.initContact();
-  }
-
-  initContact()
-  {
-    this.contactForm = new FormGroup(
-      {
-        contacts : this.render(this.contacts_values)
-      }
-    )
-  }
-  render(list: { name: string; }[]): import("@angular/forms").AbstractControl {
-    const array = list.map(item=> 
-      {
-          return  this.formBuilder.control(null);
-      });
-      return this.formBuilder.control(array);
-  }
+  
   
   openUploadModal()
   {
@@ -85,8 +76,8 @@ export class ProfileSettingsComponent implements OnInit {
   {
     this.alert_ticket.emit(event);
   }
-  get contacts(){
-    return this.contactForm.get("contacts");
+  get categories(){
+    return this.preForm.get("categories");
   }
 
 }

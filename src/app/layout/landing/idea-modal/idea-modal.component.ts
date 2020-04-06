@@ -1,15 +1,15 @@
 import { Component, OnInit, Output, Input, EventEmitter, ContentChild, TemplateRef, ElementRef, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Idea } from 'src/app/models/idea';
 import { UIService } from 'src/app/services/ui.service';
-import { ShareIdeaService } from '../share-idea/share-idea.service';
 import { Focus } from 'src/app/models/focus';
 import { LayoutService } from '../../layout.service';
 
 @Component({
   selector: 'app-idea-modal',
   templateUrl: './idea-modal.component.html',
-  styleUrls: ['./idea-modal.component.sass']
+  styleUrls: ['./idea-modal.component.sass'],
+  providers:[UIService]
 })
 export class IdeaModalComponent implements OnInit {
 
@@ -25,7 +25,7 @@ export class IdeaModalComponent implements OnInit {
 
   
 
-  constructor(private uiService:UIService,private layout:LayoutService , private formBuilder:FormBuilder) {
+  constructor(private uiService:UIService,private layout:LayoutService ) {
     
   }
 
@@ -63,7 +63,7 @@ export class IdeaModalComponent implements OnInit {
             [
               Validators.required
             ]),
-          categories: this.renderCategories(this.focuses)
+          categories: this.uiService.render(this.focuses)
       }
     );
     
@@ -79,7 +79,7 @@ export class IdeaModalComponent implements OnInit {
           [
             Validators.required
           ]),
-        categories: this.renderCategories(this.focuses)
+        categories: this.uiService.render(this.focuses)
     }
   );
   
@@ -136,16 +136,6 @@ export class IdeaModalComponent implements OnInit {
        break;
    }
     
- }
- private renderCategories(categories)
- { 
-   const arry = categories.map(
-     category =>
-     {
-       return this.formBuilder.control(null);
-     }
-   );
-   return this.formBuilder.control(arry);
  }
  get categories() {
    return this.ideaForm.get('categories');

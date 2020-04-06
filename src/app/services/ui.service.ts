@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class UIService {
 
   private closeResult:string;
   
-  constructor(private modalService:NgbModal) { }
+  constructor(private modalService:NgbModal, private  formBuilder:FormBuilder) { }
 
   dismissAll() {
    this.modalService.dismissAll();
@@ -59,6 +60,14 @@ bringInView(child_id,parent_id) {
         behavior: 'smooth'
     })
     
+  }
+
+  render(list: { name: string; }[]): import("@angular/forms").AbstractControl {
+    const array = list.map(item=> 
+      {
+          return  this.formBuilder.control(null);
+      });
+      return this.formBuilder.control(array);
   }
 
 }

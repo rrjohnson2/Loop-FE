@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { Idea } from 'src/app/models/idea';
 import { Profile } from 'src/app/models/profile';
@@ -16,7 +16,8 @@ import { LayoutService } from '../../layout.service';
 @Component({
   selector: 'app-share-idea',
   templateUrl: './share-idea.component.html',
-  styleUrls: ['./share-idea.component.css']
+  styleUrls: ['./share-idea.component.css'],
+  providers:[UIService]
 })
 export class ShareIdeaComponent implements OnInit {
   ideaForm:FormGroup;
@@ -31,8 +32,7 @@ export class ShareIdeaComponent implements OnInit {
   @Input() public profile:Profile;
 
 
-  constructor(private uiService:UIService,private share_ideaService:ShareIdeaService ,
-     private formBuilder:FormBuilder, private globalService:GlobalService,
+  constructor(private uiService:UIService,private share_ideaService:ShareIdeaService , private globalService:GlobalService,
      private layout:LayoutService) {
     
    }
@@ -68,7 +68,7 @@ export class ShareIdeaComponent implements OnInit {
             [
               Validators.required
             ]),
-          categories: this.renderCategories(this.focuses)
+          categories: this.uiService.render(this.focuses)
       }
     );
   }
@@ -150,17 +150,6 @@ export class ShareIdeaComponent implements OnInit {
 
   return temp;
 }
-
- private renderCategories(categories)
- { 
-   const arry = categories.map(
-     category =>
-     {
-       return this.formBuilder.control(null);
-     }
-   );
-   return this.formBuilder.control(arry);
- }
 
  get categories() {
    return this.ideaForm.get('categories');

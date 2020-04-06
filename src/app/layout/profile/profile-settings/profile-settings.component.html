@@ -19,13 +19,21 @@
   </div>
   </div>
 
-  <div class="col-6 row">
-    <div class="col-12">
-      <legend class="Looop_underline">
-        Preferences
-      </legend>
+<div class="col-6 row">
+    <div class="col-12 card">
+      <div class="card-header">
+            <a (click)="toggle('prefernence')" placement="right" ngbTooltip="Change Preferences"> Preference</a>
+      </div>
+        <!-- <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
+          <div *ngIf="pre_open" class="card-body  ">      
+                    <div class="col-4"  *ngFor="let cate of categories?.value; let i =index">
+                        <input [formControl]="cate"  id={{focuses[i].name}} type="checkbox" unchecked>
+                        <small>{{focuses[i].name}}</small>
+                    </div> 
+          </div>
+        </form> -->
     </div>
-  </div>
+  </div> 
   
 </div>
 

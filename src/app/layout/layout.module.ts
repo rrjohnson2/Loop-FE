@@ -74,6 +74,6 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     IdeaCardService,
     RetortCardService,
     ProfileSettingsService,
-  UploadImageModalService]
+    UploadImageModalService]
 })
 export class LayoutModule { }
