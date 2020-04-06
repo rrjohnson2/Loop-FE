@@ -1,7 +1,7 @@
 export class Preference {
-    private category:string;
-    private weight: number;
-    private id:number
+     category:string;
+     weight: number;
+     id:number
 
     /**
      * Preference

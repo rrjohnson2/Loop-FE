@@ -1,8 +1,8 @@
-<div class="row Looop_underline">
+<div class="row profile-setting Looop_underline">
 
-  <div class="col-6 row " id="profilePicture">
+  <div class="col-4 row " id="profilePicture">
 
-  <a class="col-12 row " (click)="openUploadModal()">
+  <a (click)="openUploadModal()">
     <div *ngIf="profile?.profilePicture  != null ; else stock">
         <img placement="right" ngbTooltip="Change Profile Pictue" [src]="render_profile" class="Looop_big_profile">
     </div>
@@ -13,25 +13,30 @@
       </span>
     </ng-template>
   </a>
+  <span class="caption">{{profile?.username |uppercase}}</span>
 
-  <div class="col-12 row " >
-      <span class="caption">{{profile?.username |uppercase}}</span>
-  </div>
   </div>
 
-<div class="col-6 row">
-    <div class="col-12 card">
-      <div class="card-header">
-            <a (click)="toggle('prefernence')" placement="right" ngbTooltip="Change Preferences"> Preference</a>
-      </div>
-        <!-- <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
-          <div *ngIf="pre_open" class="card-body  ">      
-                    <div class="col-4"  *ngFor="let cate of categories?.value; let i =index">
-                        <input [formControl]="cate"  id={{focuses[i].name}} type="checkbox" unchecked>
-                        <small>{{focuses[i].name}}</small>
-                    </div> 
+<div class="col-8 row">
+    <div class="col-12">
+      <div class="card">
+        <a (click)="toggle('prefernence')" class="card-header" placement="right" ngbTooltip="Change Preferences">
+           Preference
+        </a>
+        <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
+          <div *ngIf="pre_open">
+              <div class="row card-body">  
+                <div class="col-4"  *ngFor="let cate of categories?.value; let i =index">
+                    <input [formControl]="cate"  id={{focuses[i].name}} type="checkbox" unchecked>
+                    <small>{{focuses[i].name}}</small>
+                </div>
+                  <div class="col-12 text-right">
+                    <button type="submmit">Update</button>
+                </div>
+              </div>
           </div>
-        </form> -->
+        </form>
+      </div>
     </div>
   </div> 
   

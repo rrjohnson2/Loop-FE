@@ -62,10 +62,11 @@ bringInView(child_id,parent_id) {
     
   }
 
-  render(list: { name: string; }[]): import("@angular/forms").AbstractControl {
+  render(list): import("@angular/forms").AbstractControl {
     const array = list.map(item=> 
       {
-          return  this.formBuilder.control(null);
+          if(item.init !=null) return  this.formBuilder.control(item.init);
+          return   this.formBuilder.control(null);
       });
       return this.formBuilder.control(array);
   }
