@@ -1,6 +1,6 @@
 <div class="row Looop_underline">
 
-  <div class="col-4 row " id="profilePicture">
+  <div class="col-6 row " id="profilePicture">
 
   <a class="col-12 row " (click)="openUploadModal()">
     <div *ngIf="profile?.profilePicture  != null ; else stock">
@@ -14,13 +14,17 @@
     </ng-template>
   </a>
 
-  <div class="col-12 row justify-content-center " >
-      <span  placement="right" ngbTooltip="Change Username" class="caption">{{profile?.username |uppercase}}</span>
+  <div class="col-12 row " >
+      <span class="caption">{{profile?.username |uppercase}}</span>
   </div>
   </div>
-  
-  <div class="col-8">
-    other shits
+
+  <div class="col-6 row">
+    <div class="col-12">
+      <legend class="Looop_underline">
+        Preferences
+      </legend>
+    </div>
   </div>
   
 </div>
