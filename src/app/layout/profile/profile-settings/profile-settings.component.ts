@@ -6,6 +6,9 @@ import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { FormGroup } from '@angular/forms';
 import { LayoutService } from '../../layout.service';
 import { UIService } from 'src/app/services/ui.service';
+import { Preference } from 'src/app/models/preference';
+import { Ticket } from 'src/app/interfaces/ticket';
+import { Actions } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-profile-settings',
@@ -42,7 +45,7 @@ export class ProfileSettingsComponent implements OnInit {
 
   toggle(value)
   {
-    if(value == "prefernence") 
+    if(value == "preference") 
     {
       this.pre_open = ! this.pre_open
       if(!this.pre_pop) this.popPref();
@@ -59,15 +62,16 @@ export class ProfileSettingsComponent implements OnInit {
         for(var i=0; i<arry.length;i++)
         {
           var hasPref = false;
-          if(this.profile.preferences.findIndex(pre => pre.category == arry[i]) != -1 && count < this.profile.preferences.length) 
+          var index = this.profile.preferences.findIndex(pre => pre.category == arry[i]);
+          if( index != -1 && count < this.profile.preferences.length) 
           {
-            hasPref =true
+            hasPref =true;
             count++;
           }
           this.focuses .push(
             {
               name: arry[i],
-              init: hasPref 
+              init: hasPref,
             }
           )
         }
@@ -95,6 +99,47 @@ export class ProfileSettingsComponent implements OnInit {
   }
   get categories(){
     return this.preForm.get("categories");
+  }
+
+  updatePreference(){
+
+    var ticket:Ticket ={
+      customer:this.profile.username,
+      data: this.populateCategories()
+    }
+    this.profileSettings.updatePreference(ticket).subscribe(data => {
+      this.profile.preferences =  this.stripPref(data);
+      this.alert_ticket.emit({
+        action_attempted: Actions.update,
+        msg: "Update Worked",
+        type:'success'
+      });
+      this.toggle('preference');
+    },
+    error =>{
+        this.alert_ticket.emit({
+          action_attempted: Actions.update,
+          msg: "Update failed",
+          type:'danger'
+        });
+    });
+  }
+  private stripPref(data): Preference[] {
+      return  <Preference[]> data;
+  }
+  private populateCategories(): Preference[] {
+    var temp:Preference[] =[]
+    var controls=[]
+    controls = this.categories.value;
+    console.log(this.categories);
+    for (var i =0; i< controls.length; i++ ) {
+      if (controls[i].value==true) {
+          temp.push(new Preference(this.focuses[i].name,null,null));
+          console.log(temp)
+      }
+    }
+  
+    return temp;
   }
 
 }

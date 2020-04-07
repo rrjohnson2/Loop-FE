@@ -10,7 +10,8 @@ export enum Actions {
   logOff,
   login,
   signup,
-  shareIdea
+  shareIdea,
+  update
 }
 
 export enum PillType{
