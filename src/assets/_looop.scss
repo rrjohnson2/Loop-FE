@@ -129,7 +129,7 @@ a:hover{
 .caption {
     font-weight: bold;
     color: $primary;
-    
+    font-size: 2vh;
 }
 .cropper{
     
@@ -144,10 +144,13 @@ a:hover{
 .upload_row{
     padding-right: 0 !important;
 }
-.under_image{
-    
+.image_col{
+    max-height: 10vh;
 }
 .profile-setting{
     min-height: 30vh !important;
+}
+.Looop_small{
+    font-size: .5vw;
 }
 

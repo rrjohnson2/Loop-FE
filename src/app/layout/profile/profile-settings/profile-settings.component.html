@@ -1,34 +1,53 @@
 <div class="row profile-setting Looop_underline">
 
   <div class="col-4 row " id="profilePicture">
-
-  <a (click)="openUploadModal()">
-    <div *ngIf="profile?.profilePicture  != null ; else stock">
-        <img placement="right" ngbTooltip="Change Profile Pictue" [src]="render_profile" class="Looop_big_profile">
+    <div class="col-6">
+      <a (click)="openUploadModal()">
+        <div *ngIf="profile?.profilePicture  != null ; else stock">
+            <img placement="right" ngbTooltip="Change Profile Pictue" [src]="render_profile" class="Looop_big_profile">
+        </div>
+          
+        <ng-template #stock>
+          <span placement="right" ngbTooltip="Change Profile Pictue" class="material-icons profile-pic">
+            account_circle
+          </span>
+        </ng-template>
+      </a>
     </div>
-      
-    <ng-template #stock>
-      <span placement="right" ngbTooltip="Change Profile Pictue" class="material-icons profile-pic">
-        account_circle
-      </span>
-    </ng-template>
-  </a>
-  <span class="caption">{{profile?.username |uppercase}}</span>
+      <span class="caption">{{profile?.username |uppercase}}</span>
 
+  
   </div>
 
-<div class="col-8 row">
+  <div class="col-4 row">
     <div class="col-12">
       <div class="card">
-        <a (click)="toggle('preference')" class="card-header" placement="right" ngbTooltip="Change Preferences">
+        <a class="card-header" placement="bottom" ngbTooltip="Update Contact Info">
+          Contact Info
+        </a>
+    </div>
+    </div>
+    <div class="col-12">
+      <div class="card">
+        <a  class="card-header" placement="bottom" ngbTooltip="Update Account Info">
+          Account Info
+        </a>
+      </div>
+    </div>
+  </div>
+
+<div class="col-4 row">
+    <div class="col-12">
+      <div class="card">
+        <a (click)="toggle('preference')" class="card-header" placement="right" ngbTooltip="Update Preferences">
            Preference
         </a>
         <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
           <div *ngIf="pre_open">
               <div class="row card-body">  
-                <div class="col-4"  *ngFor="let cate of categories?.value; let i =index">
+                <div class="col-6"  *ngFor="let cate of categories?.value; let i =index">
                     <input [formControl]="cate"  id={{focuses[i].name}} type="checkbox" unchecked>
-                    <small>{{focuses[i].name}}</small>
+                    <small class="Looop_small">{{focuses[i].name}}</small>
                 </div>
                   <div class="col-12 text-right">
                     <button type="submmit">Update</button>
