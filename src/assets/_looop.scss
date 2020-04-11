@@ -6,11 +6,11 @@ $navbar-height : 5vh;
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: $gray-200; 
+    background: $gray-100; 
   }
    
 .layout{
-     background-color: $gray-200;
+     background-color: $gray-100;
      height: 100%;
      width: 100%;
      font-size:  1vw!important;
@@ -19,17 +19,9 @@ $navbar-height : 5vh;
     padding: 0 !important ;
 }
 .Looop_navbar{
-   // position: fixed;
-    width: 100vw;
+    margin-bottom: 3vh;
+    border-bottom: .01vh solid $gray-300;
 }
-.Looop_navbar, .Looop_navbar_login{
-    margin-top: 0 !important;
-}
-
-.Looop_navbar_login{
-    margin-bottom: 5%;
-}
-
 
 .Looop_col{
     // border-right: solid .25vh $gray-300;
@@ -45,7 +37,7 @@ $navbar-height : 5vh;
     padding: 0 !important;
 
 }
-.logo_header, .login_form, .signup_input, .login_root {
+ .login_form, .signup_input, .login_root {
     padding-left:0 !important; 
 }
 
@@ -94,12 +86,7 @@ p  {
     font-size: inherit !important;
 }
 
-.alert-container{
-    //  position: relative;
-}
-.alert{
-    //position: absolute;
-}
+
 .Looop-textarea{
     width:100%;
 	box-sizing:border-box;
@@ -152,5 +139,17 @@ a:hover{
 }
 .Looop_small{
     font-size: .5vw;
+}
+
+.logo_img{
+    width: 5vw;
+    height: auto;
+}
+.loop_btn_primary{
+    background-color: $primary;
+}
+.loop_btn_secondary{
+    
+    background-color: $primary;
 }
 
