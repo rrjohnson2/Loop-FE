@@ -25,10 +25,12 @@ export class ActivitiesComponent implements OnInit {
         {
           this.focuses .push(
             {
-              name: arry[i]
+              name: arry[i],
+              src : `assets/loop_icons/${arry[i]}.png`
             }
           )
         }
+        console.log(this.focuses);
       }
       
     );
