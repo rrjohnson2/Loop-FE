@@ -135,7 +135,7 @@ a:hover{
     max-height: 10vh;
 }
 .profile-setting{
-    min-height: 30vh !important;
+    min-height: 40vh !important;
 }
 .Looop_small{
     font-size: .5vw;
@@ -146,14 +146,24 @@ a:hover{
     height: auto;
 }
 .loop_icon{
-    width : 3vw;
+    width : 1.5vw;
     height: auto;
 }
 .loop_btn_primary{
     background-color: $primary;
 }
 .loop_btn_secondary{
-    
     background-color: $primary;
 }
+.check_box{
+    display: none;
+}
+.check_box + label{
+}
+
+.check_box:checked + label{
+    background-color: $gray-300;
+    color: $primary;
+}
+
 

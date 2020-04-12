@@ -22,10 +22,11 @@
                           <fieldset>      
                             <legend>Relevant Categories</legend> 
                             <div *ngFor="let cate of categories.value; let i =index" _ngcontent-c5="" class="custom-control custom-checkbox mb-3">
-                                <input [formControl]="cate" class="custom-control-input" id={{focuses[i].name}} type="checkbox" unchecked>
-                                <label class="custom-control-label" for={{focuses[i].name}}>
-                                  <span>{{focuses[i].name}}</span>
-                                </label>
+                                <input [formControl]="cate" class="check_box" id="{{focuses[i].name}}IM" type="checkbox" unchecked>
+                                <label for="{{focuses[i].name}}IM">
+                                  <app-icon [preference]= "focuses[i]"></app-icon>
+                                  <small> {{focuses[i].name}}</small>
+                              </label>
                               </div> 
                           </fieldset>  
                         </div>

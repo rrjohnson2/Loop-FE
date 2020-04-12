@@ -19,24 +19,24 @@
   
   </div>
 
-  <div class="col-4 row">
+  <div class="col-2 row">
     <div class="col-12">
       <div class="card">
         <a class="card-header" placement="bottom" ngbTooltip="Update Contact Info">
-          Contact Info
+          Contact
         </a>
     </div>
     </div>
     <div class="col-12">
       <div class="card">
         <a  class="card-header" placement="bottom" ngbTooltip="Update Account Info">
-          Account Info
+          Account
         </a>
       </div>
     </div>
   </div>
 
-<div class="col-4 row">
+<div class="col-6 row">
     <div class="col-12">
       <div class="card">
         <a (click)="toggle('preference')" class="card-header" placement="right" ngbTooltip="Update Preferences">
@@ -46,8 +46,11 @@
           <div *ngIf="pre_open">
               <div class="row card-body">  
                 <div class="col-6"  *ngFor="let cate of categories?.value; let i =index">
-                    <input [formControl]="cate"  id={{focuses[i].name}} type="checkbox" unchecked>
-                    <small class="Looop_small">{{focuses[i].name}}</small>
+                    <input [formControl]="cate"  class="check_box"  id={{focuses[i].name}} type="checkbox" unchecked>
+                    <label for="{{focuses[i].name}}">
+                      <app-icon [preference]= "focuses[i]"></app-icon>
+                      <small> {{focuses[i].name}}</small>
+                  </label>
                 </div>
                   <div class="col-12 text-right">
                     <button type="submmit">Update</button>

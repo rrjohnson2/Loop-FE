@@ -72,6 +72,7 @@ export class ProfileSettingsComponent implements OnInit {
             {
               name: arry[i],
               init: hasPref,
+              src : `assets/loop_icons/${arry[i]}.png`
             }
           )
         }
