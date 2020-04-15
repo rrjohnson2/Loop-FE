@@ -13,6 +13,8 @@
           </span>
         </ng-template>
       </a>
+    </div>
+    <div class="col-6">
       <span class="caption text-center">{{profile?.username |uppercase}}</span>
     </div>
       
@@ -23,16 +25,23 @@
   <div class="col-4 row">
     <div class="col-12">
       <div class="card">
-        <a class="card-header" placement="bottom" ngbTooltip="Update Contact Info">
+        <a (click)="openCard('contact')" class="card-header" placement="bottom" ngbTooltip="Update Contact Info">
           Contact
         </a>
+        <div *ngIf="contact_open" class="card-body">
+          info
+        </div>
     </div>
     </div>
     <div class="col-12">
       <div class="card">
-        <a  class="card-header" placement="bottom" ngbTooltip="Update Account Info">
+        <a (click)="openCard('account')"  class="card-header" placement="bottom" ngbTooltip="Update Account Info">
           Account
         </a>
+        
+        <div *ngIf="account_open" class="card-body">
+          acount
+        </div>
       </div>
     </div>
   </div>
@@ -46,11 +55,10 @@
         <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
           <div *ngIf="pre_open">
               <div class="row card-body">  
-                <div class="col-6"  *ngFor="let cate of categories?.value; let i =index">
+                <div class="col-2"  *ngFor="let cate of categories?.value; let i =index">
                     <input [formControl]="cate"  class="check_box"  id={{focuses[i].name}} type="checkbox" unchecked>
                     <label for="{{focuses[i].name}}">
                       <app-icon [preference]= "focuses[i]"></app-icon>
-                      <small> {{focuses[i].name}}</small>
                   </label>
                 </div>
                   <div class="col-12 text-right">

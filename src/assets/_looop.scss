@@ -134,7 +134,7 @@ a:hover{
     max-height: 10vh;
 }
 .profile-setting{
-    min-height: 40vh !important;
+    min-height: 10vw !important;
 }
 .Looop_small{
     font-size: .5vw;
@@ -156,8 +156,6 @@ a:hover{
 }
 .check_box{
     display: none;
-}
-.check_box + label{
 }
 
 .check_box:checked + label{

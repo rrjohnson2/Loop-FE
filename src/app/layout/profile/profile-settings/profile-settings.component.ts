@@ -9,6 +9,7 @@ import { UIService } from 'src/app/services/ui.service';
 import { Preference } from 'src/app/models/preference';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { Actions } from 'src/app/constants/app.constants';
+import { isFormattedError } from '@angular/compiler';
 
 @Component({
   selector: 'app-profile-settings',
@@ -25,6 +26,9 @@ export class ProfileSettingsComponent implements OnInit {
   focuses=[];
   pre_open:boolean;
   pre_pop:boolean;
+
+  contact_open:boolean;
+  account_open:boolean;
   constructor(private profileSettings:ProfileSettingsService,
      private layout:LayoutService,
      private uiService:UIService) { }
@@ -142,6 +146,12 @@ export class ProfileSettingsComponent implements OnInit {
     }
   
     return temp;
+  }
+
+  openCard(val)
+  {
+    if(val == 'contact')this.contact_open = !this.contact_open;
+    else if(val == 'account') this.account_open = !this.account_open;
   }
 
 }
