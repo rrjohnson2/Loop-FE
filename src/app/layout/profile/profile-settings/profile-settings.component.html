@@ -2,7 +2,7 @@
 
   <div class="col-4 row " id="profilePicture">
     <div class="col-6">
-      <a (click)="openUploadModal()">
+      <a (click)="openModal('img')">
         <div *ngIf="profile?.profilePicture  != null ; else stock">
             <img placement="right" ngbTooltip="Change Profile Pictue" [src]="render_profile" class="Looop_big_profile">
         </div>
@@ -29,7 +29,20 @@
           Contact
         </a>
         <div *ngIf="contact_open" class="card-body">
-          info
+          <div class="loop_edit">{{profile?.firstName |uppercase}}
+            <a (click)="openModal('first')"> 
+              <span class="material-icons icon">
+                edit
+              </span>
+            </a>
+          </div>
+          <div class="loop_edit">{{profile?.lastName |uppercase}}
+            <a (click)="openModal('last')"> 
+              <span class="material-icons icon">
+                edit
+              </span>
+            </a>
+          </div>
         </div>
     </div>
     </div>
@@ -40,7 +53,14 @@
         </a>
         
         <div *ngIf="account_open" class="card-body">
-          acount
+          <div class="loop_edit">{{profile?.email |uppercase}}
+            <a (click)="openModal('email')"> 
+              <span class="material-icons icon">
+                edit
+              </span>
+            </a>
+          </div>
+          <a class="">Change Password</a>
         </div>
       </div>
     </div>

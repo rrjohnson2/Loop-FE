@@ -162,8 +162,16 @@ a:hover{
     background-color: $gray-300;
     color: $primary;
 }
-.stock_picture{
+.icon{
     font-size: 1vw !important;
+}
+
+.loop_edit a span.icon {
+    visibility: hidden;
+}
+
+.loop_edit:hover a span.icon {
+    visibility: visible;
 }
 
 

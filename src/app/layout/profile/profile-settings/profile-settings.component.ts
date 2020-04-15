@@ -89,9 +89,9 @@ export class ProfileSettingsComponent implements OnInit {
 
   
   
-  openUploadModal()
+  openModal(val:string)
   {
-    this.upload_image.open();
+    if(val =='img') this.upload_image.open();
   }
 
   get render_profile()
