@@ -74,7 +74,8 @@ upload()
       data =>{
         var ticket:Ticket = {
           customer: this.profile.username,
-          data: this.coded
+          data: this.coded,
+          update_reason:"PICTURE"
         }
         this.uploadService.updatePicture(ticket).subscribe(
           data =>

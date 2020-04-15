@@ -12,6 +12,6 @@ export class ProfileSettingsService {
   constructor(private http:HttpClient) { }
 
   updatePreference(ticket:Ticket) {
-    return this.http.post(backend_url+"updatePreference",ticket);
+    return this.http.post(backend_url+"update",ticket);
   }
 }

@@ -51,7 +51,7 @@ $navbar-height : 5vh;
 
 .ideas_body{
    overflow-y: scroll;
-   height: 95vh;
+   height: 90vh;
 }
 .Looop_card
 {
@@ -107,7 +107,7 @@ a:hover{
     color: $primary !important;
 }
 .profile-pic{
-    font-size: 15vh !important;
+    font-size: 5vw !important;
 }
 .Looop_underline{
     border-bottom: solid .1vh;
@@ -116,7 +116,6 @@ a:hover{
 .caption {
     font-weight: bold;
     color: $primary;
-    font-size: 2vh;
 }
 .cropper{
     
@@ -164,6 +163,9 @@ a:hover{
 .check_box:checked + label{
     background-color: $gray-300;
     color: $primary;
+}
+.stock_picture{
+    font-size: 1vw !important;
 }
 
 

@@ -13,13 +13,14 @@
           </span>
         </ng-template>
       </a>
+      <span class="caption text-center">{{profile?.username |uppercase}}</span>
     </div>
-      <span class="caption">{{profile?.username |uppercase}}</span>
+      
 
   
   </div>
 
-  <div class="col-2 row">
+  <div class="col-4 row">
     <div class="col-12">
       <div class="card">
         <a class="card-header" placement="bottom" ngbTooltip="Update Contact Info">
@@ -36,7 +37,7 @@
     </div>
   </div>
 
-<div class="col-6 row">
+<div class="col-4 row">
     <div class="col-12">
       <div class="card">
         <a (click)="toggle('preference')" class="card-header" placement="right" ngbTooltip="Update Preferences">

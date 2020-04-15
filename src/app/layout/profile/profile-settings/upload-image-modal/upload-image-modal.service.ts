@@ -19,6 +19,6 @@ export class UploadImageModalService {
     return this.http.post(image_server_url +"upload_profile_picture",formData);
   }
   updatePicture(ticket:Ticket) {
-    return this.http.post(backend_url+"updatePicture",ticket);
+    return this.http.post(backend_url+"update",ticket);
   }
 }

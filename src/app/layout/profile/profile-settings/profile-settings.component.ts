@@ -106,7 +106,8 @@ export class ProfileSettingsComponent implements OnInit {
 
     var ticket:Ticket ={
       customer:this.profile.username,
-      data: this.populateCategories()
+      data: this.populateCategories(),
+      update_reason:"PREFERENCES"
     }
     this.profileSettings.updatePreference(ticket).subscribe(data => {
       this.profile.preferences =  this.stripPref(data);
