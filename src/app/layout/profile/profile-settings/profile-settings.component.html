@@ -15,7 +15,13 @@
       </a>
     </div>
     <div class="col-6">
-      <span class="caption text-center">{{profile?.username |uppercase}}</span>
+      <div class="caption loop_edit">{{profile?.username |uppercase}}
+        <a (click)="openModal('username')"> 
+          <span class="material-icons icon">
+            edit
+          </span>
+        </a>
+      </div>
     </div>
       
 
