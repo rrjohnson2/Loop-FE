@@ -1,0 +1,39 @@
+<div class="modal">
+  <ng-template #classic1 let-c="close" let-d="dismiss">
+    <h5 class="modal-title">Update {{reason | titlecase}} ~ {{message | titlecase}}</h5>
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5 ">
+              <form [formGroup]="updateForm">
+                <div *ngIf="reason== 'PASSWORD' ; else USERNAME">
+                  <input formControlName="old_password" type="password" placeholder="Old Password...">
+                  <input formControlName="target" type="password" placeholder="New Password...">
+                  <input formControlName="confirmed" type="password" placeholder="New Password Confirm...">
+                </div>
+                <ng-template #USERNAME>
+                  <div *ngIf="reason== 'USERNAME';else FIRSTNAME">
+                    <input formControlName="target" type="text" placeholder="New Username...">
+                  </div>
+                </ng-template>
+                <ng-template #FIRSTNAME>
+                  <div *ngIf="reason== 'FIRSTNAME';else LASTNAME">
+                    <input formControlName="target" type="text" placeholder="New Firstname...">
+                  </div>
+                </ng-template>
+                <ng-template #LASTNAME>
+                  <div *ngIf="reason== 'LASTNAME';else EMAIL">
+                    <input formControlName="target" type="text" placeholder="New Lastnname...">
+                  </div>
+                </ng-template>
+                <ng-template #EMAIL>
+                  <input formControlName="target" type="email" placeholder="New Email...">
+                  <input formControlName="confirmed" type="email" placeholder="New Email Confirm...">
+                </ng-template>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

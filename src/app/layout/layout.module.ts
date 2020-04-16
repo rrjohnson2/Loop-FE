@@ -33,6 +33,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { UploadImageModalComponent } from './profile/profile-settings/upload-image-modal/upload-image-modal.component';
 import { UploadImageModalService } from './profile/profile-settings/upload-image-modal/upload-image-modal.service';
 import { IconComponent } from './icon/icon.component';
+import { UpdateModalComponent } from './profile/profile-settings/update-modal/update-modal.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -58,6 +59,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     ProfileSettingsComponent,
     UploadImageModalComponent,
     IconComponent,
+    UpdateModalComponent,
   ],
   imports: [
     ImageCropperModule,

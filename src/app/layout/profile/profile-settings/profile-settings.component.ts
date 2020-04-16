@@ -9,7 +9,7 @@ import { UIService } from 'src/app/services/ui.service';
 import { Preference } from 'src/app/models/preference';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { Actions } from 'src/app/constants/app.constants';
-import { isFormattedError } from '@angular/compiler';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @Component({
   selector: 'app-profile-settings',
@@ -21,6 +21,7 @@ export class ProfileSettingsComponent implements OnInit {
   @Input() profile:Profile;
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @ViewChild(UploadImageModalComponent) upload_image: UploadImageModalComponent
+  @ViewChild(UpdateModalComponent) update_modal:UpdateModalComponent
 
   preForm:FormGroup;
   focuses=[];
@@ -92,6 +93,10 @@ export class ProfileSettingsComponent implements OnInit {
   openModal(val:string)
   {
     if(val =='img') this.upload_image.open();
+    else{
+      this.update_modal.open();
+      this.update_modal.reason = val; 
+    }
   }
 
   get render_profile()
