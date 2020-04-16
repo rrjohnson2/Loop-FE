@@ -4,6 +4,7 @@ import { Profile } from 'src/app/models/profile';
 import { UIService } from 'src/app/services/ui.service';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { isBuffer } from 'util';
+import { UpdateServiceService } from './update-service.service';
 
 @Component({
   selector: 'app-update-modal',
@@ -14,9 +15,12 @@ export class UpdateModalComponent implements OnInit  {
 
   updateForm: FormGroup;
   @Input()  profile:Profile 
+  message:string;
   reason:string;
   @ViewChild('classic1') modal:ElementRef;
-  constructor(private uiService:UIService, private formBuilder:FormBuilder) { }
+  constructor(private uiService:UIService,
+     private formBuilder:FormBuilder,
+     private updateService:UpdateServiceService) { }
 
   ngOnInit() {
   }
@@ -46,34 +50,59 @@ export class UpdateModalComponent implements OnInit  {
 
   submit(){
     var frame = this.getFrame();
-    var tictket:Ticket={
+    var ticket:Ticket={
       customer: this.profile.username,
       update_reason: this.reason,
       data:frame
     };
 
+    this.updateService.update(ticket).subscribe(data=>{
+      this.updateProfile(frame);
+      this.updateForm.reset();
+      this.uiService.dismissAll();
+      this.message="";
+    },
+    error =>{
+      this.message = "Something Went Wrong";
+    }
+    );
+    
+
 
   }
 
+  private updateProfile(frame)
+  {
+    switch (this.reason) {
+      case "USERNAME":
+        this.profile.username = frame
+        localStorage.setItem("username",this.profile.username);
+        break;
+      case "EMAIL":
+        this.profile.email = frame
+        break;
+      case "FIRSTNAME":
+        this.profile.firstName = frame
+        break;
+      case "LASTNAME":
+        this.profile.lastName = frame
+        break;
+    }
+  }
+
   private getFrame(){
-    console.log("here")
+
+    var target = this.updateForm.get('target').value;
+        // tslint:disable-next-line: align
         switch (this.reason) {
           case "PASSWORD":
-
+            return {
+              old_password: this.updateForm.get('old_password').value,
+              password: target
+            }
+          default:
+            return target;
             break;
-
-          case "EMAIL":
-            
-               break;
-          case "FIRSTNAME":
-            
-                break;
-          case "LASTNAME":
-            
-                break;
-          case "USERNAME":
-            
-                  break;
         }
   }
 

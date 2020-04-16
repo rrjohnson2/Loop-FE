@@ -15,7 +15,7 @@
       </a>
     </div>
     <div class="col-6">
-      <div class="caption loop_edit">{{profile?.username |uppercase}}
+      <div class="caption loop_edit">{{profile?.username}}
         <a (click)="openModal('USERNAME')"> 
           <span class="material-icons icon">
             edit
@@ -35,14 +35,14 @@
           Contact
         </a>
         <div *ngIf="contact_open" class="card-body">
-          <div class="loop_edit">{{profile?.firstName |uppercase}}
+          <div class="loop_edit">{{profile?.firstName |titlecase}}
             <a (click)="openModal('FIRSTNAME')"> 
               <span class="material-icons icon">
                 edit
               </span>
             </a>
           </div>
-          <div class="loop_edit">{{profile?.lastName |uppercase}}
+          <div class="loop_edit">{{profile?.lastName |titlecase}}
             <a (click)="openModal('LASTNAME')"> 
               <span class="material-icons icon">
                 edit
@@ -59,7 +59,7 @@
         </a>
         
         <div *ngIf="account_open" class="card-body">
-          <div class="loop_edit">{{profile?.email |uppercase}}
+          <div class="loop_edit">{{profile?.email }}
             <a (click)="openModal('EMAIL')"> 
               <span class="material-icons icon">
                 edit
