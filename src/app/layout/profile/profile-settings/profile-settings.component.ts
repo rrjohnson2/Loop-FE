@@ -104,7 +104,7 @@ export class ProfileSettingsComponent implements OnInit {
   {
     return "http://localhost:8082/avatar?user="+this.profile.profilePicture;
   }
-  alery(event)
+  alerty(event)
   {
     this.alert_ticket.emit(event);
   }

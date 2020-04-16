@@ -100,4 +100,4 @@
 </div>
 
 <app-upload-image-modal [profile]="profile"></app-upload-image-modal>
-<app-update-modal [profile]="profile" ></app-update-modal>
+<app-update-modal (alert_ticket)="alerty($event)"  [profile]="profile" ></app-update-modal>

@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, OnChanges, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { Profile } from 'src/app/models/profile';
 import { UIService } from 'src/app/services/ui.service';
 import { Ticket } from 'src/app/interfaces/ticket';
-import { isBuffer } from 'util';
 import { UpdateServiceService } from './update-service.service';
+import { AlertTicket } from 'src/app/interfaces/alert-ticket';
+import { Actions } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-update-modal',
@@ -18,6 +19,7 @@ export class UpdateModalComponent implements OnInit  {
   message:string;
   reason:string;
   @ViewChild('classic1') modal:ElementRef;
+  @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   constructor(private uiService:UIService,
      private formBuilder:FormBuilder,
      private updateService:UpdateServiceService) { }
@@ -74,6 +76,14 @@ export class UpdateModalComponent implements OnInit  {
   private updateProfile(frame)
   {
     switch (this.reason) {
+      case "PASSWORD":
+        console.log("here")
+        this.alert_ticket.emit({
+          action_attempted:Actions.update,
+          msg:"Pasword Updated",
+          type:"success"
+        })
+        break;
       case "USERNAME":
         this.profile.username = frame
         localStorage.setItem("username",this.profile.username);
