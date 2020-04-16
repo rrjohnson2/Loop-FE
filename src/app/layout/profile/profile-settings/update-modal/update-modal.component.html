@@ -10,6 +10,9 @@
                   <input formControlName="old_password" type="password" placeholder="Old Password...">
                   <input formControlName="target" type="password" placeholder="New Password...">
                   <input formControlName="confirmed" type="password" placeholder="New Password Confirm...">
+                  <p class="help-block" *ngIf="updateForm.get('confirmed').touched && !match()">
+                   Password must be the same
+                  </p>
                 </div>
                 <ng-template #USERNAME>
                   <div *ngIf="reason== 'USERNAME';else FIRSTNAME">
@@ -28,9 +31,12 @@
                 </ng-template>
                 <ng-template #EMAIL>
                   <input formControlName="target" type="email" placeholder="New Email...">
-                  <input formControlName="confirmed" type="email" placeholder="New Email Confirm...">
+                  <input #name formControlName="confirmed" type="email" placeholder="New Email Confirm...">
+                  <p class="help-block" *ngIf="updateForm.get('confirmed').touched && !match()">
+                    Emails must be the same
+                  </p>
                 </ng-template>
-                <button type="submit"> Update {{reason} | titlecase}</button>
+                <button *ngIf="updateForm.valid" type="submit"> Update {{reason | titlecase}}</button>
               </form>
             </div>
         </div>

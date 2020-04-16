@@ -56,8 +56,10 @@ export class UpdateModalComponent implements OnInit  {
   }
 
   private getFrame(){
+    console.log("here")
         switch (this.reason) {
           case "PASSWORD":
+
             break;
 
           case "EMAIL":
@@ -83,7 +85,16 @@ export class UpdateModalComponent implements OnInit  {
     if (c.get("target").value !== c.get("confirmed").value) {
         return {invalid: true};
     }
+
+  
   
 }
+
+match()
+  {
+    var confirmed = this.updateForm.get('confirmed').value;
+    var target = this.updateForm.get('target').value;
+    return confirmed != null && target !=null && confirmed == target;
+  }
 
 }
