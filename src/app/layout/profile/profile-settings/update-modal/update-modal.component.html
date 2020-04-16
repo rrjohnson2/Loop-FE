@@ -5,7 +5,7 @@
       <div class="modal-body p-0">
         <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5 ">
-              <form [formGroup]="updateForm">
+              <form [formGroup]="updateForm" (ngSubmit)="submit()">
                 <div *ngIf="reason== 'PASSWORD' ; else USERNAME">
                   <input formControlName="old_password" type="password" placeholder="Old Password...">
                   <input formControlName="target" type="password" placeholder="New Password...">
@@ -30,6 +30,7 @@
                   <input formControlName="target" type="email" placeholder="New Email...">
                   <input formControlName="confirmed" type="email" placeholder="New Email Confirm...">
                 </ng-template>
+                <button type="submit"> Update {{reason} | titlecase}</button>
               </form>
             </div>
         </div>
