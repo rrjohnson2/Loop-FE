@@ -30,7 +30,6 @@ export class ActivitiesComponent implements OnInit {
             }
           )
         }
-        console.log(this.focuses);
       }
       
     );

@@ -96,6 +96,7 @@ export class ProfileSettingsComponent implements OnInit {
     else{
       this.update_modal.open();
       this.update_modal.reason = val; 
+      this.update_modal.createForm();
     }
   }
 
@@ -142,11 +143,9 @@ export class ProfileSettingsComponent implements OnInit {
     var temp:Preference[] =[]
     var controls=[]
     controls = this.categories.value;
-    console.log(this.categories);
     for (var i =0; i< controls.length; i++ ) {
       if (controls[i].value==true) {
           temp.push(new Preference(this.focuses[i].name,null,null));
-          console.log(temp)
       }
     }
   

@@ -35,7 +35,6 @@ export class UploadImageModalComponent implements OnInit {
 }
 imageCropped(event: ImageCroppedEvent) {
     
-  console.log(event);
     this.croppedImage = event.base64;
    
     this.image_file= new File(
@@ -55,7 +54,6 @@ cropperReady() {
     // cropper ready
 }
 loadImageFailed() {
-    console.log("hee")
 }
 cancel()
 {
@@ -80,7 +78,6 @@ upload()
         this.uploadService.updatePicture(ticket).subscribe(
           data =>
           {
-            console.log(this.coded)
               this.profile.profilePicture = this.coded;
               this.cancel();
               this.uiService.dismissAll();

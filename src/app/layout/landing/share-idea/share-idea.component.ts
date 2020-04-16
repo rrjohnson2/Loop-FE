@@ -142,7 +142,6 @@ export class ShareIdeaComponent implements OnInit {
   var temp:Focus[] =[]
   var controls=[]
   controls = this.categories.value;
-  console.log(this.categories);
   for (var i =0; i< controls.length; i++ ) {
     if (controls[i].value==true) {
         temp.push(new Focus(this.focuses[i].name,null));

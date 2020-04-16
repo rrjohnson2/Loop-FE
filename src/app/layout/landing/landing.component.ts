@@ -47,7 +47,6 @@ export class LandingComponent implements OnInit {
 
   ideaFilter(event)
   {
-    console.log(event);
       if(event == this.filter) 
       {
         this.filter = null;
