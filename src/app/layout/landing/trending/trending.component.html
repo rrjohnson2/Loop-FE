@@ -1,3 +1,8 @@
 <div class="live_Looop_card  card" >
   <div class= "card_header text-center">Trending</div>
+  <button *ngFor="let idea of trending" class="drop_down_button "  (click)="showIdea(idea)">
+    <div> 
+      {{idea.creator.username}} {{idea.timestamp|dateago}}:  {{idea.title}}
+     </div>
+    </button>
 </div>

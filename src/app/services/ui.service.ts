@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder } from '@angular/forms';
+import { log } from '../constants/app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -50,12 +51,24 @@ private getDismissReason(reason: any): string {
 bringInView(child_id,parent_id) {
     const el: HTMLElement|null = document.getElementById(child_id);
     const parent: HTMLElement|null = document.getElementById(parent_id);
+
+    el
+
+    
     var pos = 0
-    if(el !=null) pos =el.offsetTop;
-    if(pos >= parent.scrollHeight && pos !=0 ) pos = parent.scrollHeight;
+    var ele_adjusted_top  = 0;
+    var ancestor = el.parentElement;
+
+    // this find the ideas_body id from where the idea is  soley dependet on html structure
+    for (let index = 0; index < 4 ; index++) {
+        ele_adjusted_top += ancestor.offsetTop;
+        ancestor = ancestor.parentElement;
+    }
+    if(el !=null) pos = ele_adjusted_top;
+    //if(pos >= parent.scrollHeight && pos !=0 ) pos = parent.scrollHeight;
+
     parent.scroll({
         top: pos,
-        left: 0,
         behavior: 'smooth'
     })
     

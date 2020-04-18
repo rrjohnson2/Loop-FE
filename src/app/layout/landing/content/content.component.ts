@@ -5,6 +5,7 @@ import { Idea } from 'src/app/models/idea';
 import { Notice, Notice_Actions } from 'src/app/models/notice';
 import { UIService } from 'src/app/services/ui.service';
 import { IdeaCardComponent } from './idea-card/idea-card.component';
+import { here } from 'src/app/constants/app.constants';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class ContentComponent implements OnInit {
     item.idea.id ==event.idea_id).showNotice(event);
   }
   showIdea(data:Idea) {
-    
+    here();
     return this.uiService.bringInView(data.id,`ideas_body`);
   }
  

@@ -1,5 +1,5 @@
 
-<div id="ideas_body" *ngIf="ideas != null  && (ideas | ideaFilter:filter).length >0 ; else empty" >
+<div *ngIf="ideas != null  && (ideas | ideaFilter:filter).length >0 ; else empty" >
     <div *ngFor="let idea of Ideas| ideaFilter:filter">
         <app-idea-card id="{{idea.id}}" [username]="profile.username" [idea]="idea"></app-idea-card>
     </div>

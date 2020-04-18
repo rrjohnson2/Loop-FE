@@ -28,3 +28,11 @@ export function setPROFILE(data)
 {
     PROFILE = data;
 }
+
+export function log(whatever) {
+  console.log(whatever);
+}
+
+export function here() {
+  console.log("here");
+}

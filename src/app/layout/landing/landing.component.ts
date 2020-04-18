@@ -5,6 +5,7 @@ import { Notice } from 'src/app/models/notice';
 import { LayoutService } from '../layout.service';
 import { AlertComponent } from 'src/app/shared/alerts/alert.component';
 import { ContentComponent } from './content/content.component';
+import { here } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-landing',
@@ -33,7 +34,7 @@ export class LandingComponent implements OnInit {
 
   addIdea(idea:Idea)
   {
-    
+    this.ideas.push(idea);
   }
 
   alerty(alert)
@@ -43,6 +44,10 @@ export class LandingComponent implements OnInit {
   showNotice(notice)
   {
       this.content.showNotice(notice);
+  }
+  showIdea(idea)
+  {
+    this.content.showIdea(idea);
   }
 
   ideaFilter(event)

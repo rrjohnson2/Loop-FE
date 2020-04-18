@@ -77,7 +77,6 @@ export class UpdateModalComponent implements OnInit  {
   {
     switch (this.reason) {
       case "PASSWORD":
-        console.log("here")
         this.alert_ticket.emit({
           action_attempted:Actions.update,
           msg:"Pasword Updated",
