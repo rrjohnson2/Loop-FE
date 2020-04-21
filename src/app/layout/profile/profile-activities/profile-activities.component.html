@@ -1,0 +1,39 @@
+<div class="row">
+
+
+  <div class="col-2  Looop_col">
+    <legend class="Looop_underline">Your Activties</legend>
+    <ul class="Looop_li_filter" >
+      <li  *ngFor="let pos of possible_activities">
+        <a *ngIf="current == pos; else non" class="hl_current" (click)="filterActivities(pos)">
+          <!-- <app-icon [preference]= "foc"></app-icon> -->
+          {{pos | titlecase}}
+        </a>
+        <ng-template #non>
+          <a (click)="filterActivities(pos)">
+            <!-- <app-icon [preference]= "foc"></app-icon> -->
+            {{pos | titlecase}}
+          </a>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+
+  <div class="Looop_col col-9 act_right">
+
+    <div *ngIf="ideas.length > 0 ; else empty" >
+      <div *ngFor="let idea of Ideas">
+          <app-idea-card id="{{idea.id}}" [username]="profile.username" [idea]="idea"></app-idea-card>
+      </div>
+  </div>
+  <ng-template #empty>
+       <legend *ngIf="current; else unsel">
+        You Have Created Any {{current | titlecase}}
+       </legend>
+       <ng-template #unsel>
+          Selected an Activity
+       </ng-template>
+  </ng-template>
+  </div>
+
+</div>

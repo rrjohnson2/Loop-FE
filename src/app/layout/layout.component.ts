@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LayoutService } from './layout.service';
-import { PROFILE, setPROFILE } from '../constants/app.constants';
+import { PROFILE, setPROFILE, here } from '../constants/app.constants';
 
 @Component({
   selector: 'app-layout',
@@ -16,4 +16,10 @@ export class LayoutComponent implements OnInit {
   ngOnInit(){
        this.layout.setup();
   }
+  logOff(event)
+  {
+    if(event)
+      this.layout.out();
+  }
+
 }

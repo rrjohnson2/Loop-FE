@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutService } from '../layout.service';
@@ -13,11 +13,11 @@ import { RealtimeService } from 'src/app/services/realtime.service';
 export class LayoutNavbarComponent implements OnInit {
 
  profile:Profile;
+ @Output() logout_event: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private layout:LayoutService, 
     private router:Router,
-    private global:GlobalService,
-    private realTime: RealtimeService)
+    private global:GlobalService)
   {}
 
   ngOnInit(): void {
@@ -31,8 +31,8 @@ export class LayoutNavbarComponent implements OnInit {
   logOff()
   {
     this.global.logOff();
-    this.realTime.logOff();
     this.router.navigate(['/login']);
+    this.logout_event.emit(true);
   }
   
    toggleDropDown(myDrop:NgbDropdown)

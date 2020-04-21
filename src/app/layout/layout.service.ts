@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Preference } from 'src/app/models/preference';
-import { backend_url } from 'src/app/constants/app.constants';
+import { backend_url, log, here } from 'src/app/constants/app.constants';
 import { Observable } from 'rxjs';
 import { RealtimeService } from '../services/realtime.service';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { Idea } from '../models/idea';
   providedIn: 'root'
 })
 export class LayoutService {
+ 
 
   profile:Observable<Profile> = this.globalservice.profileSubject.asObservable();
   notifications:Observable<Notice[]> = this.realTime.noticfications.asObservable();
@@ -21,13 +22,14 @@ export class LayoutService {
   focus:Observable<any>;
   constructor(
     private httpClient:HttpClient,
-    public realTime:RealtimeService,
+    private realTime:RealtimeService,
     private router:Router,
     private globalservice:GlobalService,
     ) { }
 
     setup()
     {
+        here();
         this.setupProfile();
         this.notifications.subscribe((data)=>{
             this.updateOrAdd(data);
@@ -110,6 +112,10 @@ export class LayoutService {
   private getFocuses()
   {
     return this.httpClient.get(backend_url + "getCategories");
+  }
+
+  out() {
+    this.realTime.logOff();
   }
 
 }

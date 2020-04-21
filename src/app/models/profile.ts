@@ -6,6 +6,8 @@ import { Retort } from "./retort";
 
 export class Profile {
     created_ideas: Idea[] = [];
+    ideas_retorted: Idea[] = [];
+    ideas_messaged: Idea[] = [];
     created_messages: Message[] =[];
     created_retorts: Retort[] =[]; 
     email: string= '';
@@ -17,6 +19,8 @@ export class Profile {
 
     constructor(
         created_ideas: Idea[],
+        ideas_retorted: Idea[],
+        ideas_messaged: Idea[],
         created_messages: Message[],
         created_retorts: Retort[],
         email: string,
@@ -36,6 +40,8 @@ export class Profile {
         this.preferences = preferences;
         this.username = username;
         this.profilePicture = profilePicture;
+        this.ideas_retorted = ideas_retorted
+        this.ideas_messaged= ideas_messaged
 
     }
 }
