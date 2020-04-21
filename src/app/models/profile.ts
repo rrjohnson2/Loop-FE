@@ -3,13 +3,16 @@ import { Preference } from "./preference";
 import { Idea } from "./idea";
 import { Message } from "./message";
 import { Retort } from "./retort";
+import { Rating } from './rating';
 
 export class Profile {
     created_ideas: Idea[] = [];
     ideas_retorted: Idea[] = [];
     ideas_messaged: Idea[] = [];
+    ideas_rated:  Idea[] = [];
     created_messages: Message[] =[];
-    created_retorts: Retort[] =[]; 
+    created_retorts: Retort[] =[];
+    created_ratings:Rating[] =[]; 
     email: string= '';
     firstName: string= '';
     lastName: string= '';
@@ -21,8 +24,10 @@ export class Profile {
         created_ideas: Idea[],
         ideas_retorted: Idea[],
         ideas_messaged: Idea[],
+        ideas_rated:Idea[],
         created_messages: Message[],
         created_retorts: Retort[],
+        created_ratings:Rating[],
         email: string,
         firstName: string,
         lastName: string,
@@ -40,8 +45,10 @@ export class Profile {
         this.preferences = preferences;
         this.username = username;
         this.profilePicture = profilePicture;
-        this.ideas_retorted = ideas_retorted
-        this.ideas_messaged= ideas_messaged
+        this.ideas_retorted = ideas_retorted;
+        this.ideas_messaged= ideas_messaged;
+        this.created_ratings = created_ratings;
+        this.ideas_rated = ideas_rated;
 
     }
 }

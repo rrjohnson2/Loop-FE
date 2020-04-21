@@ -71,7 +71,6 @@ $navbar-height : 5vh;
     max-height: 25%;
     
     margin-bottom: 10%;
-    overflow-y: scroll;
 }
 
 .live_center{
@@ -81,8 +80,9 @@ $navbar-height : 5vh;
 }
 .act_right{
 
-    
+    overflow-y: scroll;
     margin-left: 5%;
+    max-height: 50vh;
 }
 h1{
     font-size: 2vw !important;

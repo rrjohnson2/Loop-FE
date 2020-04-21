@@ -10,6 +10,7 @@ import { UIService } from 'src/app/services/ui.service';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
 import { GlobalService } from 'src/app/services/global.service';
+import { Profile } from 'src/app/models/profile';
 
 @Component({
   selector: 'app-idea-card',
@@ -20,6 +21,7 @@ export class IdeaCardComponent implements OnInit {
 
 
   @Input() idea:Idea;
+  @Input() profile:Profile;
   @Input() username:string;
            expan:boolean = false;
   @ViewChildren(RetortCardComponent) retort_cards:QueryList<RetortCardComponent>;
@@ -78,6 +80,9 @@ export class IdeaCardComponent implements OnInit {
      
   }
   addRetortToIdea(data: any) {
+    
+    this.addToCreated(this.profile.ideas_retorted);
+    this.profile.created_retorts.push(data.data);
     this.idea.retorts.push(data.data)
   }
 
@@ -89,6 +94,9 @@ export class IdeaCardComponent implements OnInit {
         this.idea.retorts[key].messages.push(event.data.data);
       }
     }
+
+    this.addToCreated(this.profile.ideas_messaged);
+    this.profile.created_messages.push(event.data.data);
 
   }
 
@@ -129,9 +137,18 @@ export class IdeaCardComponent implements OnInit {
         
       }
     }
+    this.addToCreated(this.profile.ideas_rated);
+    this.profile.created_ratings.push(data.data);
     this.idea.ratings.push(data.data); 
   }
   
+  addToCreated(list)
+  {
+    if(list.findIndex(thought => thought.id == this.idea.id) ==-1)
+      {
+        list.push(this.idea);
+      }
+  }
 
   get rating()
   {

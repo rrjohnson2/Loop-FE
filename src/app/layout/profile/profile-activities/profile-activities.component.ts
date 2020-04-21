@@ -13,7 +13,7 @@ export class ProfileActivitiesComponent implements OnInit {
   @Input() profile:Profile;
   ideas:Idea[] = [];
 
-  possible_activities =['ideas','retorts','messages'];
+  possible_activities =['ideas','retorts','messages','ratings'];
 
   current:string ;
 
@@ -33,11 +33,12 @@ export class ProfileActivitiesComponent implements OnInit {
     case this.possible_activities[1]:
         temp = this.profile.ideas_retorted;
       break;
-      case this.possible_activities[2]:
+    case this.possible_activities[2]:
         temp = this.profile.ideas_messaged;
         break;
+    case this.possible_activities[3]:
+      temp = this.profile.ideas_rated;
     }
-
     log(this.profile);
     this.ideas = temp;
     
