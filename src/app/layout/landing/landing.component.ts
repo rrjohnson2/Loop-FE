@@ -34,8 +34,9 @@ export class LandingComponent implements OnInit {
 
   addIdea(idea:Idea)
   {
-    this.profile.created_ideas.push(idea);
+    
     idea.creator.username = this.profile.username; 
+    this.profile.created_ideas.push(idea);
     this.ideas.push(idea);
   }
 
