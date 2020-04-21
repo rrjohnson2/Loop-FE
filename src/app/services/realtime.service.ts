@@ -20,7 +20,7 @@ export class RealtimeService {
 
    joinRealTimeServer()
    {
-     this.socket.connect();
+     this.socket.connect(); 
      this.socket.emit("join",localStorage.getItem("username"));
    }
     addNotice(data)
