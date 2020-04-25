@@ -2,8 +2,9 @@
 	background-color:$primary;
     color: $white;
     font-size:  1vw !important;
-    border-radius:5vw;
-	border:.01vw solid #18ab29;
+    border-radius:1vw !important;
+    border:0 !important;
+    box-shadow: .1vw .15vw 0vw 0vw $primary-darker;
 }
 .loop_button:hover {
 	background:linear-gradient(to top, $secondary 5%, $primary 100%);
