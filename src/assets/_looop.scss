@@ -112,7 +112,7 @@ a:hover{
     color: $primary !important;
 }
 .profile-pic{
-    font-size: 5vw !important;
+    font-size: 8vw !important;
 }
 .Looop_underline{
     border-bottom: solid .1vh;
@@ -128,15 +128,12 @@ a:hover{
 }
 .Looop_big_profile{
   border-radius: 50%;
-  border: solid black .1vh;
+  border: solid $gray-300 .1vh;
   width: 100%;
   height: auto;
 }
 .upload_row{
     padding-right: 0 !important;
-}
-.image_col{
-    max-height: 10vh;
 }
 .profile-setting{
     min-height: 17vw !important;
@@ -169,8 +166,8 @@ a:hover{
 }
 
 .check_box:checked + label{
-    background-color: $gray-300;
-    color: $primary;
+    border-radius: 100%;
+    border-bottom:  .5vh solid  $gray-600;
 }
 .icon{
     font-size: 1vw !important;
