@@ -1,0 +1,9 @@
+<div *ngIf="profilePicture  != null ; else stock">
+  <img  [src]="render_profile" class="Looop_big_profile">
+</div>
+
+<ng-template #stock>
+<span class="material-icons profile_pic_small">
+  account_circle
+</span>
+</ng-template>

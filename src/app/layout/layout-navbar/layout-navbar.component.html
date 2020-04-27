@@ -1,23 +1,38 @@
 <nav class=" Looop_navbar navbar navbar-expand-lg  bg-white ">
   <div class="Looop_container Looop_nav_container container ">
-    <div class="logo_header col-4 Looop_nav_col ">
+    <div class="logo_header col-9 Looop_nav_col ">
         <a class=" logo_title navbar-brand" routerLink="/landing">
           <img class="logo_img" src="assets/loop_icons/logo.jpg" alt="Logo">
         </a>
     </div>
-    <div class="col-8 text-right Looop_nav_col row ">
-      <div class=" col-12">
-        <div ngbDropdown #myDrop="ngbDropdown" placement="bottom">
-          <button class="drop_down_Looop" type="button" class=""   id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
-            {{profile?.firstName}} {{profile?.lastName}}
-          </button>
-          <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-            <button routerLink="/landing"  ngbDropdownItem>Home</button>
-            <button routerLink="/profile" ngbDropdownItem>Profile</button>
-            <button  (click)="logOff()" ngbDropdownItem>Log Off</button>
+    <div class="col-3  Looop_nav_col  ">
+          
+      <div class="row">
+        <div class="col-2">
+          <a routerLink="/landing" >
+            <span class="material-icons navbar_icon">
+              home
+              </span>
+          </a>
+        </div>
+        <div class="col-2">
+          <a  (click)="logOff()">
+            <span class="material-icons navbar_icon">
+              exit_to_app
+              </span>
+          </a>
+        </div>
+        <div class="col-5 row">
+          <div  class="col-12">
+          <a  routerLink="/profile" >
+            
+            <app-tag [profilePicture] = "profile.profilePicture"></app-tag>
+            <small class="profile_tag">{{profile.firstName | titlecase}}</small>
+            
+          </a>
           </div>
         </div>
-       </div>
+      </div>
     </div>
   </div>
 </nav>

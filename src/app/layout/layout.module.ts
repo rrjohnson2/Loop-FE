@@ -35,6 +35,7 @@ import { UploadImageModalService } from './profile/profile-settings/upload-image
 import { IconComponent } from './icon/icon.component';
 import { UpdateModalComponent } from './profile/profile-settings/update-modal/update-modal.component';
 import { ProfileActivitiesComponent } from './profile/profile-activities/profile-activities.component';
+import { TagComponent } from './tag/tag.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -62,6 +63,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     IconComponent,
     UpdateModalComponent,
     ProfileActivitiesComponent,
+    TagComponent,
   ],
   imports: [
     ImageCropperModule,
