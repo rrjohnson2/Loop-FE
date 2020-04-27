@@ -22,13 +22,15 @@
               </span>
           </a>
         </div>
-        <div class="col-5 row">
-          <div  class="col-12">
+        <div class="col-4 row">
+          <div  class="col-10">
           <a  routerLink="/profile" >
-            
             <app-tag [profilePicture] = "profile.profilePicture"></app-tag>
-            <small class="profile_tag">{{profile.firstName | titlecase}}</small>
-            
+            <span class="profile_tag">
+               <small >
+                 {{profile.firstName | titlecase}}
+                </small>
+               </span>
           </a>
           </div>
         </div>

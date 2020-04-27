@@ -1,7 +1,7 @@
 <div class="row profile-setting Looop_underline">
 
   <div class="col-4 row " id="profilePicture">
-    <div class="col-6">
+    <div class="col-6 ">
       <a (click)="openModal('img')">
         <div *ngIf="profile?.profilePicture  != null ; else stock">
             <img placement="right" ngbTooltip="Change Profile Pictue" [src]="render_profile" class="Looop_big_profile">
@@ -13,15 +13,13 @@
           </span>
         </ng-template>
       </a>
-    </div>
-    <div class="col-6">
-      <div class="caption loop_edit">{{profile?.username}}
+      <span class="caption loop_edit">{{profile?.username}}
         <a (click)="openModal('USERNAME')"> 
           <span class="material-icons icon">
             edit
           </span>
         </a>
-      </div>
+      </span>
     </div>
       
 

@@ -20,14 +20,19 @@
     font-size: 2vw !important;
 }
 
-.profile_pic_small{
-    font-size: 1.75vw !important;
-}
 .profile_tag{
-    position: relative;
-    top: -25%;
+    position: absolute;
+    top: 15%;
+    left: 80%;
 }
 .navbar_icon{
     font-size: 1.75vw !important;
 }
+
+a{
+    text-decoration: none !important;
+    color: $gray-700 !important;
+}
+
+
 
