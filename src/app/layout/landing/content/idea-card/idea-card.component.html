@@ -3,13 +3,13 @@
     <div class="cards-title">
       <div class="row">
         <div class="col-2"> 
-          <app-tag [tag]="profile.username" [time]="idea.timestamp" [profilePicture] = "profile.profilePicture"></app-tag>
+          <app-tag [tag]="idea.creator.username" [time]="idea.timestamp" [profilePicture] = "idea.creator.profilePicture"></app-tag>
            </div>
 
         <div *ngIf="username == idea.creator.username" class="col-10 text-right" ngbDropdown #myDrop="ngbDropdown" placement="left">   
           <app-idea-modal [idea]="idea" (idea_event)="updateIdea($event)"></app-idea-modal>
           <button class="drop_down_Looop" type="button"    id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
-            Update
+            Update 
           </button>
           <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
             <button class="drop_down_button" (click)="showEdit()" ngbDropdownItem>Edit</button>

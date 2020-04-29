@@ -20,19 +20,29 @@
     font-size: 2vw !important;
 }
 
-.profile_tag{
-    position: absolute;
+.profile_tag_pill{
     top: 15%;
-    left: 85%;
 }
-.profile_tag_under{
-    position: absolute;
+.profile_tag_under,.profile_tag_under_pill{
     top: 50%;
-    left: 85%;
-    font-size: 65% !important;
 }
+.profile_tag,.profile_tag_under, .profile_tag_pill,.profile_tag_under_pill{
+    font-size: 65% !important;
+    position: absolute;
+}
+.profile_tag,.profile_tag_under{
+    left: 80%
+}
+
+.profile_tag_pill,.profile_tag_under_pill{
+    left:65%
+}
+
 .navbar_icon{
     font-size: 1.75vw !important;
+}
+.tag_icon{
+    font-size: 2vw !important;
 }
 
 a{

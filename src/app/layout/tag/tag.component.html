@@ -1,38 +1,51 @@
-
-
-
-<div placement="top" [ngbTooltip]="tag"  *ngIf="tooltip == true ; else non">
-
+<div *ngIf="nav == true; else other ">
   <div *ngIf="profilePicture  != null ; else stock">
     <img  [src]="render_profile" class="Looop_big_profile">
+    <span class="profile_tag">
+      <small >
+        {{tag}} 
+        </small>
+      </span>
+      <small class="profile_tag_under" *ngIf='time'> {{time | dateago}} </small>
   </div>
   
   <ng-template #stock>
-  <span class="material-icons navbar_icon">
+  <span class="material-icons navbar_icon ">
     account_circle
   </span>
-  </ng-template>
-
-</div>
-
-
-<ng-template #non>
-
-  <div *ngIf="profilePicture  != null ; else stock">
-    <img  [src]="render_profile" class="Looop_big_profile">
-  </div>
-  
-  <ng-template #stock>
-  <span class="material-icons navbar_icon">
-    account_circle
-  </span>
-  </ng-template>
-
   <span class="profile_tag">
     <small >
       {{tag}} 
-     </small>
+      </small>
     </span>
+    <small class="profile_tag_under" *ngIf='time'> 
+      {{time | dateago}}
+     </small>
+  </ng-template>
+</div>
+
+<ng-template #other>
+  <div *ngIf="profilePicture  != null ; else stock">
+    <img  [src]="render_profile" class="Looop_big_profile">
+    <span class="profile_tag">
+      <small >
+        {{tag}} 
+        </small>
+      </span>
+      <small class="profile_tag_under" *ngIf='time'> {{time | dateago}} </small>
+  </div>
   
-    <small class="profile_tag_under" *ngIf='time'> {{time | dateago}} </small>
+  <ng-template #stock>
+  <span class="material-icons tag_icon">
+    account_circle
+  </span>
+  <span class="profile_tag_pill">
+    <small >
+      {{tag}} 
+      </small>
+    </span>
+    <small class="profile_tag_under_pill" *ngIf='time'> 
+      {{time | dateago}}
+     </small>
+  </ng-template>
 </ng-template>
