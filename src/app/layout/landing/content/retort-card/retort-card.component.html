@@ -1,11 +1,6 @@
 
     
-    <app-pill [idea_id] = "idea_id" [username]= "username" [data]= retort [type]="type"></app-pill>
-
-    <div class="row">
-      <a class="col-12 text-center" (click)="showComment()">{{retort.messages.length}} comments</a>
-    </div>
-    
+    <app-pill (expan)="showComment($event)" [idea_id] = "idea_id" [username]= "username" [data]= retort [type]="type"></app-pill>
       <div *ngIf="expan" class="col-12  Looop_expansion_panel">
         <div  *ngFor="let msg of sortedMessages">
           <app-message-card [idea_id] = "idea_id" [retort_id] = "retort.id" [username]="username" id="{{msg.id}}" [message]="msg"></app-message-card>
@@ -14,9 +9,13 @@
 
       <form class="row" role="form" [formGroup]="messageForm" (ngSubmit)=submit()>
         <div class="col-9 ">
-          <textarea formControlName="message" class="form-control Looop-textarea" rows="1" placeholder="Write a comment..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
+          <textarea formControlName="message" class="Looop-textarea" rows="1" placeholder="Write a comment..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
          </div>
          <div class="col-3">  
-          <button class="loop_button" type="submit">Comment</button>
+          <a  (click)=submit()>
+            <span class="material-icons loop_button_icon">
+              add_comment
+              </span>
+            </a>
          </div>
       </form>

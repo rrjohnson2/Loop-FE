@@ -39,5 +39,16 @@ a{
     color: $gray-600 !important;
 }
 
+.message_badge{
+    font-size: .70vw;
+    background-color: $gray-200;
+    margin-bottom: 1vw;
+    // margin-right: 1vw;
+}
+.badge_caption{
+    font-weight: bold;
+    color: $primary;
+}
+
 
 

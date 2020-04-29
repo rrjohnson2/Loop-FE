@@ -7,7 +7,7 @@ import { Message } from 'src/app/models/message';
 import { GlobalService } from 'src/app/services/global.service';
 import { Notice_Actions, Notice } from 'src/app/models/notice';
 import { UIService } from 'src/app/services/ui.service';
-import { PillType } from 'src/app/constants/app.constants';
+import { PillType, here } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-retort-card',
@@ -80,8 +80,9 @@ export class RetortCardComponent implements OnInit {
       {return new Date(val1.timestamp).getTime() - new Date(val2.timestamp).getTime()});
   }
 
-  showComment()
+  showComment(event)
   {
+    here()
     this.expan = !this.expan;
   }
  

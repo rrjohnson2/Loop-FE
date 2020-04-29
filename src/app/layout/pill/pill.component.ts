@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 import { PillType } from 'src/app/constants/app.constants';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -19,6 +19,8 @@ export class PillComponent implements OnInit {
 
   @Input( ) idea_id;
   @Input() retort_id;
+
+  @Output() expan: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 
   writeable: boolean=false;
@@ -102,6 +104,10 @@ export class PillComponent implements OnInit {
         break;
     }
 
+  }
+  expand()
+  {
+    this.expan.emit(true);
   }
 
 }

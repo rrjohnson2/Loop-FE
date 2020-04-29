@@ -1,32 +1,54 @@
 <div class="pill row">
 
   <div class="col-2 pill-info">
-    <app-tag [tag]="data.creator.username" [profilePicture] = "data.creator.profilePicture"></app-tag>
+    <app-tag  [profilePicture] = "data.creator.profilePicture"></app-tag>
   </div>
   
 
-  <div class=" col-7 pill-content">
-    <small *ngIf="!writeable; else write">
+  <div class=" col-9 pill-content card message_badge">
+    <div class="badge_caption">
+      {{data.creator.username}} {{data.timestamp|dateago}}
+    </div>
+    <div  *ngIf="!writeable; else write">
           {{data.content}}
-    </small>
+    </div>
 
     <ng-template #write>
       <form  role="form" [formGroup]="pillForm" (ngSubmit)=submit()>
         <textarea formControlName="contentVal" class="form-control Looop-textarea"  type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
-        <button type="submit">Update</button>
-        <button (click)="showEdit()">Cancel</button>
+        <a (click)="submit()">
+          <span class="material-icons icon">
+            check
+            </span>
+        </a>
+        <a (click)="showEdit()">
+          <span class="material-icons icon">
+            clear
+            </span>
+        </a>
       </form>
     </ng-template>
-  </div>
 
-  <div *ngIf="username == data.creator.username" class="col-3" ngbDropdown #myDrop="ngbDropdown" placement="left">
-    <button class="drop_down_Looop" type="button"    id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
-      Update
-    </button>
-    <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-      <button class="drop_down_button" (click)="showEdit()" ngbDropdownItem>Edit</button>
-      <button class="drop_down_button" (click)="delete()" ngbDropdownItem>Delete</button>
+
+    <div class="row">
+      <div class="col-6">
+        <a *ngIf="data?.messages" (click)="expand()">{{data.messages.length}} comments</a>
+      </div>
+        <div class="col-6 text-right" *ngIf="username == data.creator.username">
+        <a  (click)="showEdit()">
+          <span class="material-icons icon">
+            edit
+            </span>
+        </a>
+        <a  (click)="delete()" >
+          <span class="material-icons icon">
+            delete
+            </span>
+        </a>
+      </div>
     </div>
   </div>
+
+  
 
 </div>
