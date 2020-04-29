@@ -1,6 +1,9 @@
 <div class="pill row">
 
-  <small class=" col-2 pill-info">{{data.creator.username}} {{data.timestamp | dateago}}</small>
+  <div class="col-2 pill-info">
+    <app-tag [tooltip]="true" [tag]="data.creator.username" [profilePicture] = "data.creator.profilePicture"></app-tag>
+  </div>
+  
 
   <div class=" col-8 pill-content">
     <small *ngIf="!writeable; else write">

@@ -8,6 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TagComponent implements OnInit {
 
   @Input() profilePicture;
+  @Input() time;
+  @Input() tag;
+  @Input() tooltip;
+
+  
   constructor() { }
 
   ngOnInit() {

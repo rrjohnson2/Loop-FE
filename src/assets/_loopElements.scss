@@ -23,7 +23,13 @@
 .profile_tag{
     position: absolute;
     top: 15%;
-    left: 80%;
+    left: 85%;
+}
+.profile_tag_under{
+    position: absolute;
+    top: 50%;
+    left: 85%;
+    font-size: 65% !important;
 }
 .navbar_icon{
     font-size: 1.75vw !important;
@@ -31,7 +37,7 @@
 
 a{
     text-decoration: none !important;
-    color: $gray-700 !important;
+    color: $gray-600 !important;
 }
 
 

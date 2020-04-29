@@ -1,9 +1,38 @@
-<div *ngIf="profilePicture  != null ; else stock">
-  <img  [src]="render_profile" class="Looop_big_profile">
+
+
+
+<div placement="top" [ngbTooltip]="tag"  *ngIf="tooltip == true ; else non">
+
+  <div *ngIf="profilePicture  != null ; else stock">
+    <img  [src]="render_profile" class="Looop_big_profile">
+  </div>
+  
+  <ng-template #stock>
+  <span class="material-icons navbar_icon">
+    account_circle
+  </span>
+  </ng-template>
+
 </div>
 
-<ng-template #stock>
-<span class="material-icons navbar_icon">
-  account_circle
-</span>
+
+<ng-template #non>
+
+  <div *ngIf="profilePicture  != null ; else stock">
+    <img  [src]="render_profile" class="Looop_big_profile">
+  </div>
+  
+  <ng-template #stock>
+  <span class="material-icons navbar_icon">
+    account_circle
+  </span>
+  </ng-template>
+
+  <span class="profile_tag">
+    <small >
+      {{tag}} 
+     </small>
+    </span>
+  
+    <small class="profile_tag_under" *ngIf='time'> {{time | dateago}} </small>
 </ng-template>

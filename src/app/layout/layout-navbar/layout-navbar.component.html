@@ -25,12 +25,7 @@
         <div class="col-4 row">
           <div  class="col-10">
           <a  routerLink="/profile" >
-            <app-tag [profilePicture] = "profile.profilePicture"></app-tag>
-            <span class="profile_tag">
-               <small >
-                 {{profile.firstName | titlecase}}
-                </small>
-               </span>
+            <app-tag [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
           </a>
           </div>
         </div>
