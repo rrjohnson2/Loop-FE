@@ -3,10 +3,9 @@
     <img  [src]="render_profile" class="Looop_big_profile">
     <span class="profile_tag">
       <small >
-        {{tag}} 
+        {{tag}} {{time | dateago}}
         </small>
       </span>
-      <small class="profile_tag_under" *ngIf='time'> {{time | dateago}} </small>
   </div>
   
   <ng-template #stock>
@@ -15,12 +14,9 @@
   </span>
   <span class="profile_tag">
     <small >
-      {{tag}} 
+      {{tag}} {{time | dateago}}
       </small>
     </span>
-    <small class="profile_tag_under" *ngIf='time'> 
-      {{time | dateago}}
-     </small>
   </ng-template>
 </div>
 
@@ -29,23 +25,19 @@
     <img  [src]="render_profile" class="Looop_big_profile">
     <span class="profile_tag">
       <small >
-        {{tag}} 
+        {{tag}} {{time | dateago}}
         </small>
       </span>
-      <small class="profile_tag_under" *ngIf='time'> {{time | dateago}} </small>
   </div>
   
   <ng-template #stock>
   <span class="material-icons tag_icon">
     account_circle
   </span>
-  <span class="profile_tag_pill">
+  <span class="profile_tag">
     <small >
-      {{tag}} 
+      {{tag}} {{time | dateago}}
       </small>
     </span>
-    <small class="profile_tag_under_pill" *ngIf='time'> 
-      {{time | dateago}}
-     </small>
   </ng-template>
 </ng-template>
