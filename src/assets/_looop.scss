@@ -93,10 +93,12 @@ p  {
 
 
 .Looop-textarea{
-    font-size: inherit !important;
-    min-width: 70%;
-    overflow: hidden;
-    resize: both;
+    min-width: 85%;
+    resize: none;
+    font-size: .75vw !important;
+    border-radius: 50px;
+    background-color: $gray-200;
+    border: .1vw solid $gray-600;
 }
 
 .Looop_li_filter{

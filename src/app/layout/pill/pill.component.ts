@@ -56,7 +56,6 @@ export class PillComponent implements OnInit {
         this.pillService.delMessage(ticket).subscribe(
           data =>
           {
-            here();
             this.globalService.deleteComment(data.id,this.retort_id,this.idea_id);
           }
         );

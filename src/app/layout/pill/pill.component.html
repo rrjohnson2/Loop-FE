@@ -6,33 +6,11 @@
   
 
   <div class=" col-9 pill-content card message_badge">
-    <div class="badge_caption">
-      {{data.creator.username}} {{data.timestamp|dateago}}
-    </div>
-    <div  *ngIf="!writeable; else write">
-          {{data.content}}
-    </div>
-
-    <ng-template #write>
-      <form  role="form" [formGroup]="pillForm" (ngSubmit)=submit()>
-        <textarea formControlName="contentVal" class=" Looop-textarea"  type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
-        <a (click)=" showEdit()">
-          <span class="material-icons icon">
-            backspace
-            </span>
-        </a>
-        <a (click)=" submit()">
-          <span class="material-icons icon">
-            check_circle
-            </span>
-        </a>
-      </form>
-    </ng-template>
-
-
     <div class="row">
       <div class="col-6">
-        <a *ngIf="data?.messages" (click)="expand()">{{data.messages.length}} comments</a>
+        <div class="badge_caption">
+          {{data.creator.username}} {{data.timestamp|dateago}}
+        </div>
       </div>
         <div class="col-6 text-right" *ngIf="username == data.creator.username">
         <a  (click)="showEdit()">
@@ -47,6 +25,32 @@
         </a>
       </div>
     </div>
+    <div  *ngIf="!writeable; else write">
+          {{data.content}}
+    </div>
+
+    <ng-template #write>
+      <form  role="form" [formGroup]="pillForm" (ngSubmit)=submit()>
+        <textarea formControlName="contentVal" class=" Looop-textarea form-control" row="4" type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
+        <a (click)=" showEdit()">
+          <span class="material-icons icon">
+            backspace
+            </span>
+        </a>
+        <a (click)=" submit()">
+          <span class="material-icons icon">
+            check_circle
+            </span>
+        </a>
+      </form>
+    </ng-template>
+
+    <div class="row">
+      <div class="col-12 text-right">
+        <a *ngIf="data?.messages" (click)="expand()">{{data.messages.length}} comments</a>
+      </div>
+    </div>
+    
   </div>
 
   

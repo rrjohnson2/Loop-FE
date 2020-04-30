@@ -19,6 +19,9 @@
 .loop_button_icon{
     font-size: 2vw !important;
 }
+.icon_col{
+    padding:0 !important
+}
 
 .profile_tag{
     top: 15%;
@@ -48,6 +51,9 @@ a{
 .badge_caption{
     font-weight: bold;
     color: $primary;
+}
+.loop_input{
+    margin-bottom: 1vh;
 }
 
 
