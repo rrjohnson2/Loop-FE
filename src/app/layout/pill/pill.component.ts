@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
-import { PillType } from 'src/app/constants/app.constants';
+import { PillType, log, here } from 'src/app/constants/app.constants';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GlobalService } from 'src/app/services/global.service';
@@ -56,6 +56,7 @@ export class PillComponent implements OnInit {
         this.pillService.delMessage(ticket).subscribe(
           data =>
           {
+            here();
             this.globalService.deleteComment(data.id,this.retort_id,this.idea_id);
           }
         );

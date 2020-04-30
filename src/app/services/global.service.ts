@@ -8,7 +8,7 @@ import { Profile } from '../models/profile';
 import { AlertComponent } from '../shared/alerts/alert.component';
 import { AlertTicket } from '../interfaces/alert-ticket';
 import { FormGroup,  } from '@angular/forms';
-import { Actions, backend_url } from '../constants/app.constants';
+import { Actions, backend_url, log } from '../constants/app.constants';
 import { Idea } from '../models/idea';
 import { Preference } from '../models/preference';
 
@@ -143,8 +143,10 @@ export class GlobalService {
 
     var retort = retorts.find(ret => ret.id == retort_id);
 
-    var index = retort.messages.findIndex(com => com.id = com_id);
+    var index = retort.messages.findIndex(msg => msg.id == com_id);
     retort.messages.splice(index,1);
+
+    
      
     this.refresh();
   }

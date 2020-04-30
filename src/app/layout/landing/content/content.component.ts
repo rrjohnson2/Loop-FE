@@ -37,7 +37,6 @@ export class ContentComponent implements OnInit {
     item.idea.id ==event.idea_id).showNotice(event);
   }
   showIdea(data:Idea) {
-    here();
     return this.uiService.bringInView(data.id,`ideas_body`);
   }
  

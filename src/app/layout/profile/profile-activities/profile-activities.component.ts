@@ -39,7 +39,6 @@ export class ProfileActivitiesComponent implements OnInit {
     case this.possible_activities[3]:
       temp = this.profile.ideas_rated;
     }
-    log(this.profile);
     this.ideas = temp;
     
   }

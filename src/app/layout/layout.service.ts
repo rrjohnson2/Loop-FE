@@ -29,7 +29,6 @@ export class LayoutService {
 
     setup()
     {
-        here();
         this.setupProfile();
         this.notifications.subscribe((data)=>{
             this.updateOrAdd(data);

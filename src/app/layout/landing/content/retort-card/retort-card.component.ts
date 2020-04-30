@@ -8,6 +8,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import { Notice_Actions, Notice } from 'src/app/models/notice';
 import { UIService } from 'src/app/services/ui.service';
 import { PillType, here } from 'src/app/constants/app.constants';
+import { log } from 'util';
 
 @Component({
   selector: 'app-retort-card',
@@ -52,14 +53,13 @@ export class RetortCardComponent implements OnInit {
     }
     this.retortCardService.message(ticket).subscribe(
       data =>{
-        this.messageForm.reset();
+        this.messageForm.reset()
         this.messageEvent.emit(
           {
             data:data,
             retort:this.retort
           }
         );
-        
         this.expan = true;
       }
     )
@@ -82,7 +82,6 @@ export class RetortCardComponent implements OnInit {
 
   showComment(event)
   {
-    here()
     this.expan = !this.expan;
   }
  

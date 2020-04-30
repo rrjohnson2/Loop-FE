@@ -11,6 +11,7 @@ import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
 import { GlobalService } from 'src/app/services/global.service';
 import { Profile } from 'src/app/models/profile';
+import { log } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-idea-card',
@@ -88,9 +89,11 @@ export class IdeaCardComponent implements OnInit {
 
   messageEvent(event)
   {
+    console.log(event.data.data);
     for (const key in this.idea.retorts) {
       if(this.idea.retorts[key].id == event.retort.id)
       {
+       
         this.idea.retorts[key].messages.push(event.data.data);
       }
     }
@@ -207,7 +210,7 @@ export class IdeaCardComponent implements OnInit {
     this.idea_card_service.delete(ticket).subscribe(
       data =>
       {
-        var index =this.global.ideas.findIndex(ide => ide.id == this.idea.id);
+        var index = this.global.ideas.findIndex(ide => ide.id == this.idea.id);
         this.global.ideas.splice(index,1);
         this.global.refresh();
       }
