@@ -8,13 +8,16 @@
 
         <div *ngIf="username == idea.creator.username" class="col-10 text-right" ngbDropdown #myDrop="ngbDropdown" placement="left">   
           <app-idea-modal [idea]="idea" (idea_event)="updateIdea($event)"></app-idea-modal>
-          <button class="drop_down_Looop" type="button"    id="dropdownManual" ngbDropdownAnchor  (click)="toggleDropDown(myDrop)">
-            Update 
-          </button>
-          <div ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-            <button class="drop_down_button" (click)="showEdit()" ngbDropdownItem>Edit</button>
-            <button class="drop_down_button" (click)="delete()" ngbDropdownItem>Delete</button>
-          </div>
+            <a (click)="showEdit()" >
+              <span class="material-icons icon">
+                edit
+              </span>
+            </a>
+            <a (click)="delete()">
+                <span class="material-icons icon">
+                  delete
+                </span>
+            </a>
         </div>
 
       </div>
@@ -25,8 +28,8 @@
     <p class=" card-text ">{{idea.description}}</p>
     
     <div *ngIf="username!=idea.creator.username" class=" row-justify-content-center text-center">
-      <a class="col-1"  *ngFor=" let type of types" (click)="vote(type)">
-        <small>{{type}}</small>
+      <a class="col-1"  *ngFor=" let type of types" (click)="vote(type.name)" placement="top" ngbTooltip="{{type.name | titlecase}}" >
+        <app-icon [preference]= "type"></app-icon>
       </a>
     </div>
   </div>
@@ -34,7 +37,7 @@
     <div class="row">
        <div  class="col-6" >
           <div *ngIf="rating; else notRated">
-            Rating:{{rating}}
+            <app-icon [preference]= "rating"></app-icon>
           </div>
           <ng-template #notRated>
             Not Yet Rated

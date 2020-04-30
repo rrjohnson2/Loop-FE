@@ -42,7 +42,10 @@ export class IdeaCardComponent implements OnInit {
        for(var i=0; i<arry.length;i++)
        {
          this.types .push(
-            arry[i]
+            {
+              name: arry[i],
+              src : this.render_type(arry[i])
+            }
          )
        }
      }
@@ -170,9 +173,23 @@ export class IdeaCardComponent implements OnInit {
       else if(this.idea.ratings[key].vote == "Good") score+=5;
     }
 
-    if(score > 0) avg = score/count;
+    if(score > 0)
+    {
+      avg = score/count;
+      avg = Math.round(avg);
+    }
   
-    return avg;
+
+    if(avg==0)
+    {
+        return 0;
+
+    }
+    if(avg==1)return {src:this.render_type("bad")}
+    if(avg==2)return {src:this.render_type("poor")}
+    if(avg==3)return {src:this.render_type("so_so")}
+    if(avg==4)return {src:this.render_type("fair")}
+    if(avg==5)return {src:this.render_type("good")}
   }
   get sortedRetorts()
   {
@@ -215,6 +232,11 @@ export class IdeaCardComponent implements OnInit {
         this.global.refresh();
       }
     );
+  }
+
+  render_type(type:string)
+  {
+    return"assets/loop_icons/"+type.toLocaleUpperCase()+".png"
   }
 
 }
