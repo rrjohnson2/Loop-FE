@@ -30,7 +30,9 @@ export class RetortCardComponent implements OnInit {
     this.createForm();
   }
   ngOnChange()
-  {}
+  {
+
+  }
   createForm()
   {
     this.messageForm = new FormGroup(

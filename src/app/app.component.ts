@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var jQuery: any;
 
 
 @Component({
@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    
+    
+    
     ngOnInit(): void {
     }
 

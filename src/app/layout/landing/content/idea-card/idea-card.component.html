@@ -45,7 +45,7 @@
        </div>
        <a  class="col-6 text-right" (click)="showRetort()"> {{idea.retorts.length}} retorts</a>
     </div>
-      <div *ngIf="expan">  
+      <div [hidden]="!expan">  
         <div   *ngFor="let retort of sortedRetorts">
           <app-retort-card id="retort_{{retort.id}}"  [username]="username" (messageEvent)="messageEvent($event)" [idea_id]="idea.id" [retort]="retort"></app-retort-card>
         </div>
@@ -54,7 +54,7 @@
          <div class="col-10 ">
           <textarea formControlName="retort" class="form-control Looop-textarea" rows="1" placeholder="Write a retort..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
          </div>
-         <a  class="col-2 icon_col" (click)=submit()>
+         <a  class="col-1 icon_col" id="reset" (click)=submit()>
           <span class="material-icons loop_button_icon">
             feedback
             </span>

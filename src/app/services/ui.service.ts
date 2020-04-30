@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder } from '@angular/forms';
-import { log } from '../constants/app.constants';
+import { log, here } from '../constants/app.constants';
+declare var jQuery: any;
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,23 @@ export class UIService {
 
 
   private closeResult:string;
+
+  resize_textarea = (function ($) {
+    $('.Looop-textarea').each(function () {
+      }).on('input', function () {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+      });
+    $('.Looop-textarea').each(function () {
+    }).on("blur",function () {
+        this.style.height = (27) + 'px';
+    });
+    $('.Looop-textarea').each(function () {
+    }).on("focus",function () {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+  })(jQuery);
   
   constructor(private modalService:NgbModal, private  formBuilder:FormBuilder) { }
 

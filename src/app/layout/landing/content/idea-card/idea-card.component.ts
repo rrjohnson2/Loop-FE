@@ -13,6 +13,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import { Profile } from 'src/app/models/profile';
 import { log } from 'src/app/constants/app.constants';
 
+
 @Component({
   selector: 'app-idea-card',
   templateUrl: './idea-card.component.html',
@@ -30,6 +31,8 @@ export class IdeaCardComponent implements OnInit {
   today:Date = new Date();
   retortForm:FormGroup
   types =[];
+
+  
   constructor(private idea_card_service:IdeaCardService, private uiService:UIService, private global:GlobalService) { }
 
   ngOnInit() {
