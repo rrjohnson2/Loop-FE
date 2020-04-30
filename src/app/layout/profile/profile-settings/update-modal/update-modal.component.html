@@ -36,7 +36,11 @@
                     Emails must be the same
                   </p>
                 </ng-template>
-                <button class="loop_button" *ngIf="updateForm.valid" type="submit"> Update</button>
+                <a *ngIf="updateForm.valid" (click)="submit()">
+                  <span class="material-icons loop_button_icon">
+                    check_circle
+                    </span>
+                </a>
               </form>
             </div>
         </div>
