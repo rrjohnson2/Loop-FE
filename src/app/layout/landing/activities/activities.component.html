@@ -2,11 +2,11 @@
 <ul class="Looop_li_filter" >
   <li  *ngFor="let foc of focuses">
     <a *ngIf="current == foc.name; else non" class="hl_current" (click)="filterIdea(foc.name)">
-      <app-icon [preference]= "foc"></app-icon>{{foc.name}}
+      <app-icon [preference]= "foc"  [type]="'loop_icon_large'"></app-icon>{{foc.name}}
     </a>
     <ng-template #non>
       <a (click)="filterIdea(foc.name)">
-        <app-icon [preference]= "foc"></app-icon>{{foc.name}}
+        <app-icon [preference]= "foc"  [type]="'loop_icon_large'"></app-icon>{{foc.name}}
       </a>
     </ng-template>
   </li>

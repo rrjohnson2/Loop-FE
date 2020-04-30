@@ -29,13 +29,13 @@
     
     <div *ngIf="username!=idea.creator.username" class=" row-justify-content-center text-center">
       <a class="col-1"  *ngFor=" let type of types" (click)="vote(type.name)" placement="top" ngbTooltip="{{type.name | titlecase}}" >
-        <app-icon [preference]= "type"></app-icon>
+        <app-icon [type]="'loop_icon_large'"  [preference]= "type"></app-icon>
       </a>
     </div>
     <div class="row">
       <div  class="col-6" >
          <div *ngIf="rating; else notRated">
-          <app-icon [preference]= "rating"></app-icon><small>{{rating.num | number : '1.1-2' }}</small>
+          <app-icon [type]="'loop_icon_large'" [preference]= "rating"></app-icon><small>{{rating.num | number : '1.1-2' }}</small>
          </div>
          <ng-template #notRated>
            Not Yet Rated

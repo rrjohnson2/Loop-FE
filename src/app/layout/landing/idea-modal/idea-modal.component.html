@@ -22,7 +22,7 @@
                             <div *ngFor="let cate of categories.value; let i =index" _ngcontent-c5="" class="custom-control custom-checkbox mb-3">
                                 <input [formControl]="cate" class="check_box" id="{{focuses[i].name}}IM" type="checkbox" unchecked>
                                 <label for="{{focuses[i].name}}IM">
-                                  <app-icon [preference]= "focuses[i]"></app-icon>
+                                  <app-icon [type]="'loop_icon_large'"  [preference]= "focuses[i]"></app-icon>
                                   <small> {{focuses[i].name}}</small>
                               </label>
                               </div> 

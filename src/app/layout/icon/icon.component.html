@@ -1,1 +1,2 @@
-<img class="loop_icon" [src]="preference.src">
+<img *ngIf="type == 'loop_icon_large'" class="loop_icon_large" [src]="preference.src">
+<img *ngIf="type == 'icon'" class="icon" [src]="preference.src">

@@ -6,12 +6,10 @@
     <ul class="Looop_li_filter" >
       <li  *ngFor="let pos of possible_activities">
         <a *ngIf="current == pos; else non" class="hl_current" (click)="filterActivities(pos)">
-          <!-- <app-icon [preference]= "foc"></app-icon> -->
           {{pos | titlecase}}
         </a>
         <ng-template #non>
           <a (click)="filterActivities(pos)">
-            <!-- <app-icon [preference]= "foc"></app-icon> -->
             {{pos | titlecase}}
           </a>
         </ng-template>
