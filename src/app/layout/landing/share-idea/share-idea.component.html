@@ -6,7 +6,7 @@
                 <div class="row">
                         <small class="col-10">Have An Idea?</small>
                         <div class="col-2 text-right ">
-                            <a (click)="submit()"  placement="bottom" ngbTooltip="Share" >      
+                            <a (click)="createIdea()"  placement="bottom" ngbTooltip="Share" >      
                                 <span class="material-icons icon">
                                     send
                                 </span>
@@ -31,7 +31,7 @@
                 <div class="col-6"  *ngFor="let cate of categories.value; let i =index">
                     <input [formControl]="cate" class="check_box" id="{{focuses[i].name}}" type="checkbox" unchecked>
                     <label for="{{focuses[i].name}}">
-                        <app-icon [type]="'loop_icon_large'"  [preference]= "focuses[i]"></app-icon>
+                        <app-icon [type]="'loop_icon_small'"  [preference]= "focuses[i]"></app-icon>
                         <small> {{focuses[i].name}}</small>
                     </label>
                 </div> 

@@ -108,6 +108,13 @@ p  {
 }
 .hl_current {
     color: $primary !important;
+    background-color: $gray-300;
+    border-radius: 5px;
+    padding-left: .5vw;
+    padding-right: .5vw;
+  }
+  .cate_tag{
+      margin-left: .25vw;
   }
 a:hover{
     cursor: pointer;
@@ -159,6 +166,10 @@ a:hover{
     width : 1.5vw;
     height: auto;
 }
+.loop_icon_small{
+    width : 1vw;
+    height: auto;
+}
 .loop_btn_primary{
     background-color: $primary;
 }
@@ -170,8 +181,11 @@ a:hover{
 }
 
 .check_box:checked + label{
-    border-radius: 100%;
-    border-bottom:  .5vh solid  $gray-600;
+    color: $primary !important;
+    background-color: $gray-300;
+    border-radius: 5px;
+    padding-left: .5vw;
+    padding-right: .5vw;
 }
 .icon{
     font-size: 1vw !important;
@@ -184,6 +198,11 @@ a:hover{
 .loop_edit:hover a span.icon {
     visibility: visible;
     position: absolute;
+}
+.notice_badge{
+    background-color: $gray-200;
+    margin-bottom: .5vw;
+    box-shadow: 1px 3px $gray-500;
 }
 
 

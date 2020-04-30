@@ -35,7 +35,7 @@
     <div class="row">
       <div  class="col-6" >
          <div *ngIf="rating; else notRated">
-          <app-icon [type]="'loop_icon_large'" [preference]= "rating"></app-icon><small>{{rating.num | number : '1.1-2' }}</small>
+          <app-icon placement="top" ngbTooltip="Avgerage rating" [type]="'loop_icon_small'" [preference]= "rating"></app-icon><small class="cate_tag">{{rating.num | number : '1.1-2' }}</small>
          </div>
          <ng-template #notRated>
            Not Yet Rated
