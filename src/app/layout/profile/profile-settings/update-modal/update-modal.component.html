@@ -2,36 +2,34 @@
   <ng-template #classic1 let-c="close" let-d="dismiss">
     <h5 class="modal-title">Update {{reason | titlecase}} ~ {{message | titlecase}}</h5>
     <div class="modal-content">
-      <div class="modal-body p-0">
-        <div class="card bg-secondary shadow border-0">
-            <div class="card-body px-lg-5 py-lg-5 ">
+      <div class="modal-body">
               <form [formGroup]="updateForm" (ngSubmit)="submit()">
                 <div *ngIf="reason== 'PASSWORD' ; else USERNAME">
-                  <input formControlName="old_password" type="password" placeholder="Old Password...">
-                  <input formControlName="target" type="password" placeholder="New Password...">
-                  <input formControlName="confirmed" type="password" placeholder="New Password Confirm...">
+                  <input class="form-contol Looop-textarea" formControlName="old_password" type="password" placeholder="Old Password...">
+                  <input class="form-contol Looop-textarea" formControlName="target" type="password" placeholder="New Password...">
+                  <input class="form-contol Looop-textarea" formControlName="confirmed" type="password" placeholder="New Password Confirm...">
                   <p class="help-block" *ngIf="updateForm.get('confirmed').touched && !match()">
                    Password must be the same
                   </p>
                 </div>
                 <ng-template #USERNAME>
                   <div *ngIf="reason== 'USERNAME';else FIRSTNAME">
-                    <input formControlName="target" type="text" placeholder="New Username...">
+                    <input class="form-contol Looop-textarea" formControlName="target" type="text" placeholder="New Username...">
                   </div>
                 </ng-template>
                 <ng-template #FIRSTNAME>
                   <div *ngIf="reason== 'FIRSTNAME';else LASTNAME">
-                    <input formControlName="target" type="text" placeholder="New Firstname...">
+                    <input class="form-contol Looop-textarea" formControlName="target" type="text" placeholder="New Firstname...">
                   </div>
                 </ng-template>
                 <ng-template #LASTNAME>
                   <div *ngIf="reason== 'LASTNAME';else EMAIL">
-                    <input formControlName="target" type="text" placeholder="New Lastnname...">
+                    <input class="form-contol Looop-textarea" formControlName="target" type="text" placeholder="New Lastnname...">
                   </div>
                 </ng-template>
                 <ng-template #EMAIL>
-                  <input formControlName="target" type="email" placeholder="New Email...">
-                  <input #name formControlName="confirmed" type="email" placeholder="New Email Confirm...">
+                  <input class="form-contol Looop-textarea" formControlName="target" type="email" placeholder="New Email...">
+                  <input class="form-contol Looop-textarea" #name formControlName="confirmed" type="email" placeholder="New Email Confirm...">
                   <p class="help-block" *ngIf="updateForm.get('confirmed').touched && !match()">
                     Emails must be the same
                   </p>
@@ -42,8 +40,6 @@
                     </span>
                 </a>
               </form>
-            </div>
-        </div>
       </div>
     </div>
   </ng-template>

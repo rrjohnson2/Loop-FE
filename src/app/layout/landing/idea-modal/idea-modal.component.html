@@ -1,15 +1,13 @@
 <div class="modal">
   <ng-template #classic1 let-c="close" let-d="dismiss">
     <div class="modal-content">
-      <div class="modal-body p-0">
-        <div class="card bg-secondary shadow border-0">
-            <div class="card-body px-lg-5 py-lg-5 ">
+      <div class="modal-body ">
                 <form role="form" [formGroup]="ideaForm" (ngSubmit)=createIdea()>
                    <div class="idea_modal">
                       <div *ngIf="ideaFormSelection == 0 " class="form_input">
                           <fieldset>
                               <legend>Title of Your Idea</legend>
-                              <input onkeydown="return event.key != 'Enter';" formControlName="title" class="form-control"  type="text" (focus)="focus1=true" (blur)="focus1=false">
+                              <input onkeydown="return event.key != 'Enter';" formControlName="title" class="form-control Looop-textarea"  type="text" (focus)="focus1=true" (blur)="focus1=false">
                           </fieldset>
                         </div>
                         <div *ngIf="ideaFormSelection == 1 " class="form_input">
@@ -52,8 +50,6 @@
                  
                </div>
                 </form>
-            </div>
-        </div>
       </div>
     </div>
   </ng-template>

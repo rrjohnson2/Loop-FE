@@ -4,10 +4,10 @@
             <div class="card-header Looop_card_header">
             <div class="cards-title">
                 <div class="row">
-                        <legend class="col-10">Have An Idea?</legend>
+                        <small class="col-10">Have An Idea?</small>
                         <div class="col-2 text-right ">
                             <a (click)="submit()"  placement="bottom" ngbTooltip="Share" >      
-                                <span class="material-icons loop_button_icon">
+                                <span class="material-icons icon">
                                     send
                                 </span>
                             </a>
@@ -17,14 +17,14 @@
             </div>
 
             <div class=" card-body Looop_card_body">
-            <div class="card-subtitle mb-2 text-muted ">
+            <div class="card-subtitle mb-2">
                 <fieldset>
-                    <input onkeydown="return event.key != 'Enter';" formControlName="title" class="Looop-textarea form-control" placeholder="Title of Your Idea..."  type="text" (focus)="focus1=true" (blur)="focus1=false">
+                    <input onkeydown="return event.key != 'Enter';" formControlName="title" class="Looop-textarea form-control user_content" placeholder="Title of Your Idea..."  type="text" (focus)="focus1=true" (blur)="focus1=false">
                 </fieldset>
             </div>
             <div class=" card-text ">
                 <fieldset>
-                    <textarea placeholder="Description..."  formControlName="description" class="Looop-textarea form-control" (focus)="focus1=true" (blur)="focus1=false"  rows="1"></textarea>
+                    <textarea placeholder="Description..."  formControlName="description" class="Looop-textarea form-control user_content" (focus)="focus1=true" (blur)="focus1=false"  rows="1"></textarea>
                   </fieldset>
             </div>
             <div class="row">       

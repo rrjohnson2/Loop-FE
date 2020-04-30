@@ -6,7 +6,7 @@ $navbar-height : 5vh;
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: $gray-100; 
+    background: $gray-200; 
   }
    
 .layout{
@@ -14,6 +14,7 @@ $navbar-height : 5vh;
      height: 100%;
      width: 100%;
      font-size:  1vw!important;
+     color: $gray-600;
 }
 .Looop_nav_container{
     padding: 0 !important ;

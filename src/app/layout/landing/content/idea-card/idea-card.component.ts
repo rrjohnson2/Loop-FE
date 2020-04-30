@@ -166,6 +166,7 @@ export class IdeaCardComponent implements OnInit {
     var score = 0;
 
     var count = 0;
+    var rate ;
 
     for (const key in this.idea.ratings) {
       count++;
@@ -179,7 +180,7 @@ export class IdeaCardComponent implements OnInit {
     if(score > 0)
     {
       avg = score/count;
-      avg = Math.round(avg);
+      rate = Math.round(avg);
     }
   
 
@@ -188,11 +189,11 @@ export class IdeaCardComponent implements OnInit {
         return 0;
 
     }
-    if(avg==1)return {src:this.render_type("bad")}
-    if(avg==2)return {src:this.render_type("poor")}
-    if(avg==3)return {src:this.render_type("so_so")}
-    if(avg==4)return {src:this.render_type("fair")}
-    if(avg==5)return {src:this.render_type("good")}
+    if(rate==1)return {num : avg, src:this.render_type("bad")}
+    if(rate==2)return {num : avg,src:this.render_type("poor")}
+    if(rate==3)return {num : avg,src:this.render_type("so_so")}
+    if(rate==4)return {num : avg,src:this.render_type("fair")}
+    if(rate==5)return {num : avg,src:this.render_type("good")}
   }
   get sortedRetorts()
   {

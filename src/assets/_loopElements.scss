@@ -43,8 +43,10 @@ a{
 
 .message_badge{
     font-size: .70vw;
-    background-color: $gray-200;
+    background-color: $gray-100;
     margin-bottom: 1vw;
+    border: 0 !important;
+    border-radius: 25px;
 }
 .badge_caption{
     font-weight: bold;
@@ -52,6 +54,12 @@ a{
 }
 .loop_input{
     margin-bottom: 1vh;
+}
+.user_content{
+    color: black !important;
+}
+.upload_modal{
+    background-color: $gray-100 !important;
 }
 
 
