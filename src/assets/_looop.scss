@@ -93,13 +93,12 @@ p  {
 
 
 .Looop-textarea{
-    width:100%;
-	box-sizing:border-box;
-	display:block;
-	max-width:100%;
-	line-height:1.5;
     font-size: inherit !important;
+    min-width: 70%;
+    overflow: hidden;
+    resize: both;
 }
+
 .Looop_li_filter{
     list-style-type: none;
     padding-left:0;

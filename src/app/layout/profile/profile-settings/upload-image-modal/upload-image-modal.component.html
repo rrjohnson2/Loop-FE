@@ -31,10 +31,18 @@
                </div>
                <div class="col-12 row upload_row">
                  <div class=" col-6">
-                  <button class="loop_button"  (click)="cancel()">Cancel</button>
+                  <a (click)="cancel()">
+                    <span class="material-icons loop_button_icon">
+                      backspace
+                      </span>
+                  </a>
                  </div>
                  <div class=" col-6 text-right upload_row">
-                  <button class="loop_button"  (click)="upload()">Upload</button>
+                  <a  (click)="upload()">
+                    <span class="material-icons loop_button_icon">
+                      check_circle
+                      </span>
+                    </a>
                  </div>
                </div>
              </div>

@@ -89,7 +89,7 @@ export class PillComponent implements OnInit {
           data =>
           {
             this.data.content = temp.content;
-
+            this.showEdit();
           }
         );
         break;
@@ -98,7 +98,7 @@ export class PillComponent implements OnInit {
           data =>
           {
             this.data.content = temp.content;
-
+            this.showEdit();
           }
         );
         break;

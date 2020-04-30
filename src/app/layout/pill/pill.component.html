@@ -16,14 +16,14 @@
     <ng-template #write>
       <form  role="form" [formGroup]="pillForm" (ngSubmit)=submit()>
         <textarea formControlName="contentVal" class="form-control Looop-textarea"  type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
-        <a (click)="submit()">
+        <a (click)=" showEdit()">
           <span class="material-icons icon">
-            check
+            backspace
             </span>
         </a>
-        <a (click)="showEdit()">
+        <a (click)=" submit()">
           <span class="material-icons icon">
-            clear
+            check_circle
             </span>
         </a>
       </form>

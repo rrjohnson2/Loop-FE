@@ -5,7 +5,7 @@ import { UIService } from 'src/app/services/ui.service';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { UpdateServiceService } from './update-service.service';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
-import { Actions } from 'src/app/constants/app.constants';
+import { Actions, here } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-update-modal',
@@ -60,9 +60,7 @@ export class UpdateModalComponent implements OnInit  {
 
     this.updateService.update(ticket).subscribe(data=>{
       this.updateProfile(frame);
-      this.updateForm.reset();
-      this.uiService.dismissAll();
-      this.message="";
+      this.cancel();
     },
     error =>{
       this.message = "Something Went Wrong";
@@ -133,6 +131,14 @@ match()
     var confirmed = this.updateForm.get('confirmed').value;
     var target = this.updateForm.get('target').value;
     return confirmed != null && target !=null && confirmed == target;
+  }
+
+  cancel()
+  {
+    here()
+    this.updateForm.reset();
+    this.uiService.dismissAll();
+    this.message="";
   }
 
 }
