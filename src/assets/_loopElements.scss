@@ -19,7 +19,9 @@
     font-size: 2vw !important;
 }
 
-
+.icon_col{
+    padding-left: 0.25vw !important;
+}
 
 .navbar_icon{
     font-size: 1.75vw !important;
@@ -52,6 +54,9 @@ a{
 }
 .upload_modal{
     background-color: $gray-100 !important;
+}
+.card-body,.card-footer,.card-header{
+    border:0 !important ;
 }
 
 
