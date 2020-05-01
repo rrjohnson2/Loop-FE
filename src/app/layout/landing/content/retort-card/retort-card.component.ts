@@ -85,6 +85,7 @@ export class RetortCardComponent implements OnInit {
   showComment(event)
   {
     this.expan = !this.expan;
+     this.uiService.init();
   }
  
 }

@@ -12,24 +12,11 @@ export class UIService {
 
   private closeResult:string;
 
-  resize_textarea = (function ($) {
-    $('.Looop-textarea').each(function () {
-      }).on('input', function () {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight) + 'px';
-      });
-    $('.Looop-textarea').each(function () {
-    }).on("blur",function () {
-        this.style.height = (27) + 'px';
-    });
-    $('.Looop-textarea').each(function () {
-    }).on("focus",function () {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight) + 'px';
-    });
-  })(jQuery);
   
-  constructor(private modalService:NgbModal, private  formBuilder:FormBuilder) { }
+  
+  constructor(private modalService:NgbModal, private  formBuilder:FormBuilder) { 
+    this.init();
+  }
 
   dismissAll() {
    this.modalService.dismissAll();
@@ -99,6 +86,26 @@ bringInView(child_id,parent_id) {
           return   this.formBuilder.control(null);
       });
       return this.formBuilder.control(array);
+  }
+
+  init()
+  {
+  (function ($) {
+      $('.Looop-textarea').each(function () {
+        }).on('input', function () {
+          this.style.height = 'auto';
+          this.style.height = (this.scrollHeight) + 'px';
+        });
+      $('.Looop-textarea').each(function () {
+      }).on("blur",function () {
+        this.style.height = 'auto';
+      });
+      $('.Looop-textarea').each(function () {
+      }).on("focus",function () {
+          this.style.height = 'auto';
+          this.style.height = (this.scrollHeight) + 'px';
+      });
+    })(jQuery);
   }
 
 }
