@@ -9,7 +9,7 @@ export class DateagoPipe implements PipeTransform {
     if (value) {
         const seconds = Math.floor((+new Date() - +new Date(value)) / 1000);
         if (seconds < 29) // less than 30 seconds ago will show as 'Just now'
-            return 'Just now';
+            return `Just\xa0now`;
         const intervals = {
             'y': 31536000,
             'm': 2592000,
@@ -24,9 +24,9 @@ export class DateagoPipe implements PipeTransform {
             counter = Math.floor(seconds / intervals[i]);
             if (counter > 0)
                 if (counter === 1) {
-                    return counter +"\u2022"+ i ; // singular (1 day ago)
+                    return `${counter}\xa0${i}` ; // singular (1 day ago)
                 } else {
-                    return counter +"\u2022" + i + 's'; // plural (2 days ago)
+                    return `${counter}\xa0${i}s`; // plural (2 days ago)
                 }
         }
     }

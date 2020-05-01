@@ -1,5 +1,5 @@
 <legend class="Looop_underline">Filters</legend>
-<ul class="Looop_li_filter" >
+<ul class="Looop_li_filter Looop_underline" >
   <li  *ngFor="let foc of focuses">
     <a *ngIf="current == foc.name; else non" class="hl_current" (click)="filterIdea(foc.name)">
       <app-icon [preference]= "foc"  [type]="'loop_icon_small'"></app-icon><small class=" cate_tag">{{foc.name}}</small>
@@ -11,3 +11,37 @@
     </ng-template>
   </li>
 </ul>
+<footer>
+  <span>
+    <small>
+      Ads &#8226;
+    </small>
+  </span>
+  <span>
+    <small>
+      About &#8226;
+    </small>
+  </span>
+  <span>
+    <small>
+      Terms &#8226;
+    </small>
+  </span>
+  <span>
+    <small>
+      Careers &#8226; 
+    </small>
+  </span>
+  <span>
+    <small>
+      <a target="_blank" href="https://icons8.com/icons">
+        Icons Store  &#8226;
+      </a>
+    </small>
+  </span>
+  <span>
+    <small>
+        Loop &#169; {{year}} 
+    </small>
+  </span>
+</footer>
