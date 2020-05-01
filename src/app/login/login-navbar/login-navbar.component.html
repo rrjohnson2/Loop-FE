@@ -8,15 +8,15 @@
       <form [formGroup]="loginForm" (ngSubmit)=Login() class=" login_form row justify-content-center col-6 " >
           <div class=" col-4  login_root">
               <div class="   ">
-                  <input formControlName="username" type="text" placeholder="Username" class="" />
+                  <input formControlName="username" type="text" placeholder="Username" class="form-control Looop-textarea" />
               </div>
           </div>
         <div class=" col-4 ">
                 <div class=" ">
-                    <input formControlName="password" type="password" placeholder="Password" class="" />
+                    <input formControlName="password" type="password" placeholder="Password" class="form-control Looop-textarea" />
                 </div>
         </div>
-        <div class="col-4 text-center">
+        <div class="col-4 ">
                 <button  class="loop_button" placement="top" ngbTooltip="Sign Up" 
                          type="submit">
                        Login
