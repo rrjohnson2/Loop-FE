@@ -1,5 +1,5 @@
 <div class="row" *ngIf="profilePicture  != null ; else stock">
-    <div class=" col-11">
+    <div class=" col-12">
       <img   [src]="render_profile" class="Looop_big_profile">
     </div>
     <span class=" col-1 row icon_col ">
@@ -15,13 +15,8 @@
   
   <ng-template #stock> 
     <div class="row">
-      <div class=" col-11">
-        <span *ngIf="nav==true" class="material-icons navbar_icon">
-          account_circle
-        </span>
-        <span *ngIf="!nav" class="material-icons tag_icon">
-          account_circle
-        </span>
+      <div class=" col-12">
+        <img class="Looop_big_profile" src="assets/loop_icons/stock.png">
       </div>
       <span class=" col-1 row icon_col ">
         

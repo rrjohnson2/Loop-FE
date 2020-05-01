@@ -1,33 +1,29 @@
 <nav class=" Looop_navbar navbar navbar-expand-lg  bg-white ">
   <div class="Looop_container Looop_nav_container container ">
-    <div class="logo_header col-9 Looop_nav_col ">
+    <div class="logo_header col-2 row Looop_nav_col ">
+      <div class="col-10">
         <a class=" logo_title navbar-brand" routerLink="/landing">
           <img class="logo_img" src="assets/loop_icons/logo.jpg" alt="Logo">
         </a>
+      </div>
     </div>
-    <div class="col-3  Looop_nav_col  ">
+    <div class="col-2  Looop_nav_col  ">
           
       <div class="row">
-        <div class="col-2">
+        <div class="col-4">
           <a routerLink="/landing" >
-            <span class="material-icons navbar_icon">
-              home
-              </span>
+            <img class="Looop_big_profile" src="assets/loop_icons/home.png">
           </a>
         </div>
-        <div class="col-2">
+        <div class="col-4">
           <a  (click)="logOff()">
-            <span class="material-icons navbar_icon">
-              exit_to_app
-              </span>
+            <img class="Looop_big_profile" src="assets/loop_icons/exit.png">
           </a>
         </div>
-        <div class="col-4 row">
-          <div  class="col-10">
+        <div class="col-4 ">
           <a  routerLink="/profile" >
-            <app-tag [nav]="true" [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
+            <app-tag  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
           </a>
-          </div>
         </div>
       </div>
     </div>
