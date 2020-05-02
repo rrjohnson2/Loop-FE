@@ -5,7 +5,7 @@
     <div class="col-2 Looop_col">
       <app-activities (ideaFilter)="ideaFilter($event)" ></app-activities>
     </div>
-    <div class="col-6 Looop_col row ">
+    <div class="col-7 Looop_col row ">
       
       <div class="ideas_body" id="ideas_body">
           <div class="col-12 ">
@@ -18,7 +18,7 @@
     </div>
 
 
-    <div class="col-4 Looop_col">
+    <div class="col-3 Looop_col">
       <app-trending  [ideas]="ideas" (idea_event)="showIdea($event)" ></app-trending>
       <app-notifications [notifications] = "notifications " (notice_event)="showNotice($event)" ></app-notifications>
     </div>

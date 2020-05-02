@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GlobalService } from 'src/app/services/global.service';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { PillService } from './pill.service';
+import { UIService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-pill',
@@ -25,7 +26,7 @@ export class PillComponent implements OnInit {
 
   writeable: boolean=false;
   pillForm:FormGroup;
-  constructor(private pillService:PillService, private globalService:GlobalService) { }
+  constructor(private pillService:PillService, private globalService:GlobalService, private uiServe:UIService) { }
 
   ngOnInit() {
     this.createForm();
@@ -43,6 +44,7 @@ export class PillComponent implements OnInit {
   showEdit()
   {
     this.writeable = !this.writeable;
+   // this.uiServe.init();
   }
   delete()
   {

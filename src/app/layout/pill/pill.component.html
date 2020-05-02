@@ -25,11 +25,11 @@
         </a>
       </div>
     </div>
-    <div class="user_content" *ngIf="!writeable; else write">
+    <div class="user_content" *ngIf="!writeable">
           {{data.content}}
     </div>
 
-    <ng-template #write>
+    <div [hidden]="!writeable">
       <form  role="form" [formGroup]="pillForm" (ngSubmit)=submit()>
         <textarea formControlName="contentVal" class=" Looop-textarea form-control" row="4" type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
         <a (click)=" showEdit()">
@@ -43,7 +43,7 @@
             </span>
         </a>
       </form>
-    </ng-template>
+    </div>
 
     <div class="row">
       <div class="col-12 text-right">
