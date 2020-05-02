@@ -44,7 +44,7 @@ export class PillComponent implements OnInit {
   showEdit()
   {
     this.writeable = !this.writeable;
-   // this.uiServe.init();
+    this.uiServe.init();
   }
   delete()
   {
