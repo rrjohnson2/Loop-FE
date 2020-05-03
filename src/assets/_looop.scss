@@ -16,25 +16,16 @@ $navbar-height : 5vh;
      font-size:  1vw!important;
      color: $gray-600;
 }
-.Looop_nav_container{
-    padding: 0 !important ;
-}
 .Looop_navbar{
     border-bottom: .01vh solid $gray-300;
 }
 
 .Looop_col{
-    // border-right: solid .25vh $gray-300;
-    padding: 0 !important;
     margin-top: 2.5%;
-    margin-right: 0;
 }
 .Looop_col_truc{
-    //max-height: 20vh;
 }
 .Looop_nav_col{
-    // border-right: solid .25vh $gray-300;
-    padding: 0 !important;
 
 }
  .login_form, .signup_input, .login_root {
@@ -47,7 +38,6 @@ $navbar-height : 5vh;
 .idea_modal{
     height: 15% !important;
 }
-
 
 .ideas_body{
    overflow-y: scroll;
@@ -176,7 +166,7 @@ a:hover{
 
 .check_box:checked + label{
     color: $primary !important;
-    background-color: $gray-300;
+    background-color: $gray-200;
     border-radius: 5px;
     padding-left: .25vw;
     padding-right: .25vw;
@@ -194,9 +184,15 @@ a:hover{
     position: absolute;
 }
 .notice_badge{
+    border: 0;
+    padding-left: .5vw;
+    padding-right: .5vw;
+    padding-top: .5vw;
+    border-bottom: solid .05vw $gray-200;
+}
+.notice_badge:hover{
     background-color: $gray-200;
-    margin-bottom: .5vw;
-    box-shadow: 1px 3px $gray-500;
+
 }
 
 

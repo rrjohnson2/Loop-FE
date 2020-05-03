@@ -1,12 +1,18 @@
 <div class="live_Looop_card  card" >
-  <div class= "card_header text-center">Trending</div>
+  <div class= "card_header text-center Looop_underline">Trending</div>
   <a *ngFor="let idea of trending" class=" card notice_badge"  (click)="showIdea(idea)">
     <div class="row"> 
-      <div class="col-2">
-        <app-tag [nav]="true" [tag]="idea.creator.username" [time]="idea.timestamp" [profilePicture] = "idea.creator.profilePicture"></app-tag>
+      <div class="col-3">
+        <app-tag [nav]="true"[profilePicture] = "idea.creator.profilePicture"></app-tag>
       </div>
-      <div class="offset-1 col-9">
-        <strong class="user_content">{{idea.title}}</strong>
+      <div class="col-9">
+        <div class="col-12 row">
+          <small>{{idea.creator.username}}</small>
+        </div>
+        <div class="col-12 row">
+          <small>{{idea.timestamp | dateago}}&nbsp;&#8226;&nbsp;</small> 
+          <small class="user_content">{{idea.title | titlecase}}</small>
+        </div>
       </div>
      </div>
     </a>

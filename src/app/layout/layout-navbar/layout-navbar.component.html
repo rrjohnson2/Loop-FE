@@ -2,26 +2,26 @@
   <div class="Looop_container Looop_nav_container container ">
     <div class="row">
     <div class="logo_header col-2 row Looop_nav_col ">
-      <div class="col-6">
+      <div class="col-8">
         <a routerLink="/landing">
           <img class="logo_img" src="assets/loop_icons/logo.png" alt="Logo">
         </a>
       </div>
     </div>
 
-    <div class="row  offset-6 col-4 text-right Looop_nav_col  ">
+    <div class="row  offset-6 col-4 Looop_nav_col  ">
         <div class="col-2">
-          <a routerLink="/landing" >
+          <a class="navlink" routerLink="/landing" >
             <img class="Looop_big_profile" src="assets/loop_icons/home.png">
           </a>
         </div>
         <div class="col-2">
-          <a  (click)="logOff()">
+          <a class="navlink"  (click)="logOff()">
             <img class="Looop_big_profile" src="assets/loop_icons/exit.png">
           </a>
         </div>
         <div class="col-2 ">
-          <a  routerLink="/profile" >
+          <a class="navlink" routerLink="/profile" >
             <app-tag  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
           </a>
         </div>
