@@ -16,12 +16,19 @@ $navbar-height : 5vh;
      font-size:  1vw!important;
      color: $gray-600;
 }
+.Looop_nav_container,.loop_nav_col{
+    padding: 0 !important ;
+}
+
 .Looop_navbar{
     border-bottom: .01vh solid $gray-300;
 }
 
 .Looop_col{
+    // border-right: solid .25vh $gray-300;
+    padding: 0 !important;
     margin-top: 1vw;
+    margin-right: 0;
 }
  .login_form, .signup_input, .login_root {
     padding-left:0 !important; 
