@@ -9,24 +9,32 @@
         </div>
       </div>
   
-      <div class=" row offset-7 col-3 loop_nav_col  ">
-          <div class="col-4 row  ">
+      <div class=" row offset-6 col-4 loop_nav_col  ">
+          <div class="col-3 row  ">
             <div class="col-12">
-              <a routerLink="/landing" >
+              <a class="active_link" routerLink="/landing" >
                 <img class="logo_img" src="assets/loop_icons/home.png">
               </a>
             </div>
           </div>
-          <div class="col-4 row">
+          <div class="col-3 row">
             <div class="col-12">
-              <a  (click)="logOff()">
+              <a class="active_link"(click)="logOff()">
                 <img class="logo_img" src="assets/loop_icons/exit.png">
               </a>
             </div>
           </div>
-          <div class="col-4 row ">
+          <div class="col-3 row  ">
             <div class="col-12">
-              <a  routerLink="/profile" >
+              <a class="active_link">
+                <img *ngIf="!false" class="logo_img" src="assets/loop_icons/bell_empty.png">
+                <img *ngIf="!true" class="logo_img" src="assets/loop_icons/bell.png">
+              </a>
+            </div>
+          </div>
+          <div class="col-3 row ">
+            <div class="col-12">
+              <a class="active_link"  routerLink="/profile" >
                 <app-tag  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
               </a>
             </div>
