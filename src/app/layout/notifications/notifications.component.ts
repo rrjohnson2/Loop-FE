@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Notice } from 'src/app/models/notice';
+import { Notice, Notice_Actions } from 'src/app/models/notice';
 import { log } from 'src/app/constants/app.constants';
 
 @Component({
@@ -28,6 +28,20 @@ export class NotificationsComponent implements OnInit {
   render_info(action,notice)
   {
     //comment retort focus rating
+    switch(action){
+      case Notice_Actions.COMMENT: 
+       return `commented on a retort you are following`
+      break;
+      case Notice_Actions.RETORT: 
+       return `retorted on an bit you are following`
+      break;
+      case Notice_Actions.RATING: 
+          return ` rated your bit ${notice.data.vote}`
+      break;
+      case Notice_Actions.FOCUS: 
+          return `created bit in space you follow \u2022 ${notice.data.title}`
+      break;
+    }
     return action
   }
 
