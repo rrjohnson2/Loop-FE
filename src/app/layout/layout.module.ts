@@ -37,6 +37,7 @@ import { UpdateModalComponent } from './profile/profile-settings/update-modal/up
 import { ProfileActivitiesComponent } from './profile/profile-activities/profile-activities.component';
 import { TagComponent } from './tag/tag.component';
 import { MessageBadgeComponent } from './message-badge/message-badge.component';
+import { NoticeBadgeComponent } from './notice-badge/notice-badge.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -66,6 +67,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     ProfileActivitiesComponent,
     TagComponent,
     MessageBadgeComponent,
+    NoticeBadgeComponent,
   ],
   imports: [
     ImageCropperModule,

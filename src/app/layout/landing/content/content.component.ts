@@ -5,7 +5,7 @@ import { Idea } from 'src/app/models/idea';
 import { Notice, Notice_Actions } from 'src/app/models/notice';
 import { UIService } from 'src/app/services/ui.service';
 import { IdeaCardComponent } from './idea-card/idea-card.component';
-import { here } from 'src/app/constants/app.constants';
+import { here, log } from 'src/app/constants/app.constants';
 
 
 @Component({
@@ -29,9 +29,14 @@ export class ContentComponent implements OnInit {
   }
 
   showNotice(event: Notice) {
-    if(event.action == Notice_Actions.FOCUS || event.action == Notice_Actions.RATING)
+    log(event)
+    if(event.action == Notice_Actions.FOCUS)
     {
-      return this.showIdea(event.data);
+      this.showIdea(event.data);
+    }
+    if( event.action == Notice_Actions.RATING)
+    {
+      return this.uiService.bringInView(event.idea_id,`ideas_body`);
     }
     return this.idea_cards.find((item: IdeaCardComponent, index: number, array: IdeaCardComponent[]) => 
     item.idea.id ==event.idea_id).showNotice(event);

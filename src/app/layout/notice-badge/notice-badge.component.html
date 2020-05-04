@@ -1,0 +1,14 @@
+<div class="row"> 
+  <div class="col-3">
+    <app-tag [profilePicture] = "profilePicture"></app-tag>
+  </div>
+  <div class="col-9">
+    <div class="col-12 row">
+      <small>{{username}}</small>
+    </div>
+    <div class="col-12 row">
+      <small>{{time | dateago}}&nbsp;&#8226;&nbsp;</small> 
+      <small class="user_content">{{info | titlecase}}</small>
+    </div>
+  </div>
+ </div>

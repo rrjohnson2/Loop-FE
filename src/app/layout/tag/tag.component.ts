@@ -10,7 +10,6 @@ export class TagComponent implements OnInit {
   @Input() profilePicture;
   @Input() time;
   @Input() tag;
-  @Input() nav;
 
   
   constructor() { }
