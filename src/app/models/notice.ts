@@ -2,6 +2,7 @@ import { Member } from './member';
 
 export class Notice {
     username:string;
+    id:number
     creator_profilePicture:string
     creator_username:string
     action:Notice_Actions
@@ -20,6 +21,7 @@ export class Notice {
         this.checked = false;
         this.creator_profilePicture = data.creator_profilePicture;
         this.creator_username = data.creator_username;
+        this.id = data.id;
     }
 
 }
