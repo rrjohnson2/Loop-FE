@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, ElementRef, ViewChild, ViewChildren, QueryList, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { Profile } from 'src/app/models/profile';
 import { Idea } from 'src/app/models/idea';
@@ -6,6 +6,7 @@ import { Notice, Notice_Actions } from 'src/app/models/notice';
 import { UIService } from 'src/app/services/ui.service';
 import { IdeaCardComponent } from './idea-card/idea-card.component';
 import { here, log } from 'src/app/constants/app.constants';
+import { GlobalService } from 'src/app/services/global.service';
 
 
 @Component({
@@ -23,9 +24,9 @@ export class ContentComponent implements OnInit {
   constructor(private uiService:UIService) {
    
    }
+  
 
   ngOnInit() {
-  
   }
 
   showNotice(event: Notice) {

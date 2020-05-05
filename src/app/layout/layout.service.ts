@@ -57,7 +57,7 @@ export class LayoutService {
     this.profile.subscribe(
       data=>
       {
-       if(data!=null) this.globalservice.getIdeas(data.preferences);
+       if(data!=null) this.globalservice.getIdeas(data.username);
       }
     );
   }

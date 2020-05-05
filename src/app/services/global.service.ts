@@ -105,9 +105,9 @@ export class GlobalService {
     this.username = null;
   }
 
-  getIdeas(preferences:Preference[])
+  getIdeas(username:string)
   {
-     this.initIdeas(preferences).subscribe(
+     this.initIdeas(username).subscribe(
       data =>
       {
         this.ideas = data.data;
@@ -116,9 +116,10 @@ export class GlobalService {
      );
   }
 
-  initIdeas(preferences:Preference[]):Observable<any>
+  initIdeas(username:string):Observable<any>
   {
-    return this.http.post(backend_url+this.all_idea_path,preferences);
+    
+    return this.http.post(backend_url+this.all_idea_path,username);
   }
 
   addIdea(event:Idea)

@@ -6,6 +6,8 @@ import { Ticket } from 'src/app/interfaces/ticket';
 import { UpdateServiceService } from './update-service.service';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { Actions, here } from 'src/app/constants/app.constants';
+import { LayoutService } from 'src/app/layout/layout.service';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-update-modal',
@@ -22,7 +24,8 @@ export class UpdateModalComponent implements OnInit  {
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   constructor(private uiService:UIService,
      private formBuilder:FormBuilder,
-     private updateService:UpdateServiceService) { }
+     private updateService:UpdateServiceService,
+     private layout:LayoutService, private globalservice:GlobalService) { }
 
   ngOnInit() {
   }
@@ -61,6 +64,7 @@ export class UpdateModalComponent implements OnInit  {
     this.updateService.update(ticket).subscribe(data=>{
       this.updateProfile(frame);
       this.cancel();
+
     },
     error =>{
       this.message = "Something Went Wrong";
@@ -84,6 +88,7 @@ export class UpdateModalComponent implements OnInit  {
       case "USERNAME":
         this.profile.username = frame
         localStorage.setItem("username",this.profile.username);
+        this.globalservice.username = this.profile.username;
         break;
       case "EMAIL":
         this.profile.email = frame
@@ -95,6 +100,8 @@ export class UpdateModalComponent implements OnInit  {
         this.profile.lastName = frame
         break;
     }
+    
+      this.layout.setup();
   }
 
   private getFrame(){

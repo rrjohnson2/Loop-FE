@@ -5,6 +5,8 @@ import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { UploadImageModalService } from './upload-image-modal.service';
 import { Profile } from 'src/app/models/profile';
 import { Ticket } from 'src/app/interfaces/ticket';
+import { GlobalService } from 'src/app/services/global.service';
+import { LayoutService } from 'src/app/layout/layout.service';
 
 @Component({
   selector: 'app-upload-image-modal',
@@ -24,7 +26,8 @@ export class UploadImageModalComponent implements OnInit {
   uri: string;
   original_image: any;
   coded: any;
-  constructor(private uiService:UIService, private uploadService:UploadImageModalService) { }
+  constructor(private uiService:UIService, private uploadService:UploadImageModalService,
+    private layout:LayoutService) { }
 
   ngOnInit() {
   }
@@ -62,6 +65,7 @@ cancel()
   this.message= ''
   this.loaded =false;
   this.image_file = null;
+  this.uiService.dismissAll();
 }
 
 upload()
@@ -79,8 +83,8 @@ upload()
           data =>
           {
               this.profile.profilePicture = this.coded;
+              this.layout.setup();
               this.cancel();
-              this.uiService.dismissAll();
           }
         );
       }

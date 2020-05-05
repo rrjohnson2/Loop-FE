@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
 import { ProfileSettingsService } from './profile-settings.service';
 import { UploadImageModalComponent } from './upload-image-modal/upload-image-modal.component';
@@ -34,6 +34,7 @@ export class ProfileSettingsComponent implements OnInit {
      private layout:LayoutService,
      private uiService:UIService) { }
 
+  
   
 
 
@@ -107,6 +108,7 @@ export class ProfileSettingsComponent implements OnInit {
   alerty(event)
   {
     this.alert_ticket.emit(event);
+    this.layout.setup();
   }
   get categories(){
     return this.preForm.get("categories");
