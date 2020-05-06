@@ -1,18 +1,19 @@
 .loop_button {
-	background-color:$secondary;
-    color: $white;
+	
+    color: $gray-600;
     font-size:  1vw !important;
-    border-radius:1vw !important;
-    border:0 !important;
+    border-radius:5px!important;
+    background-color: $white !important;
+    border: solid 1px $primary !important;
     box-shadow: .1vw .15vw 0vw 0vw $primary-darker;
 }
 .loop_button:hover {
-	background:linear-gradient(to top, $secondary 5%, $primary 100%);
-	background-color: $primary;
+    background-color: $primary !important;
+    color: $white;
 }
 .loop_button:active {
     position:relative;
-	top:1px;
+	top:3px;
 }
 
 .loop_button_icon{
@@ -53,7 +54,7 @@ a{
     color: black !important;
 }
 .upload_modal{
-    background-color: $gray-100 !important;
+   border: 0 !important;
 }
 .card-body,.card-footer,.card-header{
     border:0 !important ;

@@ -1,6 +1,6 @@
 <div class="modal">
   <ng-template #classic1 let-c="close" let-d="dismiss">
-    <h5 class="modal-title">Update {{reason | titlecase}} ~ {{message | titlecase}}</h5>
+    <strong class="modal-title">Update {{reason | titlecase}} ~ {{message | titlecase}}</strong>
     <div class="modal-content">
       <div class="modal-body">
               <form [formGroup]="updateForm" (ngSubmit)="submit()">
@@ -34,8 +34,8 @@
                     Emails must be the same
                   </p>
                 </ng-template>
-                <a *ngIf="updateForm.valid" (click)="submit()">
-                  <span class="material-icons loop_button_icon">
+                <a (click)="submit()">
+                  <span class="material-icons loop_button_icon col-12 text-right">
                     check_circle
                     </span>
                 </a>
