@@ -30,9 +30,10 @@ export class UploadImageModalComponent implements OnInit {
     private layout:LayoutService) { }
 
   ngOnInit() {
+   
   }
 
-  fileChangeEvent(event: any): void {
+fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.coded = this.encode(this.profile.username);
 }
@@ -95,6 +96,7 @@ upload()
 open() {
   
   this.uiService.open(this.modal, "modal-mini", 'sm');
+  this.uiService.loop_upload_button();
 }
 
 private dataURItoBlob(dataURI) {

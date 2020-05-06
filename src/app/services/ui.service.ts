@@ -90,6 +90,7 @@ bringInView(child_id,parent_id) {
 
   init()
   {
+    // auto hieght for ttextareas
   (function ($) {
       $('.Looop-textarea').each(function () {
         }).on('input', function () {
@@ -106,6 +107,36 @@ bringInView(child_id,parent_id) {
           this.style.height = (this.scrollHeight) + 'px';
       });
     })(jQuery);
-  }
 
+  }
+  loop_upload_button()
+  {
+   const inputs =  document.getElementsByClassName("loop_target_input");
+   const buttons =  document.getElementsByClassName("loop_button_upload");
+   
+
+  if(buttons.length == inputs.length)
+  {
+    var pairs = [];
+
+    for(var i =0; i< buttons.length;i++)
+    {
+      pairs.push(
+       { 
+         button:buttons[i],
+         input: inputs[i],
+        }
+      )
+    }
+
+    pairs.forEach(pair =>{
+      pair.button.addEventListener('click',function () {
+        var ele = pair.input as HTMLElement;
+        ele.click();
+      })
+    })
+  }
+   
+  
+  }
 }

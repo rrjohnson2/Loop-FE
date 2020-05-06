@@ -5,8 +5,9 @@
       <div class="modal-body ">
               
              <div class="row">
-               <div class="col-12">
-                  <input  type="file" (change)="fileChangeEvent($event)"  accept="image/*"/>
+               <div class="col-12 text-center">
+                  <input hidden class="loop_target_input" type="file" (change)="fileChangeEvent($event)"  accept="image/*"/>
+                  <button class="loop_button_upload loop_button" >Upload Picture</button>
                </div>
                <div class="col-12 cropper">
                   <image-cropper 
