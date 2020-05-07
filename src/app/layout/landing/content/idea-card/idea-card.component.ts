@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild, AfterViewChecked } from '@angular/core';
 import { Idea } from 'src/app/models/idea';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Message } from 'src/app/models/message';
@@ -19,7 +19,7 @@ import { log } from 'src/app/constants/app.constants';
   templateUrl: './idea-card.component.html',
   styleUrls: ['./idea-card.component.css']
 })
-export class IdeaCardComponent implements OnInit {
+export class IdeaCardComponent implements OnInit, AfterViewChecked {
 
 
   @Input() idea:Idea;
@@ -34,6 +34,9 @@ export class IdeaCardComponent implements OnInit {
 
   
   constructor(private idea_card_service:IdeaCardService, private uiService:UIService, private global:GlobalService) { }
+  ngAfterViewChecked(): void {
+    this.uiService.auto_size_text_area();
+  }
 
   ngOnInit() {
     this.createForm();

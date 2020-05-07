@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ViewChildren, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { Idea } from 'src/app/models/idea';
@@ -19,13 +19,14 @@ import { LayoutService } from '../../layout.service';
   styleUrls: ['./share-idea.component.css'],
   providers:[UIService]
 })
-export class ShareIdeaComponent implements OnInit {
+export class ShareIdeaComponent implements OnInit, AfterViewChecked {
   ideaForm:FormGroup;
   
   focuses = []
   
 
   @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
+  @ViewChild('share_idea ') share_idea;
 
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
@@ -36,6 +37,9 @@ export class ShareIdeaComponent implements OnInit {
      private layout:LayoutService) {
     
    }
+   ngAfterViewChecked(): void {
+    this.uiService.loop_upload_button();
+  }
 
   ngOnInit() {
     this.createForm();

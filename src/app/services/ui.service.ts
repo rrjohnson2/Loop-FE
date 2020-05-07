@@ -15,7 +15,7 @@ export class UIService {
   
   
   constructor(private modalService:NgbModal, private  formBuilder:FormBuilder) { 
-    this.init();
+    
   }
 
   dismissAll() {
@@ -88,7 +88,7 @@ bringInView(child_id,parent_id) {
       return this.formBuilder.control(array);
   }
 
-  init()
+  auto_size_text_area()
   {
     // auto hieght for ttextareas
   (function ($) {

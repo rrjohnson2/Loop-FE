@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input, AfterViewChecked } from '@angular/core';
 import { ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
 import { UIService } from 'src/app/services/ui.service';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
@@ -13,7 +13,7 @@ import { LayoutService } from 'src/app/layout/layout.service';
   templateUrl: './upload-image-modal.component.html',
   styleUrls: ['./upload-image-modal.component.sass']
 })
-export class UploadImageModalComponent implements OnInit {
+export class UploadImageModalComponent implements OnInit, AfterViewChecked {
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @ViewChild('classic1') modal:ElementRef;
   imageChangedEvent: any = '';
@@ -28,6 +28,9 @@ export class UploadImageModalComponent implements OnInit {
   coded: any;
   constructor(private uiService:UIService, private uploadService:UploadImageModalService,
     private layout:LayoutService) { }
+  ngAfterViewChecked(): void {
+    this.uiService.loop_upload_button();
+  }
 
   ngOnInit() {
    
@@ -96,7 +99,7 @@ upload()
 open() {
   
   this.uiService.open(this.modal, "modal-mini", 'sm');
-  this.uiService.loop_upload_button();
+ 
 }
 
 private dataURItoBlob(dataURI) {
