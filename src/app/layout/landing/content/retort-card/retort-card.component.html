@@ -9,10 +9,10 @@
 
       <form [hidden]="!expan" role="form" [formGroup]="messageForm" (ngSubmit)=submit()>
         <div class="row">
-          <div class=" offset-md-3 col-md-7">
+          <div class=" offset-md-3 col-md-8">
             <textarea formControlName="message" class="Looop-textarea form-control" rows="1" placeholder="Write a comment..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
         </div>
-        <div class=" offset-9 col-3  textarea_icon_container  ">
+        <div class=" offset-10 col-2  textarea_icon_container  ">
           <a (click)=submit()>
             <span class="material-icons textarea_icon">
               add_comment
