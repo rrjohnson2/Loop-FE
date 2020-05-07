@@ -14,6 +14,7 @@ export class Idea {
     timestamp: Date;
     title: string;
     upVotes: number;
+    content:string;
    
     constructor(
         creator: Member,
@@ -25,7 +26,8 @@ export class Idea {
         retorts: Retort[],
         timestamp: Date,
         title: string,
-        upVotes: number
+        upVotes: number,
+        content:string
     ){
         this.creator = creator;
         this.description = description;
@@ -37,6 +39,7 @@ export class Idea {
         this.timestamp = timestamp;
         this.title = title;
         this.upVotes =upVotes;
+        this.content = content;
 
     }
 }

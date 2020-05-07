@@ -96,7 +96,8 @@ p  {
     color:  $primary !important;
   }
   .cate_tag{
-      margin-left: .25vw;
+      margin-left: $standard_size*.25;
+      font-size: $standard_size ;
   }
 a:hover{
     cursor: pointer;
@@ -142,7 +143,7 @@ a:hover{
     height: auto;
 }
 .loop_icon_small{
-    width : $standard_size;
+    width : $standard_size*1.25;
     height: auto;
 }
 

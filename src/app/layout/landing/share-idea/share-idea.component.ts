@@ -21,12 +21,11 @@ import { LayoutService } from '../../layout.service';
 })
 export class ShareIdeaComponent implements OnInit, AfterViewChecked {
   ideaForm:FormGroup;
-  
+  private content:string
   focuses = []
   
 
   @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
-  @ViewChild('share_idea ') share_idea;
 
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
@@ -133,13 +132,13 @@ export class ShareIdeaComponent implements OnInit, AfterViewChecked {
    var focuses:Focus[] = this.populateCategories();
    
    var ideaCreated:Idea;
-   ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null);
+   ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content);
    
    this.shareIdea(ideaCreated);
    
-  this.ideaForm.reset();
-  this.createForm();
-  
+    this.ideaForm.reset();
+    this.createForm();
+    
  }
 
  private populateCategories(): Focus[] {

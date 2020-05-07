@@ -17,6 +17,8 @@ export class IdeaModalComponent implements OnInit {
   ideaFormSelection:number = 0
   focuses = []
 
+  private content:string;
+
   @Input() idea:Idea
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
 
@@ -76,11 +78,11 @@ export class IdeaModalComponent implements OnInit {
         [
           Validators.required
         ]), 
-        description: new FormControl(null,
-          [
-            Validators.required
-          ]),
-        categories: this.uiService.render(this.focuses)
+      description: new FormControl(null,
+        [
+          Validators.required
+        ]),
+      categories: this.uiService.render(this.focuses)
     }
   );
   
@@ -101,7 +103,7 @@ export class IdeaModalComponent implements OnInit {
      ideaCreated = this.idea;
    }
    else{
-      ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null);
+      ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content);
    }
    this.idea_event.emit(ideaCreated);
    this.cancel();
