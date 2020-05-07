@@ -106,6 +106,10 @@ bringInView(child_id,parent_id) {
           this.style.height = 'auto';
           this.style.height = (this.scrollHeight) + 'px';
       });
+      $('.Looop-textarea').each(function () {
+      }).on("paste",function (e) {
+          console.log(e.originalEvent.clipboardData.items);
+      });
     })(jQuery);
 
   }
