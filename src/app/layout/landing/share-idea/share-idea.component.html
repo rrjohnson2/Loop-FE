@@ -25,8 +25,19 @@
                     <textarea placeholder="Description..."  formControlName="description" class="Looop-textarea form-control user_content" (focus)="focus1=true" (blur)="focus1=false"  rows="1"></textarea>
                    </div>
                    <div class=" offset-11 col-1  textarea_icon_container  ">
-                    <input hidden class="loop_target_input" type="file" (change)="fileChangeEvent($event)"  accept="image/*"/>
-                    <a class="loop_button_upload " >
+                    <input 
+                        hidden 
+                        class="loop_target_input"
+                        type="file"
+                        (change)="fileChangeEvent($event)"  
+                        accept=
+                            "
+                            video/*,
+                            audio/*,
+                            image/*
+                            "
+                    />
+                    <a class="loop_button_upload " placement="top" ngbTooltip="Photo/Video/Audio" >
                         <span class="material-icons textarea_icon ">
                             attach_file
                         </span>
@@ -47,3 +58,22 @@
         </div>
 </form>
 
+
+
+                    <!-- video/*,
+                    video/x-m4v,
+                    video/webm,
+                    video/x-ms-wmv, 
+                    video/x-msvideo,
+                    video/3gpp,
+                    video/flv,
+                    video/x-flv,
+                    video/mp4,
+                    video/quicktime,
+                    video/mpeg,
+                    video/ogv, 
+                    .ts, 
+                    .mkv,
+                    image/*, 
+                    image/heic,
+                    image/heif -->
