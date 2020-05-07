@@ -1,4 +1,7 @@
 // Color system
+
+$standard_size :20px;
+
 $white:    #fff !default;
 $gray-100: #f6f9fc !default;
 $gray-200: #e9ecef !default;
@@ -84,7 +87,7 @@ input[type="color"]:focus,
 .uneditable-input:focus {   
   border-color: $primary !important;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px $primary !important;
-  outle: 0 none !important;
+  outline: 0 none !important;
 }
 
 
