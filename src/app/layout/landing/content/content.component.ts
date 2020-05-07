@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input, ElementRef, ViewChild, ViewChildren, QueryList, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, ElementRef, ViewChild, ViewChildren, QueryList,  AfterViewInit } from '@angular/core';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { Profile } from 'src/app/models/profile';
 import { Idea } from 'src/app/models/idea';

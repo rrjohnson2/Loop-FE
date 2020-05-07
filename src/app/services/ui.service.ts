@@ -115,6 +115,7 @@ bringInView(child_id,parent_id) {
   }
   loop_upload_button()
   {
+    here()
    const inputs =  document.getElementsByClassName("loop_target_input");
    const buttons =  document.getElementsByClassName("loop_button_upload");
    
@@ -142,5 +143,16 @@ bringInView(child_id,parent_id) {
   }
    
   
+  }
+
+ dataURItoBlob(dataURI) {
+    const byteString = window.atob(dataURI.split(',')[1]);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const int8Array = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      int8Array[i] = byteString.charCodeAt(i);
+    }
+    const blob = new Blob([int8Array], { type: 'image/jpeg' });    
+    return blob;
   }
 }

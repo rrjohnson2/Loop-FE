@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { Retort } from 'src/app/models/retort';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RetortCardService } from './retort-card.service';
@@ -15,7 +15,7 @@ import { log } from 'util';
   templateUrl: './retort-card.component.html',
   styleUrls: ['./retort-card.component.css']
 })
-export class RetortCardComponent implements OnInit, AfterViewChecked {
+export class RetortCardComponent implements OnInit, AfterViewInit {
 
   type:PillType = PillType.rertort;
   @Input() idea_id:number;
@@ -25,7 +25,7 @@ export class RetortCardComponent implements OnInit, AfterViewChecked {
   messageForm:FormGroup;
   expan: boolean  =false;
   constructor(private retortCardService:RetortCardService,private uiService:UIService) { }
-  ngAfterViewChecked(): void {
+  ngAfterViewInit(): void {
     
     this.uiService.auto_size_text_area();
   }

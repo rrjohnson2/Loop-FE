@@ -42,7 +42,7 @@ imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
    
     this.image_file= new File(
-      [this.dataURItoBlob(this.croppedImage)],
+      [this.uiService.dataURItoBlob(this.croppedImage)],
       this.coded +".png",
       {type:this.imageChangedEvent.target.files[0].type}
     )
@@ -100,15 +100,6 @@ open() {
  
 }
 
-private dataURItoBlob(dataURI) {
-  const byteString = window.atob(dataURI.split(',')[1]);
-  const arrayBuffer = new ArrayBuffer(byteString.length);
-  const int8Array = new Uint8Array(arrayBuffer);
-  for (let i = 0; i < byteString.length; i++) {
-    int8Array[i] = byteString.charCodeAt(i);
-  }
-  const blob = new Blob([int8Array], { type: 'image/jpeg' });    
-  return blob;
-}
+
 
 }

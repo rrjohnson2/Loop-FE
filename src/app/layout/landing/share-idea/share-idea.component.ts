@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ViewChildren, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ViewChildren, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 import { Idea } from 'src/app/models/idea';
@@ -19,10 +19,14 @@ import { LayoutService } from '../../layout.service';
   styleUrls: ['./share-idea.component.css'],
   providers:[UIService]
 })
-export class ShareIdeaComponent implements OnInit, AfterViewChecked {
+export class ShareIdeaComponent implements OnInit, AfterViewInit {
   ideaForm:FormGroup;
   private content:string
+  image;
+  image_file:File;
   focuses = []
+
+  html_render
   
 
   @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
@@ -36,7 +40,7 @@ export class ShareIdeaComponent implements OnInit, AfterViewChecked {
      private layout:LayoutService) {
     
    }
-   ngAfterViewChecked(): void {
+  ngAfterViewInit(): void {
     this.uiService.loop_upload_button();
   }
 
@@ -157,6 +161,18 @@ export class ShareIdeaComponent implements OnInit, AfterViewChecked {
  get categories() {
    return this.ideaForm.get('categories');
  };
+
+ fileChangeEvent(event)
+ {
+   
+  console.log(event);
+  this.image = event.base64;
+  this.image_file= new File(
+    [this.uiService.dataURItoBlob(this.image)],
+    this.content+".png",
+    {type:event.target.files[0].type}
+  )
+ }
 
 
 }

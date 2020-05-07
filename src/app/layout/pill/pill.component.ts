@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, Output, EventEmitter, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { PillType, log, here } from 'src/app/constants/app.constants';
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -12,7 +12,7 @@ import { UIService } from 'src/app/services/ui.service';
   templateUrl: './pill.component.html',
   styleUrls: ['./pill.component.sass']
 })
-export class PillComponent implements OnInit, AfterViewChecked {
+export class PillComponent implements OnInit, AfterViewInit {
 
   @Input() data:any
   @Input() type:PillType;
@@ -27,7 +27,7 @@ export class PillComponent implements OnInit, AfterViewChecked {
   writeable: boolean=false;
   pillForm:FormGroup;
   constructor(private pillService:PillService, private globalService:GlobalService, private uiServe:UIService) { }
-  ngAfterViewChecked(): void {
+  ngAfterViewInit(): void {
     
     this.uiServe.auto_size_text_area();
   }

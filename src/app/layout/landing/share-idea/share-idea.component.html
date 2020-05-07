@@ -43,6 +43,9 @@
                         </span>
                     </a>
                    </div>
+                   <div class="offset-2 col-8 text-center ">  
+                    <img *ngIf="image!=null" class="Looop_big_profile" [src]="image">
+                 </div>
             </div>
             <div class="row">       
                 <div class="col-6"  *ngFor="let cate of categories.value; let i =index">
