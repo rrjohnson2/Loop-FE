@@ -27,7 +27,7 @@ $navbar-height : 5vh;
 .Looop_col{
     // border-right: solid .25vh $gray-300;
     padding: 0 !important;
-    margin-top: 1vw;
+    margin-top: $standard_size;
     margin-right: 0;
 }
  .login_form, .signup_input, .login_root {
@@ -59,22 +59,20 @@ $navbar-height : 5vh;
     box-sizing: inherit !important;
 }
 .live_Looop_card{
-    min-height: 25%;
-    max-height: 25%;
+    min-height:  $standard_size+180;
     
-    margin-bottom: 10%;
+    margin-bottom:  $standard_size*5;
 }
 
 .live_center{
-    margin-left: 5%;
-    margin-right: 5%;
-    max-height: 100% !important;
+    margin-left: $standard_size;
+    margin-right: $standard_size;
 }
 .act_right{
 
     overflow-y: scroll;
-    margin-left: 5%;
-    max-height: 50vh;
+    margin-left: $standard_size;
+    max-height: $standard_size+600;
 }
 p  {
     font-size: inherit !important;
@@ -155,7 +153,7 @@ a:hover{
 .check_box:checked + label{
     color: $primary !important;
     background-color: $gray-200;
-    border-radius: 5px;
+    border-radius: $standard_size * .25;
     padding-left: $standard_size * .25;
     padding-right: $standard_size * .25;
 }

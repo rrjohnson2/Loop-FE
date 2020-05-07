@@ -1,11 +1,11 @@
 .loop_button {
 	
     color: $gray-600;
-    font-size:  1vw !important;
-    border-radius:5px!important;
+    font-size:  $standard_size !important;
+    border-radius: $standard_size *.25!important;
     background-color: $white !important;
-    border: solid 1px $primary !important;
-    box-shadow: .1vw .15vw 0vw 0vw $primary-darker;
+    border: solid $standard_size*.01 $primary !important;
+    box-shadow: 1px 2px 0px 0px $primary-darker;
 }
 .loop_button:hover {
     background-color: $primary !important;
@@ -17,19 +17,9 @@
 }
 
 .loop_button_icon{
-    font-size: 2vw !important;
+    font-size: $standard_size *2 !important;
 }
 
-.icon_col{
-    padding-left: 0.25vw !important;
-}
-
-.navbar_icon{
-    font-size: 1.75vw !important;
-}
-.tag_icon{
-    font-size: 2.5vw !important;
-}
 
 a{
     text-decoration: none !important;
@@ -37,18 +27,15 @@ a{
 }
 
 .message_badge{
-    font-size: .90vw;
+    font-size: $standard_size*.9;
     background-color: $gray-100;
-    margin-bottom: 1vw;
+    margin-bottom: $standard_size;
     border: 0 !important;
-    border-radius: 10px;
+    border-radius:  $standard_size/2;
 }
 .badge_caption{
     font-weight: bold;
     color: $primary;
-}
-.loop_input{
-    margin-bottom: 1vh;
 }
 .user_content{
     color: black !important;
@@ -60,12 +47,12 @@ a{
     border:0 !important ;
 }
 .signUp{
-    margin-bottom: 1vh;
+    margin-bottom: $standard_size;
     background-color: $white;
     color: black !important;
 }
 .img_icon{
-    width: 100%;
+    width: $standard_size*1.5;
     height: auto;
 }
 
