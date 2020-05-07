@@ -51,14 +51,17 @@
         </div>
       </div>
         <form class="row"  role="form" [formGroup]="retortForm" (ngSubmit)=submit()>
-         <div class="col-10 ">
+         <div class="col-12 ">
           <textarea formControlName="retort" class="form-control Looop-textarea" rows="1" placeholder="Write a retort..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
          </div>
-         <a  class="col-1 icon_col" (click)=submit()>
-          <span class="material-icons test">
-            feedback
-            </span>
+         <div class=" offset-11 col-1  textarea_icon_container  ">
+          <a   (click)=submit()>
+            <span class="material-icons textarea_icon ">
+              message
+              </span>
           </a>
+         </div>
+         
         </form>
   </div>
 </div>
