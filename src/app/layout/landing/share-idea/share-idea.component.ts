@@ -186,7 +186,6 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
 
  fileChangeEvent(event)
  {
-  var date = new Date();
   var old_file = event.target.files[0];
 
   var extension = old_file.name.split('.').pop();
@@ -194,10 +193,9 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
   this.bitComp.init(old_file);
 
 
-  this.content = `${this.profile.username}${date}`
+  this.content = `${this.profile.username}${new Date()}`
   this.content = this.content .replace(this.regex,``) +`.${extension}`;
-  log(this.content)
-  this.content_file =  new File([old_file.stream()],this.content,{type:old_file.type});
+  this.content_file =  new File([old_file],this.content,{type:old_file.type});
   
  }
 

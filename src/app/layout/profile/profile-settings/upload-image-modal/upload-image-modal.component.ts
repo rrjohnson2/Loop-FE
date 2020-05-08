@@ -42,7 +42,7 @@ imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
    
     this.image_file= new File(
-      [this.uiService.dataURItoBlob(this.croppedImage)],
+      [this.uiService.dataURItoBlob(this.croppedImage,1)],
       this.coded +".png",
       {type:this.imageChangedEvent.target.files[0].type}
     )

@@ -145,8 +145,8 @@ bringInView(child_id,parent_id) {
   
   }
 
- dataURItoBlob(dataURI) {
-    const byteString = window.atob(dataURI.split(',')[1]);
+ dataURItoBlob(dataURI, mod = 0) {
+    const byteString = window.atob(dataURI.split(',')[mod]);
     const arrayBuffer = new ArrayBuffer(byteString.length);
     const int8Array = new Uint8Array(arrayBuffer);
     for (let i = 0; i < byteString.length; i++) {
