@@ -1,0 +1,19 @@
+<div *ngIf="bit !=null">
+  <div *ngIf="render_type(bit.type) == 'image';else video">
+    <img class="preview" [src]="src">
+  </div>
+  
+  <ng-template #video>
+    <div *ngIf="render_type(bit?.type) =='video';else audio">
+      <video class="preview" [src]="src" controls></video>
+    </div>
+  </ng-template>
+  
+  <ng-template #audio>
+    <div *ngIf="render_type(bit?.type) =='audio'">
+      <audio controls [src]="src">
+      </audio>
+
+    </div>
+  </ng-template>
+</div>

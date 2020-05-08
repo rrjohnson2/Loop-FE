@@ -6,12 +6,13 @@ import { Profile } from 'src/app/models/profile';
 import { Focus } from 'src/app/models/focus';
 import { ShareIdeaData } from 'src/app/interfaces/shareIdeaData';
 import { Ticket } from 'src/app/interfaces/ticket';
-import { Actions } from 'src/app/constants/app.constants';
+import { Actions, here } from 'src/app/constants/app.constants';
 import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from './share-idea.service';
 import { GlobalService } from 'src/app/services/global.service';
 import { IdeaModalComponent } from '../idea-modal/idea-modal.component';
 import { LayoutService } from '../../layout.service';
+import { BitContentComponent } from '../../bit-content/bit-content.component';
 
 @Component({
   selector: 'app-share-idea',
@@ -22,14 +23,13 @@ import { LayoutService } from '../../layout.service';
 export class ShareIdeaComponent implements OnInit, AfterViewInit {
   ideaForm:FormGroup;
   private content:string
-  image;
-  image_file:File;
+  content_file:File;
   focuses = []
 
-  html_render
   
 
   @ViewChild(IdeaModalComponent) ideaModal:IdeaModalComponent;
+  @ViewChild(BitContentComponent) bitComp:BitContentComponent;
 
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
@@ -164,14 +164,10 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
 
  fileChangeEvent(event)
  {
-   
-  console.log(event);
-  this.image = event.base64;
-  this.image_file= new File(
-    [this.uiService.dataURItoBlob(this.image)],
-    this.content+".png",
-    {type:event.target.files[0].type}
-  )
+  var old_file = event.target.files[0];
+  this.bitComp.init(old_file);
+  this.content_file =  new File([old_file.stream()],`${this.profile.username}${new Date()}`,{type:old_file.type});
+  
  }
 
 

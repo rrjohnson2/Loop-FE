@@ -38,6 +38,8 @@ import { ProfileActivitiesComponent } from './profile/profile-activities/profile
 import { TagComponent } from './tag/tag.component';
 import { MessageBadgeComponent } from './message-badge/message-badge.component';
 import { NoticeBadgeComponent } from './notice-badge/notice-badge.component';
+import { BitContentComponent } from './bit-content/bit-content.component';
+import { SafeHtmlPipe } from './pipe/safe-html.pipe';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -56,6 +58,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     ShareIdeaComponent,
     PillComponent,
     DateagoPipe,
+    SafeHtmlPipe,
     IdeaModalComponent,
     LandingComponent,
     ProfileComponent,
@@ -68,6 +71,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     TagComponent,
     MessageBadgeComponent,
     NoticeBadgeComponent,
+    BitContentComponent,
   ],
   imports: [
     ImageCropperModule,
