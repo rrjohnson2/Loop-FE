@@ -80,7 +80,11 @@ a{
 }
 
  .preview {
-    width: 500px;
-    height:auto;
+    width: 100%;
+    max-height:400px;
+    border: solid $secondary 5px;
+}
+.reduce_padding{
+    padding: 0 !important;
 }
 

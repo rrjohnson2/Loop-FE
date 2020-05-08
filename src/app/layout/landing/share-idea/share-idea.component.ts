@@ -6,7 +6,7 @@ import { Profile } from 'src/app/models/profile';
 import { Focus } from 'src/app/models/focus';
 import { ShareIdeaData } from 'src/app/interfaces/shareIdeaData';
 import { Ticket } from 'src/app/interfaces/ticket';
-import { Actions, here } from 'src/app/constants/app.constants';
+import { Actions, here, log } from 'src/app/constants/app.constants';
 import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from './share-idea.service';
 import { GlobalService } from 'src/app/services/global.service';
@@ -23,6 +23,7 @@ import { BitContentComponent } from '../../bit-content/bit-content.component';
 export class ShareIdeaComponent implements OnInit, AfterViewInit {
   ideaForm:FormGroup;
   private content:string
+  private regex = /(\.|\-|\s|:|\(|\))/gm;
   content_file:File;
   focuses = []
 
@@ -88,7 +89,8 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
     var shareIdeaData:ShareIdeaData={
       title: idea.title,
       description: idea.description,
-      focuses: idea.focuses
+      focuses: idea.focuses,
+      content: idea.content
     }
     var shareIdeaTicket:Ticket ={
       customer:this.profile.username,
@@ -138,11 +140,31 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
    var ideaCreated:Idea;
    ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content);
    
-   this.shareIdea(ideaCreated);
+   this.upload(ideaCreated);
    
     this.ideaForm.reset();
     this.createForm();
     
+ }
+
+ private upload(ideaCreated)
+ {
+   if(this.content_file)
+   {
+     log(this.content_file)
+     log(this.content);
+     log(ideaCreated)
+      this.share_ideaService.upload_content(this.content_file).subscribe(
+        data=>
+        {
+          this.shareIdea(ideaCreated);
+        }
+      )
+   }
+   else{
+     here()
+     this.shareIdea(ideaCreated)
+   }
  }
 
  private populateCategories(): Focus[] {
@@ -164,9 +186,18 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
 
  fileChangeEvent(event)
  {
+  var date = new Date();
   var old_file = event.target.files[0];
+
+  var extension = old_file.name.split('.').pop();
+
   this.bitComp.init(old_file);
-  this.content_file =  new File([old_file.stream()],`${this.profile.username}${new Date()}`,{type:old_file.type});
+
+
+  this.content = `${this.profile.username}${date}`
+  this.content = this.content .replace(this.regex,``) +`.${extension}`;
+  log(this.content)
+  this.content_file =  new File([old_file.stream()],this.content,{type:old_file.type});
   
  }
 
