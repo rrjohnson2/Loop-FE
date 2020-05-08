@@ -1,18 +1,18 @@
-<div *ngIf="bit !=null">
-  <div *ngIf="render_type(bit.type) == 'image';else video">
-    <img class="preview" [src]="src">
+<div *ngIf="src !=null">
+  <div *ngIf="render_type(type) == 'image';else video">
+    <img class="preview" [src]="src | safeHtml: 'resourceUrl'" >
   </div>
   
   <ng-template #video>
-    <div *ngIf="render_type(bit?.type) =='video';else audio">
-      <video class="preview" [src]="src" controls></video>
+    <div *ngIf="render_type(type) =='video';else audio">
+      <video class="preview" [src]="src | safeHtml: 'resourceUrl'"  controls></video>
     </div>
   </ng-template>
   
   <ng-template #audio>
-    <div *ngIf="render_type(bit?.type) =='audio'">
-      <audio controls [src]="src">
-      </audio>
+    <div *ngIf="render_type(type) =='audio'">
+      <audio controls [src]="src | safeHtml: 'resourceUrl'" >
+        </audio>
 
     </div>
   </ng-template>
