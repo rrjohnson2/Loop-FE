@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder } from '@angular/forms';
-import { log, here } from '../constants/app.constants';
+import { log, here, date_to_file_regex } from '../constants/app.constants';
 declare var jQuery: any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UIService {
+  
 
 
   private closeResult:string;
@@ -154,5 +155,11 @@ bringInView(child_id,parent_id) {
     }
     const blob = new Blob([int8Array], { type: 'image/jpeg' });    
     return blob;
+  }
+
+  encode_file(username: string, extension: string): string {
+    var res:string = `${username}${new Date()}`
+    res  = res.replace(date_to_file_regex,``) +`.${extension}`;
+    return res ;
   }
 }

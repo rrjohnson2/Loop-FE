@@ -6,7 +6,7 @@ import { Profile } from 'src/app/models/profile';
 import { Focus } from 'src/app/models/focus';
 import { ShareIdeaData } from 'src/app/interfaces/shareIdeaData';
 import { Ticket } from 'src/app/interfaces/ticket';
-import { Actions, here, log } from 'src/app/constants/app.constants';
+import { Actions, here, log, date_to_file_regex } from 'src/app/constants/app.constants';
 import { UIService } from 'src/app/services/ui.service';
 import { ShareIdeaService } from './share-idea.service';
 import { GlobalService } from 'src/app/services/global.service';
@@ -24,7 +24,6 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
   ideaForm:FormGroup;
   private content:string
   private content_type;
-  private regex = /(\.|\-|\s|:|\(|\))/gm;
   content_file:File;
   focuses = []
 
@@ -193,10 +192,13 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
 
   var extension = old_file.name.split('.').pop();
 
-  this.bitComp.init(old_file);
-  this.content = `${this.profile.username}${new Date()}`
-  this.content = this.content .replace(this.regex,``) +`.${extension}`;
+  
+  this.content = this.uiService.encode_file(this.profile.username,extension)
+
+
+
   this.content_type = this.bitComp.render_type(old_file.type);
+  this.bitComp.init(old_file);
   this.content_file =  new File([old_file],this.content,{type:old_file.type});
   
  }

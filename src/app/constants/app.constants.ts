@@ -36,3 +36,4 @@ export function log(whatever) {
 export function here() {
   console.log("here");
 }
+export var date_to_file_regex  = /(\.|\-|\s|:|\(|\))/gm;

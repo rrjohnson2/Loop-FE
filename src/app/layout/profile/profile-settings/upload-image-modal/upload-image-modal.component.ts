@@ -35,7 +35,7 @@ export class UploadImageModalComponent implements OnInit {
 
 fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
-    this.coded = this.encode(this.profile.username);
+    this.coded = this.uiService.encode_file(this.profile.username,'png');
 }
 imageCropped(event: ImageCroppedEvent) {
     
@@ -43,7 +43,7 @@ imageCropped(event: ImageCroppedEvent) {
    
     this.image_file= new File(
       [this.uiService.dataURItoBlob(this.croppedImage,1)],
-      this.coded +".png",
+      this.coded,
       {type:this.imageChangedEvent.target.files[0].type}
     )
     
