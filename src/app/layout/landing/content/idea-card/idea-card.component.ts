@@ -11,7 +11,7 @@ import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { IdeaModalComponent } from '../../idea-modal/idea-modal.component';
 import { GlobalService } from 'src/app/services/global.service';
 import { Profile } from 'src/app/models/profile';
-import { log } from 'src/app/constants/app.constants';
+import { log, image_server_url } from 'src/app/constants/app.constants';
 
 
 @Component({
@@ -244,6 +244,11 @@ export class IdeaCardComponent implements OnInit, AfterViewInit {
   render_type(type:string)
   {
     return"assets/loop_icons/"+type.toLocaleUpperCase()+".png"
+  }
+
+  get render_content(){
+    log(this.idea)
+    return  image_server_url+"content?content="+this.idea.content;
   }
 
 }

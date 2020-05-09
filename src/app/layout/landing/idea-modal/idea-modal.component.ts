@@ -18,6 +18,7 @@ export class IdeaModalComponent implements OnInit {
   focuses = []
 
   private content:string;
+  private content_type:string;
 
   @Input() idea:Idea
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
@@ -103,7 +104,7 @@ export class IdeaModalComponent implements OnInit {
      ideaCreated = this.idea;
    }
    else{
-      ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content);
+      ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content,this.content_type);
    }
    this.idea_event.emit(ideaCreated);
    this.cancel();

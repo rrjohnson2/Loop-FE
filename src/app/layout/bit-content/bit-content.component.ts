@@ -9,8 +9,8 @@ import { log } from 'util';
 })
 export class BitContentComponent implements OnInit {
 
-   type;
-   src;
+   @Input()type;
+   @Input()src;
 
   constructor() { }
 
@@ -18,6 +18,11 @@ export class BitContentComponent implements OnInit {
   }
   init(bit)
   {
+    if(bit ==null)
+    {
+      this.src = null;
+      this.type= null;
+    }
     this.type = bit.type;
     this.src= URL.createObjectURL(bit);
 
@@ -25,6 +30,7 @@ export class BitContentComponent implements OnInit {
 
   render_type(type:string)
   {
+    console.log(type)
     if(type.match("image")) return 'image';
     else if(type.match("video")) return 'video';
     else if(type.match("audio")) return 'audio';

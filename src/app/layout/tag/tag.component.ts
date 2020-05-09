@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { image_server_url } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-tag',
@@ -19,7 +20,7 @@ export class TagComponent implements OnInit {
 
   get render_profile()
   {
-    return "http://localhost:8082/avatar?user="+this.profilePicture;
+    return image_server_url+"avatar?user="+this.profilePicture;
   }
 
 }

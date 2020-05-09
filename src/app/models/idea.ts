@@ -15,6 +15,7 @@ export class Idea {
     title: string;
     upVotes: number;
     content:string;
+    content_type:string;
    
     constructor(
         creator: Member,
@@ -27,7 +28,8 @@ export class Idea {
         timestamp: Date,
         title: string,
         upVotes: number,
-        content:string
+        content:string,
+        content_type:string
     ){
         this.creator = creator;
         this.description = description;
@@ -40,6 +42,7 @@ export class Idea {
         this.title = title;
         this.upVotes =upVotes;
         this.content = content;
+        this.content_type = content_type;
 
     }
 }

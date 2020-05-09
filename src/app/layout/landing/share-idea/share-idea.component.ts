@@ -23,6 +23,7 @@ import { BitContentComponent } from '../../bit-content/bit-content.component';
 export class ShareIdeaComponent implements OnInit, AfterViewInit {
   ideaForm:FormGroup;
   private content:string
+  private content_type;
   private regex = /(\.|\-|\s|:|\(|\))/gm;
   content_file:File;
   focuses = []
@@ -90,7 +91,8 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
       title: idea.title,
       description: idea.description,
       focuses: idea.focuses,
-      content: idea.content
+      content: idea.content,
+      content_type:idea.content_type
     }
     var shareIdeaTicket:Ticket ={
       customer:this.profile.username,
@@ -138,12 +140,13 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
    var focuses:Focus[] = this.populateCategories();
    
    var ideaCreated:Idea;
-   ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content);
+   ideaCreated = new Idea(null,this.ideaForm.get("description").value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content,this.content_type);
    
    this.upload(ideaCreated);
    
-    this.ideaForm.reset();
-    this.createForm();
+  this.ideaForm.reset();
+  this.createForm();
+  this.bitComp.init(null);
     
  }
 
@@ -191,10 +194,9 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
   var extension = old_file.name.split('.').pop();
 
   this.bitComp.init(old_file);
-
-
   this.content = `${this.profile.username}${new Date()}`
   this.content = this.content .replace(this.regex,``) +`.${extension}`;
+  this.content_type = this.bitComp.render_type(old_file.type);
   this.content_file =  new File([old_file],this.content,{type:old_file.type});
   
  }
