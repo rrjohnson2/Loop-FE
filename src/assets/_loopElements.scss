@@ -90,8 +90,17 @@ a{
     padding: 0 !important;
 }
 
-.logo_img{
+.nav_img{
     width: $standard_size*2;
+    height: auto;
+}
+.nav_img_round{
+    width: $standard_size*2;
+    border-radius: 25px;
+    height: auto;
+}
+.logo_img{
+    width: $standard_size*4;
     height: auto;
 }
 .image_caption{
@@ -104,5 +113,11 @@ a{
     top: -$standard_size*2;
     left: $standard_size*2;
 
+}
+.navbar_row{
+    width: 100%;
+}
+.reduce_padding_right{
+    padding-right: 0;
 }
 

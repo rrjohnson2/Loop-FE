@@ -1,49 +1,39 @@
-<nav class=" Looop_navbar navbar navbar-expand-lg  bg-white ">
-  <div class=" Looop_nav_container container ">
-    <div class="row">
+<nav class=" Looop_navbar navbar  bg-white ">
+  <div class=" Looop_nav_container container  reduce_padding_right ">
+    <div class="row navbar_row">
       <div class="logo_header col-2  loop_nav_col ">
-        <div class="col-7 loop_nav_col">
           <a routerLink="/landing">
             <img class="logo_img" src="assets/loop_icons/logo.png" alt="Logo">
           </a>
-        </div>
       </div>
   
-      <div class=" row offset-6 col-4 loop_nav_col  ">
-          <div class="col-3 row  ">
-            <div class="col-12">
+      <div class=" col-10 loop_nav_col   text-right reduce_padding_right">
+            <span>
               <a class="active_link" routerLink="/landing" >
-                <img class="logo_img" src="assets/loop_icons/home.png">
+                <img class="nav_img" src="assets/loop_icons/home.png">
               </a>
-            </div>
-          </div>
-          <div class="col-3 row">
-            <div class="col-12">
+            </span>
+            <span>
               <a class="active_link"(click)="logOff()">
-                <img class="logo_img" src="assets/loop_icons/exit.png">
+                <img class="nav_img" src="assets/loop_icons/exit.png">
               </a>
-            </div>
-          </div>
-          <div class="col-3 row  ">
-            <div class="col-12">
-              <div  ngbDropdown #myDrop="ngbDropdown" placement="bottom">
-                <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(myDrop)" >
-                  <img *ngIf="notifications.length == 0" class="logo_img" src="assets/loop_icons/bell_empty.png">
-                  <img *ngIf="notifications.length != 0 " class="logo_img" src="assets/loop_icons/bell.png">
-                </a>
-                <div class="" ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-                  <app-notifications [notifications] = "notifications" (notice_event)="showNotice($event)" ></app-notifications>
-                </div>
+            </span>
+            <span>
+              <span  ngbDropdown #myDrop="ngbDropdown" placement="bottom">
+              <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(myDrop)" >
+                <img *ngIf="notifications.length == 0" class="nav_img" src="assets/loop_icons/bell_empty.png">
+                <img *ngIf="notifications.length != 0 " class="nav_img" src="assets/loop_icons/bell.png">
+              </a>
+              <div class="" ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
+                <app-notifications [notifications] = "notifications" (notice_event)="showNotice($event)" ></app-notifications>
               </div>
-            </div>
-          </div>
-          <div class="col-3 row ">
-            <div class="col-12">
+            </span>
+          </span>
+            <span>
               <a class="active_link"  routerLink="/profile" >
-                <app-tag  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
+                <app-tag  [caption_class]="'image_caption_no_time'" [element_class]="'nav_img_round'"  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
               </a>
-            </div>
-          </div>
+            </span> 
       </div>
     </div>
   </div>

@@ -1,24 +1,14 @@
-<div class="row" *ngIf="profilePicture  != null ; else stock">
-    <div class=" col-12">
-      <img   [src]="render_profile" class="Looop_big_profile">
-    </div>
-    <span class=" col-1 row icon_col ">
-      
-      <div class="col-12 row">
-          <small>{{tag}}</small>
-          <div class="col-12 row">
-            <small class="extra_small">{{time | dateago}}</small>
-        </div>
-      </div>
-      </span>
-  </div>
+<span  *ngIf="profilePicture  != null ; else stock">
+      <img   [src]="render_profile" [class]="element_class">
+      <span [class]=""> <small> {{tag}} {{time | dateago}} </small></span> 
+</span>
   
   <ng-template #stock> 
     <div class="row">
       <div class=" col-12">
-        <img class="Looop_big_profile" src="assets/loop_icons/stock.png">
+        <img [class]="element_class" src="assets/loop_icons/stock.png">
       </div>
-      <span class=" col-1 row icon_col ">
+      <!-- <span class=" col-1 row icon_col ">
         
         <div class="col-12 row">
             <small>{{tag}}</small>
@@ -26,7 +16,7 @@
               <small>{{time | dateago}}</small>
           </div>
         </div>
-        </span>
+        </span> -->
     </div>
 
   </ng-template>
