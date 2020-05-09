@@ -80,11 +80,29 @@ a{
 }
 
  .preview {
-    width: 100%;
+    width: -webkit-calc(100% + 40px);
+    width:    -moz-calc(100% + 40px);
+    width:         calc(100% + 40px);
+    margin-left: -$standard_size;
     max-height:400px;
-    border: solid $secondary 5px;
 }
 .reduce_padding{
     padding: 0 !important;
+}
+
+.logo_img{
+    width: $standard_size*2;
+    height: auto;
+}
+.image_caption{
+    position: relative;
+    top: -$standard_size*3.5;
+    left: $standard_size*3;
+}
+.image_caption_no_time{
+    position: relative;
+    top: -$standard_size*2;
+    left: $standard_size*2;
+
 }
 
