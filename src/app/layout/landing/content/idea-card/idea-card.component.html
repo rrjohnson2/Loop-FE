@@ -2,11 +2,11 @@
   <div class="card-header Looop_card_header">
     <div class="">
       <div class="row">
-        <div class="col-2"> 
-          <app-tag [tag]="idea.creator.username" [time]="idea.timestamp" [profilePicture] = "idea.creator.profilePicture"></app-tag>
-           </div>
+        <div class="col-6"> 
+          <app-tag [element_class]="'content_img_round'" [tag]="idea.creator.username" [time]="idea.timestamp" [profilePicture] = "idea.creator.profilePicture"></app-tag>
+          </div>
 
-        <div *ngIf="username == idea.creator.username" class="col-10 text-right" ngbDropdown #myDrop="ngbDropdown" placement="left">   
+        <div *ngIf="username == idea.creator.username" class="col-6  text-right" ngbDropdown #myDrop="ngbDropdown" placement="left">   
           <app-idea-modal [idea]="idea" (idea_event)="updateIdea($event)"></app-idea-modal>
             <a (click)="showEdit()" >
               <span class="material-icons icon">
