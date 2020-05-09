@@ -8,9 +8,9 @@
   <div class=" col-9 pill-content card message_badge">
     <div class="row">
       <div class="col-6">
-        <div class="badge_caption">
-          {{data.creator.username}} {{data.timestamp|dateago}}
-        </div>
+        <small class="badge_caption">
+          {{data.creator.username}} &#8226; {{data.timestamp|dateago}}
+        </small>
       </div>
         <div class="col-6 text-right" *ngIf="username == data.creator.username">
         <a  (click)="showEdit()">
