@@ -13,7 +13,6 @@ export class NotificationService {
   constructor(private http:HttpClient) { }
 
   removeNotice(notice){
-    log(notice);
     return this.http.post(backend_url+"removeNotice",notice);
   }
 }

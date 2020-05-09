@@ -30,7 +30,6 @@ export class ContentComponent implements OnInit {
   }
 
   showNotice(event: Notice) {
-    log(event)
     if(event.action == Notice_Actions.FOCUS)
     {
       this.showIdea(event.data);

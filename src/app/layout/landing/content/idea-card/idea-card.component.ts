@@ -98,7 +98,6 @@ export class IdeaCardComponent implements OnInit, AfterViewInit {
 
   messageEvent(event)
   {
-    console.log(event.data.data);
     for (const key in this.idea.retorts) {
       if(this.idea.retorts[key].id == event.retort.id)
       {
@@ -247,7 +246,6 @@ export class IdeaCardComponent implements OnInit, AfterViewInit {
   }
 
   get render_content(){
-    log(this.idea)
     return  image_server_url+"content?content="+this.idea.content;
   }
 

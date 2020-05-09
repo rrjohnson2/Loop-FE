@@ -11,7 +11,7 @@ export class TagComponent implements OnInit {
   @Input() profilePicture;
   @Input() time;
   @Input() tag;
-  @Input() element_class= "Looop_big_profile"
+  @Input() element_class= "col_fit_profile_pic"
 
   
   constructor() { }

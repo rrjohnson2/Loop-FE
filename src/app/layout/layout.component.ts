@@ -30,7 +30,6 @@ export class LayoutComponent implements OnInit {
   }
   public showNotice(notice)
   { 
-    log(this.child)
     this.child.showNotice(notice);
   }
 

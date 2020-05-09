@@ -109,14 +109,13 @@ bringInView(child_id,parent_id) {
       });
       $('.Looop-textarea').each(function () {
       }).on("paste",function (e) {
-          console.log(e.originalEvent.clipboardData.items);
       });
     })(jQuery);
 
   }
   loop_upload_button()
   {
-    here()
+    
    const inputs =  document.getElementsByClassName("loop_target_input");
    const buttons =  document.getElementsByClassName("loop_button_upload");
    

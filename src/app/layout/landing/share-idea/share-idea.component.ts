@@ -153,9 +153,6 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
  {
    if(this.content_file)
    {
-     log(this.content_file)
-     log(this.content);
-     log(ideaCreated)
       this.share_ideaService.upload_content(this.content_file).subscribe(
         data=>
         {
@@ -164,7 +161,7 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
       )
    }
    else{
-     here()
+     
      this.shareIdea(ideaCreated)
    }
  }
