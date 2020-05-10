@@ -72,7 +72,7 @@ $navbar-height : 5vh;
 
     overflow-y: scroll;
     margin-left: $standard_size;
-    max-height: $standard_size+600;
+    max-height: 50vh
 }
 p  {
     font-size: inherit !important;
@@ -127,7 +127,7 @@ a:hover{
     padding-right: 0 !important;
 }
 .profile-setting{
-    min-height: $standard_size*20 !important;
+min-height: $standard_size*18 !important;
 }
 
 .welcome_png{  

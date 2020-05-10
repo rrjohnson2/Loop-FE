@@ -18,15 +18,15 @@
   </div>
 
   <div class="Looop_col col-9 act_right">
-
     <div *ngIf="ideas.length > 0 ; else empty" >
+      <strong >Created {{current | titlecase}}</strong>
       <div *ngFor="let idea of Ideas">
           <app-idea-card id="{{idea.id}}" [username]="profile.username" [idea]="idea"></app-idea-card>
       </div>
   </div>
   <ng-template #empty>
        <legend *ngIf="current; else unsel">
-        You Have Created Any {{current | titlecase}}
+        You Have Yet To Created Any {{current | titlecase}}
        </legend>
        <ng-template #unsel>
           Selected an Activity

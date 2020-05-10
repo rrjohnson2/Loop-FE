@@ -1,20 +1,14 @@
-<span  *ngIf="profilePicture  != null ; else stock">
-      <img   [src]="render_profile" [class]="element_class">
+<span >
+      <img  *ngIf="profilePicture  != null ; else stock"  [src]="render_profile" [class]="element_class">
+      <ng-template #stock>
+            <img [class]="element_class" src="assets/loop_icons/stock.png">
+      </ng-template>
       <span *ngIf="tag !=null">
             <small> 
-                  {{tag}} &#8226; {{time | dateago}} 
+                  {{tag}} 
+                  <span *ngIf="time!=null">
+                        &#8226; {{time | dateago}} 
+                  </span>
             </small>
       </span> 
 </span>
-  
-  <ng-template #stock> 
-  <span>
-      <img [class]="element_class" src="assets/loop_icons/stock.png">
-      <span *ngIf="tag !=null">
-            <small> 
-                  {{tag}} &#8226; {{time | dateago}} 
-            </small>
-      </span> 
-  </span>
-
-  </ng-template>
