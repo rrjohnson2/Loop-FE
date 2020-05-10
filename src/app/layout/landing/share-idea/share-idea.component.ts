@@ -125,7 +125,6 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
 
  createIdea()
  {
-   log(this.ideaForm.get("description").value.split("\n").join("<br>"))
    if(!this.ideaForm.valid)
    {
     this.alert_ticket.emit({
@@ -141,7 +140,7 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
    
    var ideaCreated:Idea;
    ideaCreated = new Idea(null,this.uiService.addTabs_newlines(this.ideaForm.get('description').value),null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content,this.content_type);
-   log(ideaCreated);
+   
    this.upload(ideaCreated);
    
   this.ideaForm.reset();

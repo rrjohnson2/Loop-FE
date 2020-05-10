@@ -36,7 +36,7 @@ export class UIService {
   addTabs_newlines(value: any): string {
     var res ='';
     
-    log(value)
+   
     if(value)
     {
       res = value.split('\n').join('\\n');
