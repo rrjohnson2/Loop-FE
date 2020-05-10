@@ -23,8 +23,10 @@ export class BitContentComponent implements OnInit {
       this.src = null;
       this.type= null;
     }
-    this.type = bit.type;
-    this.src= URL.createObjectURL(bit);
+    else{
+      this.type = bit.type;
+      this.src= URL.createObjectURL(bit)
+    };
 
   }
 

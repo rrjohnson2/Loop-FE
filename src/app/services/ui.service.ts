@@ -9,6 +9,8 @@ declare var jQuery: any;
 })
 export class UIService {
   
+  
+  
 
 
   private closeResult:string;
@@ -17,6 +19,32 @@ export class UIService {
   
   constructor(private modalService:NgbModal, private  formBuilder:FormBuilder) { 
     
+  }
+
+  tabs_new_lines(value: string) {
+    var res = "";
+
+    if(value)
+    {
+      res = value.split('\\n').join('\n');
+      // res = res.split('\\t').join('\t');
+    }
+
+    return res
+  }
+
+  addTabs_newlines(value: any): string {
+    var res ='';
+    
+    log(value)
+    if(value)
+    {
+      res = value.split('\n').join('\\n');
+      // res = res.split('\t').join('\\t');
+    }
+
+
+    return res ;
   }
 
   dismissAll() {
@@ -107,9 +135,16 @@ bringInView(child_id,parent_id) {
           this.style.height = 'auto';
           this.style.height = (this.scrollHeight) + 'px';
       });
-      $('.Looop-textarea').each(function () {
-      }).on("paste",function (e) {
-      });
+      // $('.Looop-textarea').one("keydown",function(e){
+      //   if(e.keyCode==9 || e.which==9){
+      //     e.preventDefault();
+      //     console.log(this.val)
+      //     var s = this.selectionStart;
+      //     this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+      //     this.selectionEnd = s+1; 
+      // }
+      // });
+      
     })(jQuery);
 
   }

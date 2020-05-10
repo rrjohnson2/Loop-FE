@@ -248,5 +248,8 @@ export class IdeaCardComponent implements OnInit, AfterViewInit {
   get render_content(){
     return  image_server_url+"content?content="+this.idea.content;
   }
+  render_newlines(value:string){
+    return this.uiService.tabs_new_lines(value);
+  }
 
 }

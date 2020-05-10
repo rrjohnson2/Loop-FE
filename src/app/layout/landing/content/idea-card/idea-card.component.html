@@ -28,7 +28,7 @@
     <div class="text-center">
       <app-bit-content *ngIf="idea.content" [type]="idea.content_type" [src]="render_content"></app-bit-content>
     </div>
-    <p class=" card-text user_content ">{{idea.description}}</p>
+    <p class=" card-text user_content ">{{render_newlines(idea.description)}}</p>
     
     <div *ngIf="username!=idea.creator.username" class=" row-justify-content-center text-center">
       <a class="col-1"  *ngFor=" let type of types" (click)="vote(type.name)" placement="top" ngbTooltip="{{type.name | titlecase}}" >
