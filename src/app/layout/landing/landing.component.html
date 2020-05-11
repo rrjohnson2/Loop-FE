@@ -7,12 +7,12 @@
       <app-alert></app-alert>
     </div>
     
-    <div class="col-sm-12 col-lg-9 loop_col row  ">
+    <div class="col-sm-12 col-lg-9 loop_col row   ">
       <div class="ideas_body" id="ideas_body">
-          <div class="col-12 ">
+          <div class="col-12 sm_reduce_padding_right ">
             <app-share-idea  (idea_event) ="addIdea($event)" (alert_ticket)="alerty($event)" [profile]=" profile"></app-share-idea>
           </div>
-          <div class="col-12 ">
+          <div class="col-12 sm_reduce_padding_right ">
             <app-content [filter] ="filter" [ideas]="ideas " (alert_ticket)="alerty($event)" [profile]=" profile  "></app-content>
           </div>
         </div>

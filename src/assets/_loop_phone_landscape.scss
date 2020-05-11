@@ -11,9 +11,13 @@
    }
    
    .live_center{
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
     } 
     .welcome_video{
         margin-bottom: 10px;
         width: 100%;
+    }
+    .sm_reduce_padding_right{
+        padding-right: 0 !important;
     }
