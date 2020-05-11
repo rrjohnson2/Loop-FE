@@ -3,7 +3,7 @@
 // Looop 
 @import "./assets/variables";
 
- @import"./assets/loop_default";
+//  @import"./assets/loop_default";
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -51,7 +51,7 @@
     
     /* Large screens ----------- */
     @media only screen  and (min-width : 1824px) {
-      //  @import"./assets/loop_default";
+        @import"./assets/loop_default";
     }
     
     // /* iPhone 4 ----------- */
