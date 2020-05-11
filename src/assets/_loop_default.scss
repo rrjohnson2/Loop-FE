@@ -128,7 +128,7 @@ padding-right: 0;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// navbar 
 .loop_nav_col{
-    padding: 0 !important ;
+    padding-left: 0 !important ;
 }
 
 .loop_navbar{
@@ -303,6 +303,10 @@ padding-right: 0;
     margin-bottom: $standard_size;
     background-color: $white;
     color: black !important;
+}
+.welcome_video{
+    width :100%;
+    height: auto;
 }
 
 

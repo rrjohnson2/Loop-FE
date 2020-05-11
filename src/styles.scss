@@ -8,39 +8,7 @@
 
 /* sm */
 @media only screen and  (max-device-width : 991px) {
-   .hidden{
-       display: none;
-   }
-   .layout{
-   }
-   * {
-       margin: 0;
-   }
-   .container{
-       padding: 0 !important;
-       margin-right:  0 !important;
-       margin-left:  0 !important;
-       clear: left;
-   }
-   .loop_col{
-       margin-top: 0;
-   }
-   .loop_icon_large{
-    height: auto;
-}
-    .loop_icon_small{
-        height: auto;
-    }
-    .col-12
-    {
-        padding-right: 0;
-    }
-    .live_center{
-        margin: 0;
-    }
-    .live_loop_card{
-        margin:  0;
-    }
+   @import "./assets/loop_phone_landscape";
 }
 
 /* md */
@@ -203,6 +171,7 @@ body
 { 
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     height: 100vh;
+    width: 100vw;
     overflow-y: hidden; 
     overflow-x: hidden; 
 }
