@@ -13,7 +13,7 @@ import { UIService } from 'src/app/services/ui.service';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.sass']
 })
-export class LandingComponent implements OnInit, AfterViewChecked {
+export class LandingComponent implements OnInit, AfterViewInit {
 
   profile:Profile;
   ideas:Idea[] =[];
@@ -27,7 +27,7 @@ export class LandingComponent implements OnInit, AfterViewChecked {
   @ViewChild(ContentComponent) content:ContentComponent;
 
   constructor(private layout:LayoutService, private ui:UIService) { }
-  ngAfterViewChecked(): void {
+  ngAfterViewInit(): void {
     this.hidden_sm = window.screen.width <992;
   }
 
