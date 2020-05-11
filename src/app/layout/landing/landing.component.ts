@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
 import { Idea } from 'src/app/models/idea';
 import { Notice } from 'src/app/models/notice';
@@ -12,17 +12,23 @@ import { here } from 'src/app/constants/app.constants';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.sass']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, AfterViewChecked {
 
   profile:Profile;
   ideas:Idea[] =[];
   notifications:Notice[] = [];
   filter:string
 
+  hidden_sm=false;
+  
+
   @ViewChild(AlertComponent) alert:AlertComponent;
   @ViewChild(ContentComponent) content:ContentComponent;
 
   constructor(private layout:LayoutService) { }
+  ngAfterViewChecked(): void {
+    this.hidden_sm = window.screen.width <992;
+  }
 
   ngOnInit() {
     this.layout.profile.subscribe(data=> this.profile = data);
