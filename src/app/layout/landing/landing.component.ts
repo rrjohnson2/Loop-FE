@@ -6,6 +6,7 @@ import { LayoutService } from '../layout.service';
 import { AlertComponent } from 'src/app/shared/alerts/alert.component';
 import { ContentComponent } from './content/content.component';
 import { here } from 'src/app/constants/app.constants';
+import { UIService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-landing',
@@ -25,7 +26,7 @@ export class LandingComponent implements OnInit, AfterViewChecked {
   @ViewChild(AlertComponent) alert:AlertComponent;
   @ViewChild(ContentComponent) content:ContentComponent;
 
-  constructor(private layout:LayoutService) { }
+  constructor(private layout:LayoutService, private ui:UIService) { }
   ngAfterViewChecked(): void {
     this.hidden_sm = window.screen.width <992;
   }
@@ -68,6 +69,10 @@ export class LandingComponent implements OnInit, AfterViewChecked {
       else{
         this.filter = event;
       }
+  }
+  get render_container()
+  {
+    return this.ui.container_or_fluid(this.hidden_sm);
   }
 
 }

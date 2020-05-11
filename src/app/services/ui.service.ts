@@ -11,6 +11,7 @@ export class UIService {
   
   
   
+  
 
 
   private closeResult:string;
@@ -195,5 +196,11 @@ bringInView(child_id,parent_id) {
     var res:string = `${username}${new Date()}`
     res  = res.replace(date_to_file_regex,``) +`.${extension}`;
     return res ;
+  }
+
+  container_or_fluid(hidden_sm: boolean) {
+
+    if(hidden_sm) return "container-fluid"
+    return "container"
   }
 }
