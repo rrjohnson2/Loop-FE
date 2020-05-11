@@ -22,31 +22,31 @@ export class UIService {
     
   }
 
-  tabs_new_lines(value: string) {
-    var res = "";
+  // tabs_new_lines(value: string) {
+  //   var res = "";
 
-    if(value)
-    {
-      res = value.split('\\n').join('\n');
-      // res = res.split('\\t').join('\t');
-    }
+  //   if(value)
+  //   {
+  //     res = value.split('\\n').join('\n');
+  //     // res = res.split('\\t').join('\t');
+  //   }
 
-    return res
-  }
+  //   return res
+  // }
 
-  addTabs_newlines(value: any): string {
-    var res ='';
+  // addTabs_newlines(value: any): string {
+  //   var res ='';
     
    
-    if(value)
-    {
-      res = value.split('\n').join('\\n');
-      // res = res.split('\t').join('\\t');
-    }
+  //   if(value)
+  //   {
+  //     res = value.split('\n').join('\\n');
+  //     // res = res.split('\t').join('\\t');
+  //   }
 
 
-    return res ;
-  }
+  //   return res ;
+  // }
 
   dismissAll() {
    this.modalService.dismissAll();

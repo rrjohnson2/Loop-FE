@@ -115,4 +115,6 @@ export class PillComponent implements OnInit, AfterViewInit {
     this.expan.emit(true);
   }
 
+  
+
 }

@@ -139,7 +139,7 @@ export class ShareIdeaComponent implements OnInit, AfterViewInit {
    var focuses:Focus[] = this.populateCategories();
    
    var ideaCreated:Idea;
-   ideaCreated = new Idea(null,this.uiService.addTabs_newlines(this.ideaForm.get('description').value),null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content,this.content_type);
+   ideaCreated = new Idea(null,this.ideaForm.get('description').value,null,focuses,null,null,null,null,this.ideaForm.get("title").value,null,this.content,this.content_type);
    
    this.upload(ideaCreated);
    

@@ -25,9 +25,9 @@
         </a>
       </div>
     </div>
-    <div class="user_content" *ngIf="!writeable">
+    <p class="user_content" *ngIf="!writeable">
           {{data.content}}
-    </div>
+    </p>
 
     <div [hidden]="!writeable">
       <form  role="form" [formGroup]="pillForm" (ngSubmit)=submit()>
