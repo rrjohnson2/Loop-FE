@@ -13,10 +13,10 @@
      height: 100%;
      width: 100%;
      font-size:  $standard_size !important;
-     color: $gray-600;
+     color: $gray-500;
 }
 
-.Looop-textarea{
+.textarea{
     min-width: 85%;
     resize: none;
     font-size: $standard_size*.75 !important;
@@ -25,27 +25,27 @@
     border: .1vw solid $gray-300;
 }
 
-.Looop_li_filter{
+.list_no_bullet{
     list-style-type: none;
     padding-left:0;
 }
 .hl_current {
     color:  $secondary !important;
   }
-  .cate_tag{
+.cate_tag{
       margin-left: $standard_size*.25;
       font-size: $standard_size ;
   }
 a{
     text-decoration: none !important;
-    color: $gray-200;
+    color: $gray-500;
 }
 a:hover{
     cursor: pointer;
     color: $secondary !important;
 }
 
-.Looop_underline{
+.underline{
     border-bottom: solid $standard_size*.025 $gray-300;
 }
 
@@ -131,11 +131,11 @@ padding-right: 0;
     padding: 0 !important ;
 }
 
-.Looop_navbar{
+.loop_navbar{
     border-bottom: .01vh solid $gray-300;
 }
 
-.Looop_col{
+.loop_col{
     // border-right: solid .25vh $gray-300;
     padding: 0 !important;
     margin-top: $standard_size;
@@ -194,20 +194,18 @@ padding-right: 0;
    overflow-y: scroll;
    height: 90vh;
 }
-.Looop_card
+.loop_card
 {
     margin-bottom: 2.5vh;
 }
 
-.Looop_card_header,.Looop_card_footer{
+.loop_card_header,.loop_card_footer{
     background-color: $white !important;
     padding-top: 1vh !important;
     padding-bottom: 1vh !important;
 }
-.Looop_expansion_panel{
-    box-sizing: inherit !important;
-}
-.live_Looop_card{
+
+.live_loop_card{
     min-height:  $standard_size+180;
     
     margin-bottom:  $standard_size;
@@ -290,7 +288,7 @@ padding-right: 0;
     position: absolute;
 }
 
-.act_right{
+.profile_act_right_col{
 
     overflow-y: scroll;
     margin-left: $standard_size;

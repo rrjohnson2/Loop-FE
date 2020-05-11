@@ -1,5 +1,5 @@
-<legend class="Looop_underline">Filters</legend>
-<div class=" row Looop_underline" >
+<legend class="underline">Filters</legend>
+<div class=" row underline" >
   <div class="col-12"  *ngFor="let foc of focuses">
     <a *ngIf="current == foc.name; else non" class="hl_current" (click)="filterIdea(foc.name)">
       <app-icon [preference]= "foc"  [type]="'loop_icon_large'"></app-icon><small class=" cate_tag">{{foc.name}}</small>

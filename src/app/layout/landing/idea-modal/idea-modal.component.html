@@ -7,13 +7,13 @@
                       <div *ngIf="ideaFormSelection == 0 " class="form_input">
                           <fieldset>
                               <legend>Title of Your Idea</legend>
-                              <input onkeydown="return event.key != 'Enter';" formControlName="title" class="form-control Looop-textarea"  type="text" (focus)="focus1=true" (blur)="focus1=false">
+                              <input onkeydown="return event.key != 'Enter';" formControlName="title" class="form-control textarea"  type="text" (focus)="focus1=true" (blur)="focus1=false">
                           </fieldset>
                         </div>
                         <div *ngIf="ideaFormSelection == 1 " class="form_input">
                           <fieldset>
                             <legend>Description</legend>
-                            <textarea formControlName="description" class="form-control Looop-textarea" (focus)="focus1=true" (blur)="focus1=false"  rows="10"></textarea>
+                            <textarea formControlName="description" class="form-control textarea" (focus)="focus1=true" (blur)="focus1=false"  rows="10"></textarea>
                           </fieldset>
                         </div>
                         <div *ngIf="ideaFormSelection == 2 " class="form_input">

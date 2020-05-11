@@ -1,7 +1,7 @@
 <form #share_idea role="form" [formGroup]="ideaForm" (ngSubmit)=createIdea()>
 
-        <div class="card live_Looop_card live_center ">
-            <div class="card-header Looop_card_header">
+        <div class="card live_loop_card live_center ">
+            <div class="card-header loop_card_header">
             <div class="cards-title">
                 <div class="row">
                         <strong class="col-10">Have An Idea?</strong>
@@ -14,15 +14,15 @@
             </div>
             </div>
 
-            <div class=" card-body Looop_card_body">
+            <div class=" card-body loop_card_body">
             <div class="card-subtitle mb-2">
                 <fieldset>
-                    <input onkeydown="return event.key != 'Enter';" formControlName="title" class="Looop-textarea form-control user_content" placeholder="Title of Your Idea..."  type="text" (focus)="focus1=true" (blur)="focus1=false">
+                    <input onkeydown="return event.key != 'Enter';" formControlName="title" class="textarea form-control user_content" placeholder="Title of Your Idea..."  type="text" (focus)="focus1=true" (blur)="focus1=false">
                 </fieldset>
             </div>
             <div class=" row">
                   <div class="col-12 ">
-                    <textarea placeholder="Description..."  formControlName="description" class="Looop-textarea form-control user_content" (focus)="focus1=true" (blur)="focus1=false"  rows="1"></textarea>
+                    <textarea placeholder="Description..."  formControlName="description" class="textarea form-control user_content" (focus)="focus1=true" (blur)="focus1=false"  rows="1"></textarea>
                    </div>
                    <div class=" offset-11 col-1  textarea_icon_container  ">
                     <input 

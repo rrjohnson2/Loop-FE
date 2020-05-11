@@ -1,9 +1,9 @@
-<div class="row Looop_col">
+<div class="row loop_col">
 
 
-  <div class="col-2  Looop_col">
-    <legend class="Looop_underline">Your Activties</legend>
-    <ul class="Looop_li_filter" >
+  <div class="col-2  loop_col">
+    <legend class="underline">Your Activties</legend>
+    <ul class="list_no_bullet" >
       <li  *ngFor="let pos of possible_activities">
         <a *ngIf="current == pos; else non" class="hl_current" (click)="filterActivities(pos)">
           {{pos | titlecase}}
@@ -17,7 +17,7 @@
     </ul>
   </div>
 
-  <div class="Looop_col col-9 act_right">
+  <div class="loop_col col-9 profile_act_right_col">
     <div *ngIf="ideas.length > 0 ; else empty" >
       <strong >Created {{current | titlecase}}</strong>
       <div *ngFor="let idea of Ideas">

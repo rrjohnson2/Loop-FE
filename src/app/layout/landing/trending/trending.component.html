@@ -1,5 +1,5 @@
-<div class="live_Looop_card  card" >
-  <div class= "card_header text-center Looop_underline">Trending</div>
+<div class="live_loop_card  card" >
+  <div class= "card_header text-center underline">Trending</div>
   <a *ngFor="let idea of trending" class=" card notice_badge"  (click)="showIdea(idea)">
     <app-notice-badge 
     [profilePicture] ="idea.creator.profilePicture"

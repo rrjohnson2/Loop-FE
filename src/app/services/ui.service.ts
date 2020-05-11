@@ -121,21 +121,21 @@ bringInView(child_id,parent_id) {
   {
     // auto hieght for ttextareas
   (function ($) {
-      $('.Looop-textarea').each(function () {
+      $('.textarea').each(function () {
         }).on('input', function () {
           this.style.height = 'auto';
           this.style.height = (this.scrollHeight) + 'px';
         });
-      $('.Looop-textarea').each(function () {
+      $('.textarea').each(function () {
       }).on("blur",function () {
         this.style.height = 'auto';
       });
-      $('.Looop-textarea').each(function () {
+      $('.textarea').each(function () {
       }).on("focus",function () {
           this.style.height = 'auto';
           this.style.height = (this.scrollHeight) + 'px';
       });
-      // $('.Looop-textarea').one("keydown",function(e){
+      // $('.textarea').one("keydown",function(e){
       //   if(e.keyCode==9 || e.which==9){
       //     e.preventDefault();
       //     console.log(this.val)

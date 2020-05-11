@@ -1,5 +1,5 @@
-<nav class=" Looop_navbar navbar navbar-expand-lg bg-white ">
-  <div class="container Looop_nav_container ">
+<nav class=" loop_navbar navbar navbar-expand-lg bg-white ">
+  <div class="container loop_nav_container ">
     <div class="logo_header col-2 row loop_nav_col ">
       <div class="col-7 loop_nav_col">
         <a  routerLink="/landing">
@@ -9,11 +9,11 @@
     </div>
       <form [formGroup]="loginForm" (ngSubmit)=Login() class=" login_form row col-6 loop_nav_col " >
           <div class=" col-4  login_root">
-                  <input formControlName="username" type="text" placeholder="Username" class="form-control Looop-textarea" />
+                  <input formControlName="username" type="text" placeholder="Username" class="form-control textarea" />
               
           </div>
         <div class=" col-4 ">
-                    <input formControlName="password" type="password" placeholder="Password" class="form-control Looop-textarea" />
+                    <input formControlName="password" type="password" placeholder="Password" class="form-control textarea" />
                 
         </div>
         <div class="col-4 ">

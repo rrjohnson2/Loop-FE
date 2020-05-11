@@ -1,5 +1,5 @@
-<div class="card live_Looop_card live_center ">
-  <div class="card-header Looop_card_header">
+<div class="card live_loop_card live_center ">
+  <div class="card-header loop_card_header">
     <div class="">
       <div class="row">
         <div class="col-6"> 
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class=" card-body Looop_card_body">
+  <div class=" card-body loop_card_body">
     <div class="card-subtitle mb-2 user_content "> {{idea.title}}</div>
     <div class="text-center">
       <app-bit-content *ngIf="idea.content" [type]="idea.content_type" [src]="render_content"></app-bit-content>
@@ -47,7 +47,7 @@
       <a  class="col-6 text-right" (click)="showRetort()"> {{idea.retorts.length}} retorts</a>
    </div>
   </div>
-  <div class="card-footer  Looop_card_footer ">
+  <div class="card-footer  loop_card_footer ">
       <div [hidden]="!expan">  
         <div   *ngFor="let retort of sortedRetorts">
           <app-retort-card id="retort_{{retort.id}}"  [username]="username" (messageEvent)="messageEvent($event)" [idea_id]="idea.id" [retort]="retort"></app-retort-card>
@@ -55,7 +55,7 @@
       </div>
         <form class="row"  role="form" [formGroup]="retortForm" (ngSubmit)=submit()>
          <div class="col-12 ">
-          <textarea formControlName="retort" class="form-control Looop-textarea" rows="1" placeholder="Write a retort..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
+          <textarea formControlName="retort" class="form-control textarea" rows="1" placeholder="Write a retort..."   type="text" (focus)="focus1=true" (blur)="focus1=false"></textarea>
          </div>
          <div class=" offset-11 col-1  textarea_icon_container  ">
           <a   (click)=submit()>
