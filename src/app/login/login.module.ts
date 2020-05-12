@@ -8,6 +8,9 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SharedModule } from '../shared/shared.module';
 import { LogComponent } from './log/log.component';
+import { LogOrSignInComponent } from './log-or-sign-in/log-or-sign-in.component';
+
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import { LogComponent } from './log/log.component';
     LoginNavbarComponent,
     WelcomeComponent,
     LogComponent,
+    LogOrSignInComponent,
+    
   ],
 
   imports: [
@@ -23,7 +28,8 @@ import { LogComponent } from './log/log.component';
     LoginRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    MatSlideToggleModule,
+    SharedModule,
   ]
 })
 export class LoginModule { }

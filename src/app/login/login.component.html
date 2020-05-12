@@ -7,7 +7,10 @@
                 <app-welcome></app-welcome>
             </div>
             <div class=" col-lg-6 col-sm-12 ">
-                <app-signup (alert_ticket)="notify($event)"></app-signup>
+                <app-signup *ngIf="!hidden; else log_or_sign" (alert_ticket)="notify($event)"></app-signup>
+                <ng-template #log_or_sign>
+                    <app-log-or-sign-in (alert_ticket)="notify($event)"></app-log-or-sign-in>
+                </ng-template>
             </div>
         </div>
     </div>

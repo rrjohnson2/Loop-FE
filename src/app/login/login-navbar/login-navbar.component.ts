@@ -7,17 +7,17 @@ import {  isSmallScreen } from 'src/app/constants/app.constants';
   templateUrl: './login-navbar.component.html',
   styleUrls: ['./login-navbar.component.css']
 })
-export class LoginNavbarComponent implements OnInit, AfterViewInit {
+export class LoginNavbarComponent implements OnInit {
   hidden:boolean= false;
 
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
 
 constructor() { }
-  ngAfterViewInit(): void {
-    this.hidden = isSmallScreen;
-  }
+ 
 
 ngOnInit() {
+  
+  this.hidden = isSmallScreen;
 }
 
 notify(event){

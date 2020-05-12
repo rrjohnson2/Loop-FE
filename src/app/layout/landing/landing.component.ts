@@ -13,7 +13,7 @@ import { UIService } from 'src/app/services/ui.service';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.sass']
 })
-export class LandingComponent implements OnInit, AfterViewInit {
+export class LandingComponent implements OnInit {
 
   profile:Profile;
   ideas:Idea[] =[];
@@ -27,11 +27,10 @@ export class LandingComponent implements OnInit, AfterViewInit {
   @ViewChild(ContentComponent) content:ContentComponent;
 
   constructor(private layout:LayoutService, private ui:UIService) { }
-  ngAfterViewInit(): void {
-    this.hidden_sm = isSmallScreen;
-  }
+ 
 
   ngOnInit() {
+    this.hidden_sm = isSmallScreen;
     this.layout.profile.subscribe(data=> this.profile = data);
 
     this.layout.ideas_obs.subscribe(data => this.ideas = data);

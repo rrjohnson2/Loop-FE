@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UIService } from './services/ui.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +21,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
   ],
   providers: [AuthGuard,GlobalService,UIService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[]
 })
 export class AppModule { }

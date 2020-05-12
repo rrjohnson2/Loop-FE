@@ -28,7 +28,10 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/assets/_loop_material_theme.scss"
+              }
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"
