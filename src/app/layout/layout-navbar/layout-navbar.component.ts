@@ -53,6 +53,10 @@ export class LayoutNavbarComponent implements OnInit {
     this.child.showNotice(notice);
   }
 
+  showIdea(event){
+      this.child.showIdea(event);
+  }
+
   toggle(sidenav){
     if(sidenav.opened)
     {

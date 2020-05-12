@@ -63,20 +63,41 @@
       <a mat-list-item routerLink="/landing" >
         <img class="nav_img" src="assets/loop_icons/exit.png">
       </a>
-      <a  mat-list-item class="active_link" >
-        <img *ngIf="notifications.length == 0" class="nav_img" src="assets/loop_icons/bell_empty.png">
-        <img *ngIf="notifications.length != 0 " class="nav_img" src="assets/loop_icons/bell.png">
-      </a>
      </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="row">
-        <a (click)="toggle(sidenav)" class="active_link col-6">
+        <a (click)="toggle(sidenav)" class="active_link col-4">
             <img class="nav_img" src="assets/loop_icons/hamburger.png">
         </a>
-        <a class="col-6 text-right" routerLink="/landing">
+        <a class="col-4 " routerLink="/landing">
           <img class="logo_img" src="assets/loop_icons/logo.png" alt="Logo">
         </a>
+        <div class="col-4 text-right">
+          
+        <span  ngbDropdown #notice="ngbDropdown" placement="bottom" >
+          <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(notice)" >
+            <img *ngIf="notifications.length == 0" class="nav_img" src="assets/loop_icons/bell_empty.png">
+            <img *ngIf="notifications.length != 0 " class="nav_img" src="assets/loop_icons/bell.png">
+          </a>
+          
+          <div class="" ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
+            <app-notifications [notifications] = "notifications" (notice_event)="showNotice($event)" ></app-notifications>
+          </div>
+        </span>
+
+        <span  ngbDropdown #trending="ngbDropdown" placement="bottom" >
+            <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(trending)" >
+              <img class="nav_img" src="assets/loop_icons/trending.png">
+            </a>
+          
+          <div class="" ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
+            <app-trending   (idea_event)="showIdea($event)" ></app-trending>
+          </div>
+        </span>
+
+
+        </div>
       </div>
       <router-outlet (activate)="onActivate($event)"></router-outlet>
     </mat-sidenav-content>

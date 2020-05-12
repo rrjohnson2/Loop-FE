@@ -2,7 +2,7 @@
 <div [class]="render_container">
   <div class="row">
     <div *ngIf="!hidden_sm" class="col-3 loop_col">
-      <app-trending  [ideas]="ideas" (idea_event)="showIdea($event)" ></app-trending>
+      <app-trending  (idea_event)="showIdea($event)" ></app-trending>
       <app-activities (ideaFilter)="ideaFilter($event)" ></app-activities>
       <app-alert></app-alert>
     </div>

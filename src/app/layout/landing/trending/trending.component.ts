@@ -11,7 +11,7 @@ import { here, log } from 'src/app/constants/app.constants';
 export class TrendingComponent implements OnInit {
 
   trending:Idea[] =[]
-  @Input() ideas:Idea[] =[];
+  ideas:Idea[] =[];
   @Output() idea_event: EventEmitter<Idea> = new EventEmitter<Idea>();
   constructor(private trendingServ:TrendingService) { }
 
