@@ -1,5 +1,5 @@
-<nav class=" loop_navbar navbar  bg-white ">
-  <div class=" loop_nav_container container  ">
+<nav class=" loop_navbar navbar  bg-white sm_reduce_padding_right ">
+  <div class=" loop_nav_container container sm_reduce_padding_right ">
     <div class="row navbar_row">
       <div class="logo_header col-2  loop_nav_col ">
           <a routerLink="/landing">
@@ -7,7 +7,7 @@
           </a>
       </div>
   
-      <div class=" col-10 loop_nav_col   text-right ">
+      <div *ngIf="!hidden; else sidebar" class=" col-10 loop_nav_col   text-right ">
             <span>
               <a class="active_link" routerLink="/landing" >
                 <img class="nav_img" src="assets/loop_icons/home.png">
@@ -35,6 +35,24 @@
               </a>
             </span> 
       </div>
+
+      <ng-template #sidebar>
+        <div class=" col-10 text-right sm_reduce_padding_right side_bar">
+          <span>
+            <a class="active_link" (click)="openSidebar()">
+              <img class="nav_img" src="assets/loop_icons/hamburger.png">
+            </a>
+          </span>
+          <span #sidebar_contnent class="side_bar_content">
+            <div class="sm_side_nav_badge">
+              <a class="sm_side_nav_link" routerLink="/landing" >
+                <img class="nav_img" src="assets/loop_icons/home.png">
+              </a>
+            </div>
+          </span>
+        </div>
+      </ng-template>
+
     </div>
   </div>
 </nav>

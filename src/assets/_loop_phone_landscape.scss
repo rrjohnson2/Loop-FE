@@ -31,3 +31,28 @@
         position: fixed;
         bottom: 0;
     }
+    .side_bar_content{
+        z-index: 1000;
+        position: fixed;
+        background-color: $secondary;
+        left: 75vw;
+        text-align: left;
+        width: 25vw;
+        height: 100vh;
+        top: 0;
+        color: $white;
+        display: none;
+    }
+    .sm_side_nav_badge{
+        text-align: center;
+    }
+    .sm_side_nav_badge:active{
+        
+        background-color: $gray-100;
+    }
+    .sm_side_nav_link{
+        color:  $white !important;
+    }
+    .sm_side_nav_link:active{
+        color:  $gray-600 !important;
+    }

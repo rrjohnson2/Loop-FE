@@ -4,8 +4,8 @@ import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutService } from '../layout.service';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
-import { RealtimeService } from 'src/app/services/realtime.service';
 import { Notice } from 'src/app/models/notice';
+import {  isSmallScreen } from 'src/app/constants/app.constants';
 @Component({
   selector: 'app-layout-navbar',
   templateUrl: './layout-navbar.component.html',
@@ -16,7 +16,9 @@ export class LayoutNavbarComponent implements OnInit {
  profile:Profile;
  @Output() logout_event: EventEmitter<boolean> = new EventEmitter<boolean>();
  @Output() notice_event: EventEmitter<Notice> = new EventEmitter<Notice>();
-  notifications:Notice[]=[];
+ notifications:Notice[]=[];
+ hidden = isSmallScreen;
+ opened = true;
 
   constructor(private layout:LayoutService, 
     private router:Router,
