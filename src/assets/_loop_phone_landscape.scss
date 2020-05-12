@@ -6,6 +6,13 @@
    .container-fluid{
        padding: 0 !important;
    }
+   .ideas_body{
+    overflow-y: scroll;
+    height: 90vh;
+ }
+ .ideas_body{
+    height: 100vh;
+ }
    .loop_col{
        margin-top: 0;
    }
@@ -57,7 +64,11 @@
         color:  $gray-600 !important;
     }
     .mat-sidenav-content{
-        background-color: $white;
+        background-color: $gray-100 !important;
+        color: $gray-600 !important;
+    }
+     ::-webkit-scrollbar-track{
+         display: none;
     }
     .profile_dropdown {
         min-width: 200px;
