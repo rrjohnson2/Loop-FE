@@ -1,4 +1,4 @@
-<div class="alert-container" >
+<div class="alert-container fixed__under_navbar" >
     <div class="alert"  *ngFor="let alert of alerts">
       <ngb-alert [type]="alert.type"  [dismissible]="true"  (close)="close(alert)" >
         <ng-container *ngIf="alert.icon">

@@ -6,3 +6,13 @@
         <mat-slide-toggle [color]="primary" (change)="toggle($event)"></mat-slide-toggle>         
     </div>
 </div>
+
+<div class="row ">
+    <div class=" col-12 text-center">
+        <app-signup [clazz]="'col-12'" *ngIf="choice=='Sign Up'; else login" (alert_ticket)="notify($event)"></app-signup>
+       <ng-template #login>
+            <app-log [clazz]="'col-12'" (alert_ticket)="notify($event)"></app-log>
+       </ng-template>
+    </div>
+</div>
+<app-footer class="sm_postion_bottom"></app-footer>

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { GlobalService } from 'src/app/services/global.service';
 import { CreateMemberTicket } from 'src/app/interfaces/create-member-ticket';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
     private create_member: CreateMemberTicket;
     public signupform: FormGroup;
     @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
+    @Input() clazz =' col-12 row'
 
   constructor(private globalservice: GlobalService,private router:Router) { }
 

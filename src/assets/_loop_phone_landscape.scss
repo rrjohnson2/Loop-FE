@@ -24,3 +24,10 @@
     .sm_center{
         text-align: center;
     }
+    .sm_margin_bottom{
+        margin-bottom: $standard_size;
+    }
+    .sm_postion_bottom{
+        position: fixed;
+        bottom: 0;
+    }

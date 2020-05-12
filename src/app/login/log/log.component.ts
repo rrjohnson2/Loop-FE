@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Actions } from 'src/app/constants/app.constants';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -15,6 +15,7 @@ export class LogComponent implements OnInit {
   private ticket: Ticket;
   public loginForm: FormGroup;
   hidden:boolean= false;
+  @Input() clazz =' col-12 row'
 
   @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
 

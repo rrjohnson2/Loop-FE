@@ -1,16 +1,18 @@
-<form  [formGroup]="loginForm" (ngSubmit)=Login() class="col-12 row">
-  <div class=" col-4 ">
-          <input formControlName="username" type="text" placeholder="Username" class="form-control textarea" />
-      
-  </div>
-<div class=" col-4 ">
-            <input formControlName="password" type="password" placeholder="Password" class="form-control textarea" />
-        
+<div class="row">
+        <form  [formGroup]="loginForm" (ngSubmit)=Login() [class]="clazz">
+                <div class=" col-lg-4 col-sm-12 sm_margin_bottom">
+                        <input formControlName="username" type="text" placeholder="Username" class="form-control textarea" />
+                    
+                </div>
+              <div class=" col-lg-4  col-sm-12 sm_margin_bottom">
+                          <input formControlName="password" type="password" placeholder="Password" class="form-control textarea" />
+                      
+              </div>
+              <div class="col-lg-4 col-sm-12 sm_center ">
+                      <button  class="loop_button" placement="top" ngbTooltip="Sign Up" 
+                               type="submit">
+                             Login
+                      </button>
+              </div>
+              </form>
 </div>
-<div class="col-4 ">
-        <button  class="loop_button" placement="top" ngbTooltip="Sign Up" 
-                 type="submit">
-               Login
-        </button>
-</div>
-</form>

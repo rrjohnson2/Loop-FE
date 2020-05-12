@@ -126,6 +126,11 @@ padding-right: 0;
     height: auto;
 }
 
+.fixed__under_navbar{
+    position: fixed;
+    bottom:$standard_size
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// navbar 
 .loop_nav_col{
     padding-left: 0 !important ;

@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { log } from 'src/app/constants/app.constants';
+import { AlertTicket } from 'src/app/interfaces/alert-ticket';
 
 @Component({
   selector: 'app-log-or-sign-in',
@@ -9,6 +10,7 @@ import { log } from 'src/app/constants/app.constants';
 export class LogOrSignInComponent implements OnInit {
 
   choice:string ="Login"
+  @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +19,9 @@ export class LogOrSignInComponent implements OnInit {
   toggle(event){
       if(event.checked) this.choice= "Sign Up"
       else this.choice ="Login"
+  }
+  notify(event){
+    this.alert_ticket.emit(event);
   }
 
 }

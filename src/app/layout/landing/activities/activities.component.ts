@@ -9,7 +9,6 @@ import { LayoutService } from '../../layout.service';
 export class ActivitiesComponent implements OnInit {
   
   focuses =[]
-  year = new Date().getFullYear();
   current =""
   @Output() ideaFilter: EventEmitter<string> = new EventEmitter<string>();
   constructor(private layout:LayoutService)
