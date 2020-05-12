@@ -1,10 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, AfterViewInit } from '@angular/core';
-import { GlobalService } from 'src/app/services/global.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Ticket } from 'src/app/interfaces/ticket';
-import { Router } from '@angular/router';
 import { AlertTicket } from 'src/app/interfaces/alert-ticket';
-import { Actions } from 'src/app/constants/app.constants';
+import {  isSmallScreen } from 'src/app/constants/app.constants';
 
 @Component({
   selector: 'app-login-navbar',
@@ -18,7 +14,7 @@ export class LoginNavbarComponent implements OnInit, AfterViewInit {
 
 constructor() { }
   ngAfterViewInit(): void {
-    this.hidden = window.screen.width < 992;
+    this.hidden = isSmallScreen;
   }
 
 ngOnInit() {

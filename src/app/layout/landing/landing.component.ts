@@ -5,7 +5,7 @@ import { Notice } from 'src/app/models/notice';
 import { LayoutService } from '../layout.service';
 import { AlertComponent } from 'src/app/shared/alerts/alert.component';
 import { ContentComponent } from './content/content.component';
-import { here } from 'src/app/constants/app.constants';
+import { here, isSmallScreen } from 'src/app/constants/app.constants';
 import { UIService } from 'src/app/services/ui.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   constructor(private layout:LayoutService, private ui:UIService) { }
   ngAfterViewInit(): void {
-    this.hidden_sm = window.screen.width <992;
+    this.hidden_sm = isSmallScreen;
   }
 
   ngOnInit() {

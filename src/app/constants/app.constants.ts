@@ -37,3 +37,5 @@ export function here() {
   console.log("here");
 }
 export var date_to_file_regex  = /(\.|\-|\s|:|\(|\))/gm;
+
+export var isSmallScreen:boolean = window.screen.width < 992;
