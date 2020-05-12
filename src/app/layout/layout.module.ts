@@ -41,6 +41,8 @@ import { NoticeBadgeComponent } from './notice-badge/notice-badge.component';
 import { BitContentComponent } from './bit-content/bit-content.component';
 import { SafeHtmlPipe } from './pipe/safe-html.pipe';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list'
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -76,7 +78,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
   ],
   imports: [
     ImageCropperModule,
-    MatSidenavModule,
+    MatSidenavModule, MatToolbarModule, MatListModule,
     NgbModule,
     CommonModule,
     LayoutRoutingModule,

@@ -56,3 +56,6 @@
     .sm_side_nav_link:active{
         color:  $gray-600 !important;
     }
+    .mat-sidenav-content{
+        background-color: $white;
+    }

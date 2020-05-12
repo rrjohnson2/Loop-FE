@@ -51,7 +51,23 @@
 <ng-template #sidebar>
   <mat-sidenav-container >
     <mat-sidenav #sidenav mode="slide">
-      Home
+     <mat-toolbar color="primary">
+      <a class="active_link"  routerLink="/profile" >
+        <app-tag  [element_class]="'nav_img_round'"  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
+      </a>
+     </mat-toolbar>
+     <mat-nav-list>
+      <a mat-list-item routerLink="/landing" >
+        <img class="nav_img" src="assets/loop_icons/home.png">
+      </a>
+      <a mat-list-item routerLink="/landing" >
+        <img class="nav_img" src="assets/loop_icons/exit.png">
+      </a>
+      <a  mat-list-item class="active_link" >
+        <img *ngIf="notifications.length == 0" class="nav_img" src="assets/loop_icons/bell_empty.png">
+        <img *ngIf="notifications.length != 0 " class="nav_img" src="assets/loop_icons/bell.png">
+      </a>
+     </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="row">
