@@ -23,14 +23,18 @@ export class LayoutComponent implements OnInit {
     if(event)
       this.layout.out();
   }
-
-  onActivate(event)
-  {
-    this.child = event;
-  }
   public showNotice(notice)
   { 
     this.child.showNotice(notice);
   }
 
+  toggle(sidenav){
+    if(sidenav.opened)
+    {
+      sidenav.close();
+    }
+    else{
+      sidenav.open();
+    }
+  }
 }

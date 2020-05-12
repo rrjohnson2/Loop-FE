@@ -5,7 +5,7 @@ import { LayoutService } from '../layout.service';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
 import { Notice } from 'src/app/models/notice';
-import {  isSmallScreen } from 'src/app/constants/app.constants';
+import {  isSmallScreen, log } from 'src/app/constants/app.constants';
 @Component({
   selector: 'app-layout-navbar',
   templateUrl: './layout-navbar.component.html',
@@ -19,6 +19,7 @@ export class LayoutNavbarComponent implements OnInit {
  notifications:Notice[]=[];
  hidden = isSmallScreen;
  opened = true;
+  child: any;
 
   constructor(private layout:LayoutService, 
     private router:Router,
@@ -49,11 +50,22 @@ export class LayoutNavbarComponent implements OnInit {
 
   public showNotice(notice)
   { 
-    if(this.router.url != '/layout/landing')
+    this.child.showNotice(notice);
+  }
+
+  toggle(sidenav){
+    if(sidenav.opened)
     {
-      this.router.navigate['/layout/landing'];
+      sidenav.close();
     }
-     this.notice_event.emit(notice);
+    else{
+      sidenav.open();
+    }
+  }
+
+  onActivate(event)
+  {
+    this.child = event;
   }
 
 }

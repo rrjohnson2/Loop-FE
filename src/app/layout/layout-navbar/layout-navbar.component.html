@@ -1,61 +1,71 @@
-<nav class=" loop_navbar navbar  bg-white sm_reduce_padding_right ">
-  <div class=" loop_nav_container container sm_reduce_padding_right ">
-    <div class="row navbar_row">
-      <div class="logo_header col-2  loop_nav_col ">
-          <a routerLink="/landing">
-            <img class="logo_img" src="assets/loop_icons/logo.png" alt="Logo">
-          </a>
-      </div>
-  
-      <div *ngIf="!hidden; else sidebar" class=" col-10 loop_nav_col   text-right ">
-            <span>
-              <a class="active_link" routerLink="/landing" >
-                <img class="nav_img" src="assets/loop_icons/home.png">
-              </a>
-            </span>
-            <span>
-              <a class="active_link"(click)="logOff()">
-                <img class="nav_img" src="assets/loop_icons/exit.png">
-              </a>
-            </span>
-            <span>
-              <span  ngbDropdown #myDrop="ngbDropdown" placement="bottom">
-              <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(myDrop)" >
-                <img *ngIf="notifications.length == 0" class="nav_img" src="assets/loop_icons/bell_empty.png">
-                <img *ngIf="notifications.length != 0 " class="nav_img" src="assets/loop_icons/bell.png">
-              </a>
-              <div class="" ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
-                <app-notifications [notifications] = "notifications" (notice_event)="showNotice($event)" ></app-notifications>
-              </div>
-            </span>
-          </span>
-            <span>
-              <a class="active_link"  routerLink="/profile" >
-                <app-tag  [element_class]="'nav_img_round'"  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
-              </a>
-            </span> 
-      </div>
 
-      <ng-template #sidebar>
-        <div class=" col-10 text-right sm_reduce_padding_right side_bar">
-          <span>
-            <a class="active_link" (click)="openSidebar()">
-              <img class="nav_img" src="assets/loop_icons/hamburger.png">
+<div *ngIf="!hidden; else sidebar" >
+  <nav class=" loop_navbar navbar  bg-white sm_reduce_padding_right ">
+    <div class=" loop_nav_container container sm_reduce_padding_right ">
+      <div class="row navbar_row">
+        <div class="logo_header col-2  loop_nav_col ">
+            <a routerLink="/landing">
+              <img class="logo_img" src="assets/loop_icons/logo.png" alt="Logo">
             </a>
-          </span>
-          <span #sidebar_contnent class="side_bar_content">
-            <div class="sm_side_nav_badge">
-              <a class="sm_side_nav_link" routerLink="/landing" >
-                <img class="nav_img" src="assets/loop_icons/home.png">
-              </a>
-            </div>
-          </span>
         </div>
-      </ng-template>
-
+    
+        <div  class=" col-10 loop_nav_col   text-right ">
+              <span>
+                <a class="active_link" routerLink="/landing" >
+                  <img class="nav_img" src="assets/loop_icons/home.png">
+                </a>
+              </span>
+              <span>
+                <a class="active_link"(click)="logOff()">
+                  <img class="nav_img" src="assets/loop_icons/exit.png">
+                </a>
+              </span>
+              <span>
+                <span  ngbDropdown #myDrop="ngbDropdown" placement="bottom">
+                <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(myDrop)" >
+                  <img *ngIf="notifications.length == 0" class="nav_img" src="assets/loop_icons/bell_empty.png">
+                  <img *ngIf="notifications.length != 0 " class="nav_img" src="assets/loop_icons/bell.png">
+                </a>
+                <div class="" ngbDropdownMenu aria-labelledby="dropdownManual" class="profile_dropdown">
+                  <app-notifications [notifications] = "notifications" (notice_event)="showNotice($event)" ></app-notifications>
+                </div>
+              </span>
+            </span>
+              <span>
+                <a class="active_link"  routerLink="/profile" >
+                  <app-tag  [element_class]="'nav_img_round'"  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
+                </a>
+              </span> 
+            </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>  
+</div>
+
+
+
+
+
+
+<ng-template #sidebar>
+  <mat-sidenav-container >
+    <mat-sidenav #sidenav mode="slide">
+      Home
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="row">
+        <a (click)="toggle(sidenav)" class="active_link col-6">
+            <img class="nav_img" src="assets/loop_icons/hamburger.png">
+        </a>
+        <a class="col-6 text-right" routerLink="/landing">
+          <img class="logo_img" src="assets/loop_icons/logo.png" alt="Logo">
+        </a>
+      </div>
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-template>
 
 
 
