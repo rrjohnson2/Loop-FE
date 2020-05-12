@@ -7,21 +7,6 @@
         </a>
       </div>
     </div>
-      <form *ngIf="!hidden" [formGroup]="loginForm" (ngSubmit)=Login() class="row col-6" >
-          <div class=" col-4  login_root">
-                  <input formControlName="username" type="text" placeholder="Username" class="form-control textarea" />
-              
-          </div>
-        <div class=" col-4 ">
-                    <input formControlName="password" type="password" placeholder="Password" class="form-control textarea" />
-                
-        </div>
-        <div class="col-4 ">
-                <button  class="loop_button" placement="top" ngbTooltip="Sign Up" 
-                         type="submit">
-                       Login
-                </button>
-        </div>
-      </form>
+     <app-log *ngIf="!hidden" (alert_ticket)="notify($event)"></app-log>
   </div>
 </nav>

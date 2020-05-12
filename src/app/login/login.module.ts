@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SharedModule } from '../shared/shared.module';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     SignupComponent,
     LoginNavbarComponent,
     WelcomeComponent,
+    LogComponent,
   ],
 
   imports: [
