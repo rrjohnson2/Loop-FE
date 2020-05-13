@@ -58,11 +58,18 @@
      </mat-toolbar>
      <mat-nav-list>
       <a mat-list-item routerLink="/landing" >
+        <legend>Home</legend>
         <img class="nav_img" src="assets/loop_icons/home.png">
       </a>
-      <a mat-list-item routerLink="/landing" >
-        <img class="nav_img" src="assets/loop_icons/exit.png">
+      <a mat-list-item (click)="logOff()" >
+        <legend>Log Out</legend>
+        <img class="nav_img" src="assets/loop_icons/exit.png"> 
       </a>
+      <a mat-list-item routerLink="/landing" >
+        <legend>Actvities</legend>
+        <img class="nav_img" src="assets/loop_icons/home.png">
+      </a>
+      <app-footer  [class]="'sm_footer_sidenav'"></app-footer>
      </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -70,7 +77,7 @@
         <a (click)="toggle(sidenav)" class="active_link col-4">
             <img class="nav_img" src="assets/loop_icons/hamburger.png">
         </a>
-        <a class="col-4 " routerLink="/landing">
+        <a class="col-4 text-center " routerLink="/landing">
           <img class="logo_img" src="assets/loop_icons/logo.png" alt="Logo">
         </a>
         <div class="col-4 text-right">
@@ -95,8 +102,6 @@
             <app-trending   (idea_event)="showIdea($event)" ></app-trending>
           </div>
         </span>
-
-
         </div>
       </div>
       <router-outlet (activate)="onActivate($event)"></router-outlet>

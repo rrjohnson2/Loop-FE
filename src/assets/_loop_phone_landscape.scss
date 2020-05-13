@@ -74,3 +74,8 @@
         min-width: 200px;
         left: -300px !important;
     }
+    .sm_footer_sidenav{
+        position: absolute;
+        bottom: 60px;
+        width: $standard_size* 10;
+    }
