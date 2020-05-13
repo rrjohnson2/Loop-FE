@@ -36,19 +36,13 @@ $loop-theme: mat-light-theme($loop-primary, $loop-accent, $loop-warn);
 
 /* sm */
 @media only screen and  (max-device-width : 991px) {
-   @import "./assets/loop_phone_landscape";
+   @import "./assets/loop_phone_portrait";
 }
-@media only screen and  (max-device-height: 991px)  and (max-device-width : 400px) {
-
+@media only screen and  (max-device-height: 991px)  and (max-device-width : 400px) and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape){
+ @import "./assets/loop_phone_landscape";
             
-            body { 
-                height: 100vw;
-                width:100vh;
-                overflow-y: scroll; 
-                overflow-x: scroll; 
-            }
-                /* Styles */
-    }
+}
 
 /* md */
 @media only screen and  (max-device-width : 1199px) {

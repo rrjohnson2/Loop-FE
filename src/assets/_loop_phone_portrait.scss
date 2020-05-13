@@ -1,0 +1,94 @@
+ .hidden{
+       display: none;
+   }
+   .layout{
+   }
+   .container-fluid{
+       padding: 0 !important;
+   }
+   .ideas_body{
+    overflow-y: scroll;
+    height: 90vh;
+ }
+ .ideas_body{
+    height: 100vh;
+ }
+   .loop_col{
+       margin-top: 0;
+   }
+   
+   .live_center{
+    margin-left: 0;
+    margin-right: 0;
+    } 
+    .welcome_video{
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .sm_reduce_padding_right{
+        padding-right: 0 !important;
+    }
+    .sm_center{
+        text-align: center;
+    }
+    .sm_margin_bottom{
+        margin-bottom: $standard_size;
+    }
+    .sm_postion_bottom{
+        position: fixed;
+        bottom: 0;
+    }
+    .side_bar_content{
+        z-index: 1000;
+        position: fixed;
+        background-color: $secondary;
+        left: 75vw;
+        text-align: left;
+        width: 25vw;
+        height: 100vh;
+        top: 0;
+        color: $white;
+        display: none;
+    }
+    .sm_side_nav_badge{
+        text-align: center;
+    }
+    .sm_side_nav_badge:active{
+        
+        background-color: $gray-100;
+    }
+    .sm_side_nav_link{
+        color:  $white !important;
+    }
+    .sm_side_nav_link:active{
+        color:  $gray-600 !important;
+    }
+    .mat-sidenav-content{
+        background-color: $gray-100 !important;
+        color: $gray-600 !important;
+    }
+     ::-webkit-scrollbar-track{
+         display: none;
+    }
+    .profile_dropdown {
+        min-width: 200px;
+        left: -300px !important;
+    }
+    .sm_footer_sidenav{
+        width: $standard_size * 10;
+    }
+    .sm_height_big{
+        height :100vh;
+    }
+    .profile_act_right_col{
+
+        overflow-y: scroll;
+        margin-left: 0 !important; 
+        max-height: 70vh
+    }
+    .profile-setting {
+        height: 60vh;
+    }
+    .sm_undo_underline{
+        border: 0 !important;
+    }
