@@ -28,6 +28,13 @@
     .sm_reduce_padding_right{
         padding-right: 0 !important;
     }
+    .sm_preview {
+        width: -webkit-calc(100% + 40px);
+        width:    -moz-calc(100% + 40px);
+        width:         calc(100% + 40px);
+        margin-left: -$standard_size;
+        max-height:400px;
+    }
     .sm_center{
         text-align: center;
     }

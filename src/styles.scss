@@ -34,25 +34,29 @@ $loop-theme: mat-light-theme($loop-primary, $loop-accent, $loop-warn);
 
 @import"./assets/loop_default";
 
-/* sm */
-@media only screen and  (max-device-width : 991px) {
-   @import "./assets/loop_phone_portrait";
-}
-@media only screen and (min-device-width: 320px) and (max-device-height: 991px) and (orientation : landscape){
- @import "./assets/loop_phone_landscape";
-            
-}
 
-/* md */
-@media only screen and  (max-device-width : 1199px) {
-   
-}
+
+
 
 /* large */
 @media only screen and  (min-device-width : 1200px) {
    
 }
 
+/* md */
+@media only screen and  (max-device-width : 1199px) {
+  
+}
+
+
+/* sm */
+@media only screen and  (max-device-width : 991px) and (orientation : portrait) {
+   @import "./assets/loop_phone_portrait";
+}
+@media only screen and (min-device-width: 320px) and (max-device-height: 991px) and (orientation : landscape){
+ @import "./assets/loop_phone_landscape";
+            
+}
 
 
 
