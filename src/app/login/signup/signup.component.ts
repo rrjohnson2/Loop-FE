@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
     private create_member: CreateMemberTicket;
     public signupform: FormGroup;
     @Output() alert_ticket: EventEmitter<AlertTicket> = new EventEmitter<AlertTicket>();
-    @Input() clazz =' col-12 row'
+    @Input() clazz =' col-12 '
 
   constructor(private globalservice: GlobalService,private router:Router) { }
 
