@@ -1,6 +1,4 @@
 <div class="row loop_col">
-
-
   <div class="col-lg-2 col-sm-12 sm_center sm_reduce_padding_right loop_col">
     <legend class="underline">Your Activties</legend>
     <ul class="list_no_bullet" >
@@ -17,7 +15,7 @@
     </ul>
   </div>
 
-  <div class="loop_col col-lg-9 col-sm-12 sm_center sm_reduce_padding_right profile_act_right_col">
+  <div class="loop_col col-lg-9 col-sm-12  sm_reduce_padding_right profile_act_right_col">
     <div *ngIf="ideas.length > 0 ; else empty" >
       <strong >Created {{current | titlecase}}</strong>
       <div *ngFor="let idea of Ideas">
