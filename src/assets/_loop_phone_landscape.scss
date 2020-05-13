@@ -3,8 +3,11 @@ body {
     overflow-y: scroll !important; 
     overflow-x: scroll !important; 
 }
-.sm_landscape_height{
+.sm_landscape_height_adjusted{
        min-height: 105vw;
+}
+.sm_landscape_height{
+    min-height: 100vw;
 }
 .sm_postion_bottom{
     position: relative !important;
