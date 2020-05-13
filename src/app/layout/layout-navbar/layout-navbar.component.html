@@ -50,9 +50,9 @@
 
 <ng-template #sidebar>
   <mat-sidenav-container >
-    <mat-sidenav #sidenav mode="slide">
+    <mat-sidenav #sidenav mode="push">
      <mat-toolbar color="primary">
-      <a class="active_link"  routerLink="/profile" >
+      <a class="active_link"  routerLink="/setting" >
         <app-tag  [element_class]="'nav_img_round'"  [tag]="profile?.username" [profilePicture] = "profile?.profilePicture"></app-tag>
       </a>
      </mat-toolbar>
@@ -62,12 +62,12 @@
         <img class="nav_img" src="assets/loop_icons/home.png">
       </a>
       <a mat-list-item (click)="logOff()" >
-        <legend>Log Out</legend>
+        <legend>Log Off</legend>
         <img class="nav_img" src="assets/loop_icons/exit.png"> 
       </a>
-      <a mat-list-item routerLink="/landing" >
-        <legend>Actvities</legend>
-        <img class="nav_img" src="assets/loop_icons/home.png">
+      <a mat-list-item routerLink="/activities" >
+        <legend> Activities</legend>
+        <img class="nav_img" src="assets/loop_icons/activities.png">
       </a>
       <app-footer  [class]="'sm_footer_sidenav'"></app-footer>
      </mat-nav-list>

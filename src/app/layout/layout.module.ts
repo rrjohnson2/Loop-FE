@@ -42,7 +42,9 @@ import { BitContentComponent } from './bit-content/bit-content.component';
 import { SafeHtmlPipe } from './pipe/safe-html.pipe';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list'
+import {MatListModule} from '@angular/material/list';
+import { MobileProfileSettingsComponent } from './mobile-profile-settings/mobile-profile-settings.component';
+import { MobileProfileActivitiesComponent } from './mobile-profile-activities/mobile-profile-activities.component'
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -75,6 +77,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     MessageBadgeComponent,
     NoticeBadgeComponent,
     BitContentComponent,
+    MobileProfileSettingsComponent,
+    MobileProfileActivitiesComponent,
   ],
   imports: [
     ImageCropperModule,

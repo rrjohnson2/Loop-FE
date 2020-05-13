@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MobileProfileActivitiesComponent } from './mobile-profile-activities/mobile-profile-activities.component';
+import { MobileProfileSettingsComponent } from './mobile-profile-settings/mobile-profile-settings.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,16 @@ const routes: Routes = [
             {
                 path:'profile',
                 component: ProfileComponent
+
+            },
+            {
+                path:'activities',
+                component: MobileProfileActivitiesComponent
+
+            },
+            {
+                path:'setting',
+                component: MobileProfileSettingsComponent
 
             },
             { path: '', redirectTo:'landing', pathMatch:"prefix"},
