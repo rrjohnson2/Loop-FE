@@ -1,6 +1,11 @@
 body { 
-    height: 100vw;
-    width:100vh;
-    overflow-y: scroll; 
-    overflow-x: scroll; 
+    min-height: 100vw;
+    overflow-y: scroll !important; 
+    overflow-x: scroll !important; 
+}
+.sm_landscape_height{
+       min-height: 105vw;
+}
+.sm_postion_bottom{
+    position: relative !important;
 }
