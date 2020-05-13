@@ -175,11 +175,11 @@ padding-right: 0;
 }
 
 .nav_img{
-    width: $standard_size*2;
+    width: $standard_size*1.5;
     height: auto;
 }
 .nav_img_round{
-    width: $standard_size*2;
+    width: $standard_size*1.5;
     border-radius: 25px;
     height: auto;
 }
@@ -261,11 +261,16 @@ padding-right: 0;
     
   margin-bottom: $standard_size;
 }
-.col_fit_profile_pic{
+.large_profile_picture{
   border-radius: 50%;
-  width: 100%;
+  width: $standard_size*5;
   height: auto;
 }
+.pill_profile_pic{
+    border-radius: 50%;
+    width: $standard_size*2;
+    height: auto;
+  }
 
 .welcome_png{  
     width: $standard_size*10;
