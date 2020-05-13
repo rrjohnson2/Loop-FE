@@ -1,11 +1,11 @@
-<div class="row profile-setting underline loop_col">
+<div class="row profile-setting underline sm_undo_underline loop_col">
 
-  <div class="col-4 row " id="profilePicture">
+  <div class="col-lg-4 col-sm-12 row " id="profilePicture">
     <div class="col-5 ">
       <a (click)="openModal('img')">
         <app-tag [profilePicture] = "profile?.profilePicture"></app-tag>
       </a>
-      <span class="caption loop_edit">{{profile?.username}}
+      <span class="caption loop_edit ">{{profile?.username}}
         <a (click)="openModal('USERNAME')"> 
           <span class="material-icons icon">
             edit
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="col-4 row">
+  <div class="col-lg-4 col-sm-12 row">
     <div class="col-12">
       <div class="card">
         <a (click)="openCard('contact')" class="card-header" placement="bottom" ngbTooltip="Update Contact Info">
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-<div class="col-4 row">
+<div class="col-lg-4 col-sm-12 row">
     <div class="col-12">
       <div class="card">
         <a (click)="toggle('preference')" class="card-header" placement="right" ngbTooltip="Update Preferences">

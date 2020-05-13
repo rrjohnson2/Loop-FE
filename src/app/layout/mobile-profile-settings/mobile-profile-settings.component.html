@@ -1,3 +1,5 @@
-<p>
-  mobile-profile-settings works!
-</p>
+<div class="container sm_height_big sm_reduce_padding_righ">
+  <app-profile-settings (alert_ticket)="alerty($event)" [profile]="profile"></app-profile-settings>
+  
+  <app-alert></app-alert>
+</div>
