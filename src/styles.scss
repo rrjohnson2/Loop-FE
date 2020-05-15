@@ -53,7 +53,7 @@ $loop-theme: mat-light-theme($loop-primary, $loop-accent, $loop-warn);
 @media only screen and  (max-device-width : 991px) and (orientation : portrait) {
    @import "./assets/loop_phone_portrait";
 }
-@media only screen and (min-device-width: 320px) and (max-device-height: 991px) and (orientation : landscape){
+@media only screen and (max-device-width: 991px) and (max-device-height: 991px) and (orientation : landscape){
  @import "./assets/loop_phone_landscape";
             
 }
