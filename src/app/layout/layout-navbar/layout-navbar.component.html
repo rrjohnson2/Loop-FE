@@ -82,7 +82,7 @@
         </a>
         <div class="col-4 text-right">
           
-        <span  ngbDropdown #notice="ngbDropdown" placement="bottom" >
+        <span  ngbDropdown #notice="ngbDropdown" placement="left-top"  >
           <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(notice)" >
             <img *ngIf="notifications.length == 0" class="nav_img" src="assets/loop_icons/bell_empty.png">
             <img *ngIf="notifications.length != 0 " class="nav_img" src="assets/loop_icons/bell.png">
@@ -93,7 +93,7 @@
           </div>
         </span>
 
-        <span  ngbDropdown #trending="ngbDropdown" placement="bottom" >
+        <span  ngbDropdown #trending="ngbDropdown" placement="left-top" >
             <a class="active_link" id="dropdownManual" ngbDropdownAnchor (click)="toggleDropDown(trending)" >
               <img class="nav_img" src="assets/loop_icons/trending.png">
             </a>

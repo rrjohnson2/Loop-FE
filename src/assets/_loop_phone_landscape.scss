@@ -1,14 +1,25 @@
 body { 
     min-height: 100vw;
-    overflow-y: scroll !important; 
-    overflow-x: scroll !important; 
+    overflow-y: scroll;
 }
-.sm_landscape_height_adjusted{
-       min-height: 105vw;
-}
-.sm_landscape_height{
-    min-height: 100vw;
-}
+
+
 .sm_postion_bottom{
     position: relative !important;
+}
+.sm_center{
+    text-align: center;
+}
+.sm_margin_bottom{
+    margin-bottom: $standard_size;
+}
+.ideas_body{
+    overflow-y: scroll;
+    height: 100vw;
+ }
+ .profile_dropdown {
+    min-width: 0;
+}
+.sm_height_big{
+    height :100vw;
 }
