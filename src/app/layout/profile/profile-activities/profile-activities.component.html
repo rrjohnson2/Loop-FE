@@ -1,5 +1,5 @@
 <div class="row loop_col">
-  <div class="col-lg-2 col-sm-12   ">
+  <div class="col-lg-4 col-sm-12   ">
     <legend class="underline">Your Activties</legend>
     <ul class="list_no_bullet" >
       <li  *ngFor="let pos of possible_activities">
@@ -15,7 +15,7 @@
     </ul>
   </div>
 
-  <div class=" offset-lg-2 col-lg-8 col-sm-12   profile_act_right_col ">
+  <div class="  col-lg-8 col-sm-12   profile_act_right_col ">
     <div *ngIf="ideas.length > 0 ; else empty" >
       <div *ngFor="let idea of Ideas">
           <app-idea-card id="{{idea.id}}" [username]="profile.username" [idea]="idea"></app-idea-card>
