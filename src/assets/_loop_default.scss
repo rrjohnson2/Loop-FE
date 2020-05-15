@@ -33,9 +33,6 @@
     background-color: $gray-100;
     border: .1vw solid $gray-300;
 }
-// small{
-//     font-size: $standard_size*.5;
-// }
 .list_no_bullet{
     list-style-type: none;
     padding-left:0;
@@ -141,23 +138,16 @@ padding-right: 0;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// navbar 
-.loop_nav_col{
-    // padding-left: 0 !important ;
-}
+
 
 .loop_navbar{
     border-bottom: .01vh solid $gray-300;
 }
 
-.loop_col{
-    // border-right: solid .25vh $gray-300;
-    // padding: 0 !important;
-    // margin-top: $standard_size;
-    // margin-right: 0;
+.push_nav_right{
+    padding-right: 0!important;
 }
- .login_form, .signup_input, .login_root {
-    // padding-left:0 !important; 
-}
+ 
 
 .logo_title{
     font-size: $standard_size*1.5!important;
@@ -165,8 +155,6 @@ padding-right: 0;
 
 .notice_badge{
     border: 0;
-    // padding-left: $standard_size * .5;
-    // padding-right: $standard_size * .5;
     padding-top: $standard_size * .5;
     border-bottom: solid $standard_size * .025 $gray-200;
 }
@@ -215,8 +203,6 @@ padding-right: 0;
 
 .loop_card_header,.loop_card_footer{
     background-color: $white !important;
-    // padding-top: 1vh !important;
-    // padding-bottom: 1vh !important;
 }
 
 .live_loop_card{

@@ -1,7 +1,12 @@
 
 
 <div class="container">
+   <div class="col-12">
     <app-profile-settings (alert_ticket)="alerty($event)" [profile]="profile"></app-profile-settings>
+   </div>
+   <div class="col-12">
     <app-profile-activities [profile]="profile"></app-profile-activities>
+   </div>
+   
     <app-alert></app-alert>
 </div>
