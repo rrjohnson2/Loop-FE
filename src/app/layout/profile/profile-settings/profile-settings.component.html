@@ -1,6 +1,6 @@
-<div class="row profile-setting underline sm_undo_underline loop_col sm_landscape_height sm_height_big">
+<div class="row profile-setting  sm_undo_underline loop_col sm_landscape_height sm_height_big">
 
-  <div class="col-lg-4 col-sm-12 row " id="profilePicture">
+  <div class="col-lg-2 col-sm-12  " id="profilePicture">
     <div class="col-5 ">
       <a (click)="openModal('img')">
         <app-tag [profilePicture] = "profile?.profilePicture"></app-tag>
@@ -15,37 +15,47 @@
     </div>
   </div>
 
-  <div class="col-lg-4 col-sm-12 row">
-    <div class="col-12">
-      <div class="card">
-        <a (click)="openCard('contact')" class="card-header" placement="bottom" ngbTooltip="Update Contact Info">
-          Contact
-        </a>
-        <div *ngIf="contact_open" class="card-body">
-          <div class="loop_edit">{{profile?.firstName |titlecase}}
-            <a (click)="openModal('FIRSTNAME')"> 
-              <span class="material-icons icon">
-                edit
-              </span>
+  <div class="card div col-lg-9 col-sm-12 ">
+    <div class="card-header">
+      <legend>Profile Settings</legend>
+    </div>
+    <div class="card-body  ">
+      <div class="row">
+        <div class=" col-4   right_line">
+          <small>
+            <a (click)="openCard('contact')"  >
+              Contact
             </a>
-          </div>
-          <div class="loop_edit">{{profile?.lastName |titlecase}}
-            <a (click)="openModal('LASTNAME')"> 
-              <span class="material-icons icon">
-                edit
-              </span>
+          </small><br>
+          <small>
+            <a (click)="openCard('account')"  >
+              Account
             </a>
-          </div>
+          </small><br>
+          <small>
+          <a (click)="openCard('preference')" >
+            Preference
+         </a>
+          </small>
         </div>
-    </div>
-    </div>
-    <div class="col-12">
-      <div class="card">
-        <a (click)="openCard('account')"  class="card-header" placement="bottom" ngbTooltip="Update Account Info">
-          Account
-        </a>
-        
-        <div *ngIf="account_open" class="card-body">
+        <div class=" col-8 ">
+          <div *ngIf="contact_open.open" >
+            <div class="loop_edit">{{profile?.firstName |titlecase}}
+              <a (click)="openModal('FIRSTNAME')"> 
+                <span class="material-icons icon">
+                  edit
+                </span>
+              </a>
+            </div>
+            <div class="loop_edit">{{profile?.lastName |titlecase}}
+              <a (click)="openModal('LASTNAME')"> 
+                <span class="material-icons icon">
+                  edit
+                </span>
+              </a>
+            </div>
+        </div>
+        <div *ngIf="account_open.open">
           <div class="loop_edit">{{profile?.email }}
             <a (click)="openModal('EMAIL')"> 
               <span class="material-icons icon">
@@ -55,19 +65,9 @@
           </div>
           <a class="" (click)="openModal('PASSWORD')">Change Password</a>
         </div>
-      </div>
-    </div>
-  </div>
-
-<div class="col-lg-4 col-sm-12 row">
-    <div class="col-12">
-      <div class="card">
-        <a (click)="toggle('preference')" class="card-header" placement="right" ngbTooltip="Update Preferences">
-           Preference
-        </a>
         <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
-          <div *ngIf="pre_open">
-              <div class="row card-body">  
+          <div *ngIf="pre_open.open">
+              <div class="row ">  
                 <div class="col-2"  *ngFor="let cate of categories?.value; let i =index">
                     <input [formControl]="cate"  class="check_box"  id="{{focuses[i].name}}" type="checkbox" unchecked>
                     <label for="{{focuses[i].name}}">
@@ -80,9 +80,13 @@
               </div>
           </div>
         </form>
+  
+  
       </div>
-    </div>
-  </div> 
+      </div>
+ 
+
+  </div>
   
 </div>
 

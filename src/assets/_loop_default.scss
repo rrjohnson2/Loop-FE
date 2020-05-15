@@ -63,9 +63,7 @@ a:hover{
 .caption {
     font-weight: bold;
     color: $primary;
-    position: absolute;
-    top: 20%;
-    left :100%;
+    position: relative;
 }
 .loop_button {
 	
@@ -257,8 +255,11 @@ padding-right: 0;
 
 
 .profile-setting{
-    min-height: $standard_size*17 !important;
+     min-height: $standard_size*12!important;
     }
+.right_line{
+    border-right: solid 1px$gray-300 !important;
+}
 
 .cropper{
     

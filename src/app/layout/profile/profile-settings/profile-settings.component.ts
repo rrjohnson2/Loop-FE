@@ -25,11 +25,25 @@ export class ProfileSettingsComponent implements OnInit {
 
   preForm:FormGroup;
   focuses=[];
-  pre_open:boolean;
+  
   pre_pop:boolean;
 
-  contact_open:boolean;
-  account_open:boolean;
+  pre_open={
+    value : 'preference',
+    open:false
+  }
+  contact_open ={
+    value : 'contact',
+    open:true
+  };
+  account_open={
+    value : 'account',
+    open:false
+  }
+
+  toggles = [this.pre_open,this.contact_open,this.account_open]
+
+  
   constructor(private profileSettings:ProfileSettingsService,
      private layout:LayoutService,
      private uiService:UIService) { }
@@ -49,14 +63,7 @@ export class ProfileSettingsComponent implements OnInit {
     });
   }
 
-  toggle(value)
-  {
-    if(value == "preference") 
-    {
-      this.pre_open = ! this.pre_open
-      if(!this.pre_pop) this.popPref();
-    }
-  }
+  
   private popPref() {
     
     this.layout.focus.subscribe(
@@ -128,7 +135,7 @@ export class ProfileSettingsComponent implements OnInit {
         msg: "Update Worked",
         type:'success'
       });
-      this.toggle('preference');
+      
     },
     error =>{
         this.alert_ticket.emit({
@@ -156,8 +163,16 @@ export class ProfileSettingsComponent implements OnInit {
 
   openCard(val)
   {
-    if(val == 'contact')this.contact_open = !this.contact_open;
-    else if(val == 'account') this.account_open = !this.account_open;
+    this.toggles.forEach(element => {
+      if(element.value == val)
+      {
+        element.open = !element.open;
+        if(val == "preference" && !this.pre_pop) this.popPref();
+      }
+      else{
+        element.open = false;
+      }
+    });
   }
 
 }
