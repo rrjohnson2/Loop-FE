@@ -15,10 +15,6 @@
        margin-top: 0;
    }
    
-   .live_center{
-    margin-left: 0;
-    margin-right: 0;
-    } 
     .welcome_video{
         margin-bottom: 10px;
         width: 100%;
@@ -84,16 +80,13 @@
     .sm_height_big{
         // height :100vh;
     }
-    .profile_act_right_col{
-
-        overflow-y: scroll;
-        margin-left: 0 !important; 
-        max-height: 70vh
-    }
     .sm_undo_underline{
         border: 0 !important;
     }
     .sm_scroll{
         overflow-y: scroll;
         height:50vh
+    }
+    .profile_act_right_col{
+        margin-left:0 ;
     }

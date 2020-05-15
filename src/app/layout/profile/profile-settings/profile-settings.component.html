@@ -1,10 +1,13 @@
-<div class="row profile-setting  sm_undo_underline loop_col sm_landscape_height sm_height_big">
+<div class="row profile-setting      ">
 
-  <div class="col-lg-2 col-sm-12  " id="profilePicture">
-    <div class="col-5 ">
+  <div class="col-lg-4 col-sm-12 row  " id="profilePicture">
+    <div class="col-4 ">
       <a (click)="openModal('img')">
         <app-tag [profilePicture] = "profile?.profilePicture"></app-tag>
       </a>
+    </div>
+    <div class="col-4">
+      
       <span class="caption loop_edit ">{{profile?.username}}
         <a (click)="openModal('USERNAME')"> 
           <span class="material-icons icon">
@@ -15,80 +18,83 @@
     </div>
   </div>
 
-  <div class="card div col-lg-9 col-sm-12 ">
-    <div class="card-header">
-      <legend>Profile Settings</legend>
-    </div>
-    <div class="card-body  ">
-      <div class="row">
-        <div class=" col-4   right_line">
-          <small>
-            <a (click)="openCard('contact')"  >
-              Contact
-            </a>
-          </small><br>
-          <small>
-            <a (click)="openCard('account')"  >
-              Account
-            </a>
-          </small><br>
-          <small>
-          <a (click)="openCard('preference')" >
-            Preference
-         </a>
-          </small>
-        </div>
-        <div class=" col-8 ">
-          <div *ngIf="contact_open.open" >
-            <div class="loop_edit">{{profile?.firstName |titlecase}}
-              <a (click)="openModal('FIRSTNAME')"> 
-                <span class="material-icons icon">
-                  edit
-                </span>
+  <div class="col-lg-8 col-sm-12 ">
+    <div class="card   ">
+      <div class="card-header">
+        <legend>Profile Settings</legend>
+      </div>
+      <div class="card-body  ">
+        <div class="row">
+          <div class=" col-4   right_line">
+            <small>
+              <a (click)="openCard('contact')"  >
+                Contact
               </a>
-            </div>
-            <div class="loop_edit">{{profile?.lastName |titlecase}}
-              <a (click)="openModal('LASTNAME')"> 
-                <span class="material-icons icon">
-                  edit
-                </span>
+            </small><br>
+            <small>
+              <a (click)="openCard('account')"  >
+                Account
               </a>
-            </div>
-        </div>
-        <div *ngIf="account_open.open">
-          <div class="loop_edit">{{profile?.email }}
-            <a (click)="openModal('EMAIL')"> 
-              <span class="material-icons icon">
-                edit
-              </span>
-            </a>
+            </small><br>
+            <small>
+            <a (click)="openCard('preference')" >
+              Preference
+           </a>
+            </small>
           </div>
-          <a class="" (click)="openModal('PASSWORD')">Change Password</a>
-        </div>
-        <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
-          <div *ngIf="pre_open.open">
-              <div class="row ">  
-                <div class="col-2"  *ngFor="let cate of categories?.value; let i =index">
-                    <input [formControl]="cate"  class="check_box"  id="{{focuses[i].name}}" type="checkbox" unchecked>
-                    <label for="{{focuses[i].name}}">
-                      <app-icon [type]="'loop_icon_large'"  placement="bottom" ngbTooltip="{{focuses[i].name}}" [preference]= "focuses[i]"></app-icon>
-                  </label>
-                </div>
-                  <div class="col-12 text-right">
-                    <button class="loop_button" type="submmit">Update</button>
-                </div>
+          <div class=" col-8 ">
+            <div *ngIf="contact_open.open" >
+              <div class="loop_edit">{{profile?.firstName |titlecase}}
+                <a (click)="openModal('FIRSTNAME')"> 
+                  <span class="material-icons icon">
+                    edit
+                  </span>
+                </a>
+              </div>
+              <div class="loop_edit">{{profile?.lastName |titlecase}}
+                <a (click)="openModal('LASTNAME')"> 
+                  <span class="material-icons icon">
+                    edit
+                  </span>
+                </a>
               </div>
           </div>
-        </form>
+          <div *ngIf="account_open.open">
+            <div class="loop_edit">{{profile?.email }}
+              <a (click)="openModal('EMAIL')"> 
+                <span class="material-icons icon">
+                  edit
+                </span>
+              </a>
+            </div>
+            <a class="" (click)="openModal('PASSWORD')">Change Password</a>
+          </div>
+          <form  role="form" [formGroup]="preForm" (ngSubmit)=updatePreference()>
+            <div *ngIf="pre_open.open">
+                <div class="row ">  
+                  <div class="col-2"  *ngFor="let cate of categories?.value; let i =index">
+                      <input [formControl]="cate"  class="check_box"  id="{{focuses[i].name}}" type="checkbox" unchecked>
+                      <label for="{{focuses[i].name}}">
+                        <app-icon [type]="'loop_icon_large'"  placement="bottom" ngbTooltip="{{focuses[i].name}}" [preference]= "focuses[i]"></app-icon>
+                    </label>
+                  </div>
+                    <div class="col-12 text-right">
+                      <button class="loop_button" type="submmit">Update</button>
+                  </div>
+                </div>
+            </div>
+          </form>
+    
+    
+        </div>
+        </div>
+   
   
-  
-      </div>
-      </div>
- 
-
+    </div>
+    
+  </div>
   </div>
   
-</div>
 
 <app-upload-image-modal [profile]="profile"></app-upload-image-modal>
 <app-update-modal (alert_ticket)="alerty($event)"  [profile]="profile" ></app-update-modal>

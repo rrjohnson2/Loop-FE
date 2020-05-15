@@ -221,14 +221,10 @@ padding-right: 0;
 
 .live_loop_card{
     min-height:  $standard_size+180;
-    
     margin-bottom:  $standard_size;
 }
 
-.live_center{
-    margin-left: $standard_size;
-    margin-right: $standard_size;
-}
+
 
 .preview {
     width: -webkit-calc(100% + 40px);
@@ -313,8 +309,7 @@ padding-right: 0;
 .profile_act_right_col{
 
     overflow-y: scroll;
-    margin-left: $standard_size;
-    max-height: 50vh
+    max-height: 70vh
 }
 .upload_modal{
     border: 0 !important;
