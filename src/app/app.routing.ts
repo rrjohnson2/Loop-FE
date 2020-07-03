@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
+
 const routes: Routes =[
     { path: 'login', loadChildren: './login/login.module#LoginModule'},
     { path: 'layout', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
