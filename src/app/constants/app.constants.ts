@@ -3,8 +3,8 @@ import { Profile } from '../models/profile';
 import { Notice } from '../models/notice';
 import { Idea } from '../models/idea';
 
-export var backend_url = "http://localhost:8080/"
-export var image_server_url = "http://localhost:8082/"
+export var backend_url = "http://app-loop-backend.herokuapp.com/"
+export var image_server_url = "http://app-loop-content-server.herokuapp.com/"
 
 export enum Actions {
   logOff,

@@ -3,6 +3,8 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AppComponent } from './app.component';
 const routes: Routes =[
     { path: 'login', loadChildren: './login/login.module#LoginModule'},
     { path: 'layout', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
@@ -18,5 +20,7 @@ const routes: Routes =[
   ],
   exports: [
   ],
+  providers:[{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  bootstrap:[AppComponent]
 })
 export class AppRoutingModule { }
