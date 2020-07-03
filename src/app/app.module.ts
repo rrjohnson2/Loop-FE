@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UIService } from './services/ui.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthGuard,GlobalService,UIService],
+  providers: [AuthGuard,GlobalService,UIService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   exports:[]
 })
