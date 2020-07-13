@@ -46,7 +46,7 @@ import {MatListModule} from '@angular/material/list';
 import { MobileProfileSettingsComponent } from './mobile-profile-settings/mobile-profile-settings.component';
 import { MobileProfileActivitiesComponent } from './mobile-profile-activities/mobile-profile-activities.component'
 
-const config: SocketIoConfig = { url: 'http://app-loop-realtime-server.herokuapp.com/', options: {} };
+const config: SocketIoConfig = { url: 'https://app-loop-realtime-server.herokuapp.com/', options: {} };
 
 @NgModule({
   declarations: [
