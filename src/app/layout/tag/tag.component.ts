@@ -21,7 +21,7 @@ export class TagComponent implements OnInit {
 
   get render_profile()
   {
-    return image_server_url+"avatar?user="+this.profilePicture;
+    return image_server_url+"download?content="+this.profilePicture;
   }
 
 }

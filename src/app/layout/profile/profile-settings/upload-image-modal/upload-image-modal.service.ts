@@ -15,8 +15,8 @@ export class UploadImageModalService {
 
   upload(image) {
     const formData = new FormData()
-    formData.append('avatar',image);
-    return this.http.post(image_server_url +"upload_profile_picture",formData);
+    formData.append('content',image);
+    return this.http.post(image_server_url +"upload",formData);
   }
   updatePicture(ticket:Ticket) {
     return this.http.post(backend_url+"update",ticket);

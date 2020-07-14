@@ -246,7 +246,7 @@ export class IdeaCardComponent implements OnInit, AfterViewInit {
   }
 
   get render_content(){
-    return  image_server_url+"content?content="+this.idea.content;
+    return  image_server_url+"download?content="+this.idea.content;
   }
   
 }

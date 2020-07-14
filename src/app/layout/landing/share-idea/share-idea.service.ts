@@ -22,6 +22,6 @@ export class ShareIdeaService {
   upload_content(file) {
     const formData = new FormData();
     formData.append('content',file);
-    return this.httpClient.post(image_server_url +"upload_content",formData);
+    return this.httpClient.post(image_server_url +"upload",formData);
   }
 }
